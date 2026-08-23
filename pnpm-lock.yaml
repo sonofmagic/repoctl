@@ -130,8 +130,8 @@ importers:
         specifier: ^1100.0.0
         version: 1100.0.0
       '@pnpm/types':
-        specifier: ^1101.9.0
-        version: 1101.9.0
+        specifier: ^1102.0.0
+        version: 1102.0.0
       '@pnpm/worker':
         specifier: ^1100.2.11
         version: 1100.2.11(@pnpm/logger@1100.0.0)(@types/node@26.2.0)
@@ -2603,6 +2603,10 @@ packages:
     resolution: {integrity: sha512-lB2aSB2h950UX1GX3JW4AZ86xjXD92YJbV92IBSQqHXXZdiemoVKADLA2cDQ4/wKeS7djY8fkITM6X+6iYF62A==}
     engines: {node: '>=22.13'}
 
+  '@pnpm/types@1102.0.0':
+    resolution: {integrity: sha512-mgR291P+TGABUzGifQyZyU+EE0lBSTGJ87C5J95Ez2XRFlfcH/9GIN5n2saIgzXQAiyoeFSlEVEiXeEIJy+B3A==}
+    engines: {node: '>=22.13'}
+
   '@pnpm/util.lex-comparator@3.0.2':
     resolution: {integrity: sha512-blFO4Ws97tWv/SNE6N39ZdGmZBrocXnBOfVp0ln4kELmns4pGPZizqyRtR8EjfOLMLstbmNCTReBoDvLz1isVg==}
     engines: {node: '>=18.12'}
@@ -3688,9 +3692,6 @@ packages:
 
   '@unocss/core@66.6.8':
     resolution: {integrity: sha512-P9IlQfgms+8/nka7fBhiiWU4SPwrTNKbTdK0z1SLnttXMHHjsB2zpG+Vi1JQDpICfY9Y1/2pWtguPE+zeOVu9Q==}
-
-  '@unocss/core@66.7.5':
-    resolution: {integrity: sha512-UdJb8MiMywcau8QrWEVgUAz0kvoFHyR+sACwYCgmBh/BpKJGyR/zw/Ys3wvysbm0f+i/20VGBex/QQxYVlzdyQ==}
 
   '@unocss/core@66.8.1':
     resolution: {integrity: sha512-ze/3qTloXZtFn6TXiNjL6ai1vgMvTCXIm8nqTzoU/Dt5d5MRxA86ERfUmgTX70rEBam5l6vnsaEVZO6WnHhdRA==}
@@ -11945,6 +11946,8 @@ snapshots:
 
   '@pnpm/types@1101.9.0': {}
 
+  '@pnpm/types@1102.0.0': {}
+
   '@pnpm/util.lex-comparator@3.0.2': {}
 
   '@pnpm/which@3.0.1':
@@ -12886,9 +12889,6 @@ snapshots:
   '@unocss/core@66.6.8':
     optional: true
 
-  '@unocss/core@66.7.5':
-    optional: true
-
   '@unocss/core@66.8.1': {}
 
   '@unocss/eslint-plugin@66.6.8(eslint@10.7.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
@@ -12907,7 +12907,7 @@ snapshots:
 
   '@unocss/rule-utils@66.6.8':
     dependencies:
-      '@unocss/core': 66.7.5
+      '@unocss/core': 66.8.1
       magic-string: 0.30.21
     optional: true
 
