@@ -32,7 +32,18 @@
         "@cloudflare/vite-plugin"
       ],
       "groupName": "Cloudflare Workers tooling",
-      "groupSlug": "cloudflare-workers-tooling"
+      "groupSlug": "cloudflare-workers-tooling",
+      "rebaseWhen": "conflicted",
+      "postUpgradeTasks": {
+        "commands": [
+          "pnpm cf-typegen"
+        ],
+        "fileFilters": [
+          "templates/client/worker-configuration.d.ts",
+          "templates/server/worker-configuration.d.ts"
+        ],
+        "executionMode": "branch"
+      }
     }
   ]
 }

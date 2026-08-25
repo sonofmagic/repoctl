@@ -27,6 +27,8 @@ When splitting code, do not create suffix-based sibling files such as `xxx.confi
 All generated code must pass ESLint checks, and all generated style files must pass Stylelint checks.
 Generated Vue files or other SFC files that include style blocks are also required to pass Stylelint checks.
 
+When manually updating a Renovate pull request, fetch its latest remote head before making changes. If Renovate updates the branch while work is in progress, rebase the local fix onto the newly fetched pull request head and push normally. Never force-push a Renovate-managed branch.
+
 ## Testing Guidelines
 
 Vitest powers unit tests located in `test/*.test.ts`. Mirror existing naming by matching the unit under test (`monorepo` utilities map to `packages/monorepo/test/*.test.ts`). Aim for meaningful assertions rather than snapshot defaults, and add coverage checks with `pnpm test -- --coverage`, which writes reports to `coverage/`. When introducing new public APIs, include integration-style tests in the relevant app workspace. AI-assisted validation must run a full test matrix when available, including unit, integration, and E2E tests.
