@@ -1,5 +1,13 @@
 # @icebreakers/monorepo-templates
 
+## 1.3.1
+
+### Patch Changes
+
+- Ship the repoctl brand assets, favicons, and localized social preview images with the VitePress template.
+
+- Redesign the VitePress template homepage with a task-first layout, real doctor output, and responsive bilingual styling.
+
 ## 1.3.0
 
 ### Minor Changes

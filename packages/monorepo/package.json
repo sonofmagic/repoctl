@@ -1,7 +1,7 @@
 {
   "name": "@icebreakers/monorepo",
   "type": "module",
-  "version": "5.4.1",
+  "version": "5.4.2",
   "description": "Core engine and programmatic APIs for repoctl",
   "author": "ice breaker <hi@sonofmagic.top>",
   "license": "MIT",

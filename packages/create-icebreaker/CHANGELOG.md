@@ -1,5 +1,12 @@
 # create-icebreaker
 
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies:
+  - create-repoctl@0.1.3
+
 ## 1.1.3
 
 ### Patch Changes

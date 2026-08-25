@@ -18,6 +18,11 @@
   intents:
     - quiet-release-preflight
     - smart-lamps-tickle
+"@icebreakers/monorepo-templates@1.3.1":
+  dir: packages/monorepo-templates
+  intents:
+    - bright-graphs-guide
+    - grumpy-socks-hunt
 "@icebreakers/monorepo@5.1.0":
   dir: packages/monorepo
   intents:
