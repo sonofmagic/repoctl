@@ -38,11 +38,11 @@
   "devDependencies": {
     "@braintree/sanitize-url": "^7.1.2",
     "@tailwindcss/vite": "^4.3.3",
-    "cytoscape": "^3.34.1",
+    "cytoscape": "^3.34.2",
     "cytoscape-cose-bilkent": "^4.1.0",
     "dayjs": "^1.11.23",
     "debug": "^4.4.3",
-    "mermaid": "^11.17.0",
+    "mermaid": "^11.17.2",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.12",
     "vitepress": "^1.6.4",

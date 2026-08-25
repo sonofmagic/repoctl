@@ -66,6 +66,9 @@
       "outputs": []
     },
     "tsd": {
+      "dependsOn": [
+        "^tsd"
+      ],
       "inputs": [
         "src/**",
         "lib/**",
