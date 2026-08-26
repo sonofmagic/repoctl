@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@faker-js/faker": "^10.6.0",
-    "@tanstack/vue-query": "^5.102.3",
-    "@tanstack/vue-query-devtools": "^6.1.43",
+    "@tanstack/vue-query": "^5.102.4",
+    "@tanstack/vue-query-devtools": "^6.1.44",
     "@tanstack/vue-table": "^9.1.2",
     "@tanstack/vue-virtual": "^3.13.36",
     "@trpc/client": "^11.18.0",
@@ -42,7 +42,7 @@
     "tailwind-merge": "^3.6.0",
     "tailwind-variants": "^3.3.1",
     "vue": "^3.5.41",
-    "vue-i18n": "^11.4.9",
+    "vue-i18n": "^11.4.10",
     "vue-router": "^5.2.0"
   },
   "devDependencies": {
