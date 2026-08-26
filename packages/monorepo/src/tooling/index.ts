@@ -176,7 +176,7 @@ const windowsPathSeparatorPattern = /\\/g
 const relativeCurrentDirPattern = /^\.\//
 const globTokenPattern = /[*?[{]/
 const trailingSlashPattern = /\/+$/
-const monorepoTsconfigPath = fileURLToPath(new URL('../../tsconfig.base.json', import.meta.url))
+const monorepoTsconfigPath = fileURLToPath(import.meta.resolve('@icebreakers/monorepo/tsconfig'))
 
 function escapeForShell(value: string) {
   return `'${value.replaceAll('\'', '\'\\\'\'')}'`

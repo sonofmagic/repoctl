@@ -56,6 +56,9 @@ try {
     '  - apps/*',
     '  - packages/*',
     '  - examples/*',
+    'overrides:',
+    `  '@icebreakers/monorepo': ${JSON.stringify(`file:${monorepoTarball}`)}`,
+    `  '@icebreakers/monorepo-templates': ${JSON.stringify(`file:${templatesTarball}`)}`,
     'versioning:',
     '  changelog:',
     '    storage: repository',
@@ -74,6 +77,16 @@ try {
   const manifest = JSON.parse(run(['exec', 'node', '-p', 'JSON.stringify(require("./package.json"))'], workspaceDir, 'pipe'))
   if (manifest.dependencies?.vitest || manifest.devDependencies?.vitest) {
     throw new Error('the smoke workspace must not declare Vitest')
+  }
+  const tsconfig = JSON.parse(run([
+    'exec',
+    'node',
+    '--input-type=module',
+    '--eval',
+    'import { createMonorepoTsconfig } from \'repoctl/tooling\'; process.stdout.write(JSON.stringify(createMonorepoTsconfig()))',
+  ], workspaceDir, 'pipe'))
+  if (tsconfig.compilerOptions?.target !== 'ESNext') {
+    throw new Error('the packaged tooling entry must load the bundled tsconfig')
   }
   run(['exec', 'repoctl', 'doctor', '--strict'], workspaceDir)
 }
