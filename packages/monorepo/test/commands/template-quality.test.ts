@@ -64,6 +64,19 @@ describe('generated template quality', () => {
     expect(content).not.toContain('pnpm run tooling:build')
   })
 
+  it('does not ship source-repo-only Worker type synchronization', async () => {
+    const [ciWorkflow, renovateConfig] = await Promise.all([
+      fs.readFile(`${assetsDir}/.github/workflows/ci.yml`, 'utf8'),
+      fs.readFile(`${assetsDir}/renovate.json`, 'utf8'),
+    ])
+
+    expect(ciWorkflow).not.toContain('generated-assets')
+    expect(ciWorkflow).not.toContain('Check generated Worker types')
+    expect(renovateConfig).not.toContain('rebaseWhen')
+    expect(renovateConfig).not.toContain('postUpgradeTasks')
+    expect(renovateConfig).not.toContain('pnpm cf-typegen')
+  })
+
   it('does not ship stale TypeScript deprecation suppressions', async () => {
     const files = [
       ...await collectTextFiles(assetsDir),
