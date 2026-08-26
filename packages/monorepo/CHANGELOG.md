@@ -1,5 +1,11 @@
 # @icebreakers/monorepo
 
+## 5.4.3
+
+### Patch Changes
+
+- Resolve the bundled TypeScript baseline through package exports so repoctl tooling works after installation.
+
 ## 5.4.2
 
 ### Patch Changes
