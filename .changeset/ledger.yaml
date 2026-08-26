@@ -56,6 +56,10 @@
   intents:
     - bright-lies-jam
     - quiet-release-preflight
+"@icebreakers/monorepo@5.4.3":
+  dir: packages/monorepo
+  intents:
+    - breezy-foxes-stare
 create-icebreaker@1.1.0:
   dir: packages/create-icebreaker
   intents:
@@ -89,3 +93,7 @@ repoctl@5.4.1:
   intents:
     - quiet-release-preflight
     - tall-showers-decide
+repoctl@5.4.3:
+  dir: packages/repoctl
+  intents:
+    - breezy-foxes-stare
