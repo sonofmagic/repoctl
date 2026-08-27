@@ -32,9 +32,9 @@
   },
   "dependencies": {
     "@faker-js/faker": "^10.6.0",
-    "@tanstack/vue-query": "^5.102.4",
-    "@tanstack/vue-query-devtools": "^6.1.44",
-    "@tanstack/vue-table": "^9.1.2",
+    "@tanstack/vue-query": "^5.102.6",
+    "@tanstack/vue-query-devtools": "^6.1.46",
+    "@tanstack/vue-table": "^9.2.3",
     "@tanstack/vue-virtual": "^3.13.36",
     "@trpc/client": "^11.18.0",
     "clsx": "^2.1.1",
