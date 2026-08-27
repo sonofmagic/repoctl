@@ -11,8 +11,32 @@ permissions:
   contents: read
 
 jobs:
+  generated-assets:
+    name: Generated Assets
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check generated Worker types
+        run: pnpm cf-typegen:check
+
   build:
     name: Build and Test
+    needs: generated-assets
     timeout-minutes: 15
     strategy:
       fail-fast: false
@@ -71,3 +95,18 @@ jobs:
         uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  ci:
+    name: CI
+    if: ${{ always() }}
+    needs: [generated-assets, build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Verify required jobs
+        env:
+          BUILD_RESULT: ${{ needs.build.result }}
+          GENERATED_ASSETS_RESULT: ${{ needs.generated-assets.result }}
+        run: |
+          test "$GENERATED_ASSETS_RESULT" = "success"
+          test "$BUILD_RESULT" = "success"

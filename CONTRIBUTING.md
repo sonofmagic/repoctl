@@ -25,4 +25,6 @@ Changes to publishable packages require a pnpm change intent created with `pnpm 
 
 When changing templates or managed root assets, update their source first and refresh packaged copies with `pnpm --filter @icebreakers/monorepo-templates sync:assets`.
 
+Before manually updating a Renovate pull request, fetch its latest remote head. If Renovate updates the branch while you are working, fetch again, rebase your local changes onto the latest pull request head, and push normally. Never force-push a Renovate-managed branch.
+
 Report bugs at https://github.com/sonofmagic/repoctl/issues and use discussions for design questions that do not yet have a concrete implementation.

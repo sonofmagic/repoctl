@@ -5,6 +5,7 @@ import YAML from 'yaml'
 import { assetTargets } from '../assets-data.mjs'
 import { templateChoices } from '../template-data.mjs'
 import { assetsDir, packageDir, templatesDir } from './paths'
+import { sanitizePublishedCiWorkflowContent, sanitizePublishedRenovateContent } from './prepare/published-config'
 import { toPublishGitignorePath } from './utils/gitignore'
 import { shouldSkipTemplatePath } from './utils/template-filter'
 
@@ -197,17 +198,31 @@ async function removePublishedReleaseState() {
   await fs.rm(path.join(assetsDir, '.changeset', 'ledger.yaml'), { force: true })
 }
 
-async function removeSourceRepoReleaseToolingBuildStep() {
-  const releaseWorkflowPath = path.join(assetsDir, '.github/workflows/release.yml')
-  if (!await pathExists(releaseWorkflowPath)) {
+async function transformPublishedAsset(relativePath: string, transform: (content: string) => string) {
+  const assetPath = path.join(assetsDir, relativePath)
+  if (!await pathExists(assetPath)) {
     return
   }
 
-  const content = await fs.readFile(releaseWorkflowPath, 'utf8')
-  const nextContent = removeSourceRepoReleaseToolingBuildStepContent(content)
+  const content = await fs.readFile(assetPath, 'utf8')
+  const nextContent = transform(content)
   if (nextContent !== content) {
-    await fs.writeFile(releaseWorkflowPath, nextContent, 'utf8')
+    await fs.writeFile(assetPath, nextContent, 'utf8')
   }
+}
+
+async function sanitizePublishedRepositoryConfig() {
+  await Promise.all([
+    transformPublishedAsset('.github/workflows/ci.yml', sanitizePublishedCiWorkflowContent),
+    transformPublishedAsset('renovate.json', sanitizePublishedRenovateContent),
+  ])
+}
+
+async function removeSourceRepoReleaseToolingBuildStep() {
+  await transformPublishedAsset(
+    '.github/workflows/release.yml',
+    removeSourceRepoReleaseToolingBuildStepContent,
+  )
 }
 
 async function copyTemplates(repoRoot: string, overwriteExisting: boolean) {
@@ -232,6 +247,7 @@ export async function prepareAssets(options: PrepareAssetsOptions = {}) {
   await resetDir(assetsDir, overwriteExisting)
   await resetDir(templatesDir, overwriteExisting)
   await copyAssets(repoRoot, overwriteExisting)
+  await sanitizePublishedRepositoryConfig()
   await sanitizePublishedWorkspace()
   await removePublishedReleaseState()
   await writePublishedToolingConfigs()

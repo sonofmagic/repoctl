@@ -25,4 +25,6 @@ pnpm test
 
 修改模板或受管根资产时，先修改源码，再运行 `pnpm --filter @icebreakers/monorepo-templates sync:assets` 刷新随包副本。
 
+人工更新 Renovate Pull Request 前，必须先获取其最新远端 head。如果操作期间 Renovate 更新了分支，请重新获取远端变更，将本地改动 rebase 到最新的 Pull Request head，再进行普通 push。禁止对 Renovate 管理的分支执行 force push。
+
 缺陷请提交到 https://github.com/sonofmagic/repoctl/issues；尚未形成具体实现的设计问题请使用 Discussions。

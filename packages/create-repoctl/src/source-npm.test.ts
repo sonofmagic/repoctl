@@ -15,10 +15,12 @@ describe('scaffoldFromNpm', () => {
       await updateRootPackageJson(targetDir, 'demo-repo')
       await updateRootTsconfigReferences(targetDir)
 
-      const [rootVitestConfig, rootTsconfig, releaseWorkflow] = await Promise.all([
+      const [rootVitestConfig, rootTsconfig, releaseWorkflow, ciWorkflow, renovateConfig] = await Promise.all([
         readFile(path.join(targetDir, 'vitest.config.ts'), 'utf8'),
         readFile(path.join(targetDir, 'tsconfig.json'), 'utf8'),
         readFile(path.join(targetDir, '.github/workflows/release.yml'), 'utf8'),
+        readFile(path.join(targetDir, '.github/workflows/ci.yml'), 'utf8'),
+        readFile(path.join(targetDir, 'renovate.json'), 'utf8'),
       ])
       const parsedTsconfig = JSON.parse(rootTsconfig) as {
         references?: Array<{ path: string }>
@@ -28,6 +30,11 @@ describe('scaffoldFromNpm', () => {
       expect(rootVitestConfig).not.toContain('tooling/load-tooling-module.mjs')
       expect(releaseWorkflow).not.toContain('Build Release Tooling')
       expect(releaseWorkflow).not.toContain('pnpm run tooling:build')
+      expect(ciWorkflow).not.toContain('generated-assets')
+      expect(ciWorkflow).not.toContain('Check generated Worker types')
+      expect(renovateConfig).not.toContain('rebaseWhen')
+      expect(renovateConfig).not.toContain('postUpgradeTasks')
+      expect(renovateConfig).not.toContain('pnpm cf-typegen')
       expect(parsedTsconfig.references).toEqual([
         { path: './apps/cli' },
         { path: './packages/tsdown' },
