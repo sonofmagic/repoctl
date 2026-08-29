@@ -63,6 +63,6 @@
     "vite-tsconfig-paths": "^6.1.1",
     "vue-tsc": "3.3.11",
     "wrangler": "^4.126.0",
-    "zod": "^4.5.2"
+    "zod": "^4.5.4"
   }
 }
