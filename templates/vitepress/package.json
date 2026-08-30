@@ -44,7 +44,7 @@
     "debug": "^4.4.3",
     "mermaid": "^11.17.2",
     "tailwindcss": "^4.3.3",
-    "tsx": "^4.23.12",
+    "tsx": "^4.23.13",
     "vitepress": "^1.6.4",
     "vitepress-plugin-llms": "^1.13.5",
     "vitepress-plugin-mermaid": "^2.0.17",
