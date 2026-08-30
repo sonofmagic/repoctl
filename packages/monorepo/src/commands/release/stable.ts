@@ -1,6 +1,7 @@
 import type { ReleaseOptions } from './types'
 import { ReleaseCommandError } from './errors'
 import { runQualityScripts, runReleaseHooks } from './hooks'
+import { getPublishCandidates, publishWithRetry } from './publish'
 import { assertStableLaneAssignments, clearPublishSummary, hasGitChanges, hasPendingIntents, readPublishSummary, resolveBranch, run } from './shared'
 
 export async function prepareStable(options: ReleaseOptions) {
@@ -31,7 +32,11 @@ export async function publishStable(options: ReleaseOptions) {
   await runQualityScripts(options)
   runReleaseHooks('beforePublish', options)
   await clearPublishSummary(options.cwd)
-  run('pnpm', ['publish', '-r', '--report-summary', '--provenance', '--no-git-checks'], options)
+  await publishWithRetry(
+    ['publish', '-r', '--report-summary', '--provenance', '--no-git-checks'],
+    options,
+    await getPublishCandidates(options.cwd),
+  )
   return readPublishSummary(options.cwd)
 }
 

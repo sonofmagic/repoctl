@@ -52,13 +52,20 @@ export function createSpawnMock(options: {
   diffStatus?: number
   publishedPackages?: Array<{ name: string, version: string }>
   statuses?: Record<string, number>
+  statusSequences?: Record<string, number[]>
   stdout?: Record<string, string>
+  stdoutSequences?: Record<string, string[]>
+  stderr?: Record<string, string>
+  stderrSequences?: Record<string, string[]>
 } = {}) {
   const calls: SpawnCall[] = []
   const hookEnvs: NodeJS.ProcessEnv[] = []
+  const sequenceIndexes = new Map<string, number>()
   const spawn = vi.fn((command: string, args: string[], spawnOptions?: { cwd?: string, env?: NodeJS.ProcessEnv }) => {
     calls.push({ command, args })
     const commandLine = `${command} ${args.join(' ')}`
+    const sequenceIndex = sequenceIndexes.get(commandLine) ?? 0
+    sequenceIndexes.set(commandLine, sequenceIndex + 1)
 
     if (command === 'pnpm' && args[0] === 'publish' && spawnOptions?.cwd) {
       writeFileSync(path.join(spawnOptions.cwd, 'pnpm-publish-summary.json'), JSON.stringify({
@@ -74,8 +81,9 @@ export function createSpawnMock(options: {
     }
 
     return {
-      status: options.statuses?.[commandLine] ?? 0,
-      stdout: options.stdout?.[commandLine] ?? '',
+      status: options.statusSequences?.[commandLine]?.[sequenceIndex] ?? options.statuses?.[commandLine] ?? 0,
+      stdout: options.stdoutSequences?.[commandLine]?.[sequenceIndex] ?? options.stdout?.[commandLine] ?? '',
+      stderr: options.stderrSequences?.[commandLine]?.[sequenceIndex] ?? options.stderr?.[commandLine] ?? '',
     }
   })
 
