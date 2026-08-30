@@ -60,6 +60,10 @@
   dir: packages/monorepo
   intents:
     - breezy-foxes-stare
+"@icebreakers/monorepo@5.4.4":
+  dir: packages/monorepo
+  intents:
+    - steady-cas-protect
 create-icebreaker@1.1.0:
   dir: packages/create-icebreaker
   intents:
@@ -97,3 +101,7 @@ repoctl@5.4.3:
   dir: packages/repoctl
   intents:
     - breezy-foxes-stare
+repoctl@5.4.4:
+  dir: packages/repoctl
+  intents:
+    - steady-cas-protect
