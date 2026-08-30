@@ -8,6 +8,7 @@ import { ReleaseCommandError } from './errors'
 import { GitHubClient } from './github'
 import { runAfterPublishHooks, runQualityScripts, runReleaseHooks } from './hooks'
 import { releasePrerelease } from './prerelease'
+import { publishWithRetry } from './publish'
 import { capture, clearPublishSummary, getReleaseEnv, hasPendingIntents, readPublishSummary, resolveBranch, run } from './shared'
 import { prepareStable, publishStable } from './stable'
 import { readReleaseTriggerContext, shouldRunRelease } from './trigger'
@@ -160,7 +161,11 @@ async function recoverUnpublished(options: ReleaseCiOptions) {
   await runQualityScripts(options)
   runReleaseHooks('beforePublish', options)
   await clearPublishSummary(options.cwd)
-  run('pnpm', ['publish', '-r', '--filter', packageName, '--report-summary', '--provenance', '--no-git-checks'], options)
+  await publishWithRetry(
+    ['publish', '-r', '--filter', packageName, '--report-summary', '--provenance', '--no-git-checks'],
+    options,
+    [{ name: packageName, version: packageVersion }],
+  )
   const publishedVersion = capture('npm', ['view', `${packageName}@${packageVersion}`, 'version'], options)
   if (publishedVersion !== packageVersion) {
     throw new ReleaseCommandError(`npm did not report ${packageName}@${packageVersion} after recovery`)

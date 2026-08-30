@@ -24,6 +24,7 @@ export interface GetWorkspacePackagesOptions {
  */
 export interface WorkspacePackageManifest {
   name?: string
+  version?: string
   private?: boolean
   description?: string
 }

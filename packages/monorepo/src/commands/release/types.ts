@@ -12,6 +12,8 @@ export interface ReleaseOptions {
   spawn?: typeof spawnSync
   env?: NodeJS.ProcessEnv
   config?: ReleaseCommandConfig
+  /** 发布重试等待器，主要用于测试注入。 */
+  sleep?: (milliseconds: number) => Promise<void>
 }
 
 export interface ReleaseCiOptions extends ReleaseOptions {
