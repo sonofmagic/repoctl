@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@11.24.0",
+  "packageManager": "pnpm@11.25.0",
   "description": "Source workspace for repoctl, a task-first CLI for pnpm and Turborepo monorepos",
   "author": "ice breaker <hi@sonofmagic.top>",
   "homepage": "https://repoctl.icebreaker.top",
