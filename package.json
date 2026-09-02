@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
-    "@eslint/config-inspector": "^3.3.0",
+    "@eslint/config-inspector": "^3.4.0",
     "@eslint/eslintrc": "^3.3.7",
     "@icebreakers/commitlint-config": "workspace:*",
     "@icebreakers/eslint-config": "workspace:*",
