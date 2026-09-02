@@ -64,6 +64,10 @@
   dir: packages/monorepo
   intents:
     - steady-cas-protect
+"@icebreakers/monorepo@5.4.5":
+  dir: packages/monorepo
+  intents:
+    - bright-release-contributors
 create-icebreaker@1.1.0:
   dir: packages/create-icebreaker
   intents:

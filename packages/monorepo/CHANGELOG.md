@@ -1,5 +1,11 @@
 # @icebreakers/monorepo
 
+## 5.4.5
+
+### Patch Changes
+
+- Fix repoctl GitHub Release notes so contributors are preserved from the Release PR, scoped to published packages, and deduplicated across Markdown formats.
+
 ## 5.4.4
 
 ### Patch Changes
