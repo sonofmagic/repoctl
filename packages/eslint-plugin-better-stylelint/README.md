@@ -114,3 +114,9 @@ Each `<style>` block in a `.vue` file is linted separately. The bridge:
 - maps Stylelint diagnostics back to the original `.vue` line and column
 - includes block context such as `scoped`, `module`, and `lang` in the message
   when that context helps identify the source block
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/eslint-plugin-better-stylelint
+- Issues: https://github.com/sonofmagic/repoctl/issues

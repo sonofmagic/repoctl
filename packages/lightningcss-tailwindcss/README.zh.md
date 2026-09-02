@@ -99,3 +99,9 @@ interface TailwindAnalysis {
 - 更适合已经基于 Lightning CSS visitor 的工具
 
 如果你还需要感知使用方项目里真实安装的 Tailwind 版本和配置文件位置，应该选 `postcss-tailwindcss`。
+
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/lightningcss-tailwindcss
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues

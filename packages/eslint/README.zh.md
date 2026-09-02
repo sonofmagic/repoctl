@@ -295,3 +295,9 @@ export default icebreaker(
 - 如果提示缺少插件，通常是某个功能已开启但当前工作区未安装对应可选依赖。React / Next 相关预设会自动跳过；其他能力可通过 `pnpm add -D` 补齐。
 - 与旧版 `.eslintrc` 混用时建议先改用 `icebreakerLegacy()`，逐步迁移至 Flat Config。
 - Tailwind 校验依赖 `tailwind.config.*`，Monorepo 或自定义构建路径时请确认配置文件位置。
+
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/eslint
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues

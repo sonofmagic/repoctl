@@ -22,3 +22,9 @@ const vitepress = getTemplateDefinition('vitepress')
 ```
 
 The source workspaces under the repository's `templates/` directory are private. This package is their supported distribution boundary.
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/monorepo-templates
+- Issues: https://github.com/sonofmagic/repoctl/issues

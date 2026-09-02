@@ -92,3 +92,9 @@ The factory keeps commit prompts in sync with any custom type definitions. If yo
 - If commitlint cannot find the config file, ensure it is named `commitlint.config.ts` (or `.cjs`) at the repository root.
 - For workspaces that ship custom prompts, pass a `prompt` object instead of re-building the schema by hand.
 - To disable commits in scripts (e.g. release bots), set `COMMITLINT_DISABLED=true` and skip the hook execution.
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/commitlint
+- Issues: https://github.com/sonofmagic/repoctl/issues

@@ -133,3 +133,9 @@ Resolution is project-aware:
 `stylelint-plugin-tailwindcss` uses this package for selector collection and Tailwind runtime resolution.
 
 This package provides the low-level analysis layer; the Stylelint plugin provides the policy and reporting layer.
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/postcss-tailwindcss
+- Issues: https://github.com/sonofmagic/repoctl/issues

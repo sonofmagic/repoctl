@@ -59,4 +59,8 @@ import { defineEslintConfig } from 'repoctl/tooling'
 export default await defineEslintConfig()
 ```
 
-Documentation: https://repoctl.icebreaker.top
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/repoctl
+- Issues: https://github.com/sonofmagic/repoctl/issues

@@ -90,3 +90,9 @@ export default icebreaker({
 - commitlint 找不到配置时，请确认文件名为 `commitlint.config.ts`（或 `.cjs`），且位于仓库根目录。
 - 如需扩展交互式提示，直接传入 `prompt` 即可，无需手动拼装 Schema。
 - 若需在某些脚本中临时关闭校验，可在环境变量中设置 `COMMITLINT_DISABLED=true` 并跳过钩子。
+
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/commitlint
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues

@@ -21,6 +21,8 @@ pnpm add -D @changesets/cli @icebreakers/changelog-github
 
 Point the Changesets config at the Icebreaker formatter and declare your repository slug:
 
+`org/repo` is a placeholder; replace it with the GitHub repository that consumes this formatter.
+
 ```json
 {
   "changelog": [
@@ -74,3 +76,9 @@ Set `GITHUB_TOKEN` (or `GH_TOKEN`) with a token that can read public repo metada
 - **Missing repo error** – ensure the tuple includes your `org/repo` string; the formatter throws early when it is absent.
 - **Empty metadata** – verify the GitHub token is available to the process and that the commit/PR exists in the target repo.
 - **Summary tags ignored** – tags must appear at the top of the summary, each on its own line, before the main description content.
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/changelog-github
+- Issues: https://github.com/sonofmagic/repoctl/issues

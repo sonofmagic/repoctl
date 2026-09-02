@@ -302,3 +302,9 @@ You may also pass other flat configs (e.g. from in-house presets) as additional 
 - Missing plugin errors usually mean a feature is enabled without its optional dependency being installed in the current workspace. React, Next, and UnoCSS related presets now auto-skip in that case; other features can be added with `pnpm add -D`.
 - When combining legacy `.eslintrc` projects, prefer `icebreakerLegacy()` and move overrides into flat config format incrementally.
 - Tailwind class validation reads from your `tailwind.config.*`; double check the path when using monorepo roots or custom build tooling.
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/eslint
+- Issues: https://github.com/sonofmagic/repoctl/issues

@@ -300,3 +300,9 @@ This repository includes IDE-friendly examples under
 
 The stricter preset is documented in
 [`docs/strict-preset.md`](/Users/yangqiming/Documents/GitHub/eslint-config/packages/stylelint-plugin-tailwindcss/docs/strict-preset.md).
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/stylelint-plugin-tailwindcss
+- Issues: https://github.com/sonofmagic/repoctl/issues

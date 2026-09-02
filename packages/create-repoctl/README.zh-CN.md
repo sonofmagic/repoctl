@@ -22,4 +22,8 @@ pnpm exec repo check
 
 默认输出英文。传入 `--lang zh-CN` 或设置 `REPOCTL_LANG=zh-CN` 可切换为简体中文。
 
-文档：https://repoctl.icebreaker.top
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/create-repoctl
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues

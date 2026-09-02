@@ -133,3 +133,9 @@ interface TailwindAnalysis {
 `stylelint-plugin-tailwindcss` 当前会复用这个包来做 selector 收集和 Tailwind 运行时解析。
 
 这个包是底层分析层，Stylelint 插件是在其上叠加规则策略和报错逻辑。
+
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/postcss-tailwindcss
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues

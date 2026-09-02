@@ -41,4 +41,8 @@ pnpm exec repo env support --json --redact --out reports/support.json
 
 `repoctl` 会重新导出 `@icebreakers/monorepo` 的程序化 API，工程配置 wrapper 位于 `repoctl/tooling`。
 
-文档：https://repoctl.icebreaker.top
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/repoctl
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues

@@ -19,6 +19,8 @@ pnpm add -D @changesets/cli @icebreakers/changelog-github
 
 在 `.changeset/config.json` 中切换 changelog 生成器，并声明仓库地址：
 
+`org/repo` 仅为占位符，请替换为实际使用此格式器的 GitHub 仓库。
+
 ```json
 {
   "changelog": [
@@ -72,3 +74,9 @@ author: @octocat
 - **缺少 repo 报错**：确认元组里包含 `org/repo` 字符串，缺失时格式器会立即抛错。
 - **元数据为空**：检查 GitHub Token 是否生效，以及提交 / PR 是否存在于对应仓库。
 - **摘要指令未生效**：指令需要放在摘要最顶部，并且每行单独书写；正文内容必须位于指令之后。
+
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/changelog-github
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues

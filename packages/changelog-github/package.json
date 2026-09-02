@@ -17,7 +17,7 @@
   "keywords": [
     "changesets",
     "changelog",
-    "dev-configs",
+    "repoctl",
     "icebreakers"
   ],
   "sideEffects": false,

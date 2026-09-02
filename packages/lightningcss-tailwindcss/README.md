@@ -103,3 +103,9 @@ That means:
 - Better fit for tools that already consume Lightning CSS visitors
 
 If you need to inspect the consuming project's installed Tailwind runtime or config file, use `postcss-tailwindcss`.
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/lightningcss-tailwindcss
+- Issues: https://github.com/sonofmagic/repoctl/issues

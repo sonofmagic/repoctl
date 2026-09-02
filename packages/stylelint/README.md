@@ -246,3 +246,9 @@ The underlying plugin supports both Tailwind CSS v3 and v4, and switches automat
 - Tailwind directives require `postcss.config.*` to include `@icebreakers/stylelint-config` ignore lists; adjust `ignores.addAtRules` when adding new utilities.
 - If Stylelint cannot resolve the preset, ensure your workspace hoists the package or add it to the specific package `devDependencies`.
 - Use the generated VS Code settings to avoid duplicate diagnostics from the built-in CSS validation and from ESLint handling CSS files.
+
+## Project links
+
+- Documentation: https://repoctl.icebreaker.top
+- Repository: https://github.com/sonofmagic/repoctl/tree/main/packages/stylelint
+- Issues: https://github.com/sonofmagic/repoctl/issues

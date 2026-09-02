@@ -14,3 +14,9 @@ const vitepress = getTemplateDefinition('vitepress')
 ```
 
 仓库 `templates/` 下的源码工作区均为私有，本包是这些模板的正式分发边界。
+
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/monorepo-templates
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues

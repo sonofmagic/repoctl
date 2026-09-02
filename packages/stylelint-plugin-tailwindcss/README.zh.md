@@ -290,3 +290,9 @@ UnoCSS 规则会从被检查文件所在目录向上查找 `uno.config.*` 或
 
 更严格的 preset 说明见
 [`docs/strict-preset.md`](/Users/yangqiming/Documents/GitHub/eslint-config/packages/stylelint-plugin-tailwindcss/docs/strict-preset.md)。
+
+## 项目链接
+
+- 文档：https://repoctl.icebreaker.top
+- 仓库：https://github.com/sonofmagic/repoctl/tree/main/packages/stylelint-plugin-tailwindcss
+- 问题反馈：https://github.com/sonofmagic/repoctl/issues
