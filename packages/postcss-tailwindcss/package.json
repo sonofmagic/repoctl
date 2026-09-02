@@ -1,7 +1,7 @@
 {
   "name": "postcss-tailwindcss",
   "type": "module",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "PostCSS AST utilities for analyzing Tailwind CSS syntax",
   "author": "ice breaker <1324318532@qq.com>",
   "license": "MIT",

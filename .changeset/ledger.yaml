@@ -1,3 +1,19 @@
+"@icebreakers/changelog-github@2.0.3":
+  dir: packages/changelog-github
+  intents:
+    - bright-repoctl-links
+    - dev-configs-merge
+"@icebreakers/commitlint-config@4.0.6":
+  dir: packages/commitlint
+  intents:
+    - bright-repoctl-links
+    - dev-configs-merge
+"@icebreakers/eslint-config@7.1.1":
+  dir: packages/eslint
+  intents:
+    - bright-repoctl-links
+    - dev-configs-merge
+    - quiet-deps-audit
 "@icebreakers/monorepo-templates@1.1.0":
   dir: packages/monorepo-templates
   intents:
@@ -23,6 +39,10 @@
   intents:
     - bright-graphs-guide
     - grumpy-socks-hunt
+"@icebreakers/monorepo-templates@1.3.2":
+  dir: packages/monorepo-templates
+  intents:
+    - bright-repoctl-links
 "@icebreakers/monorepo@5.1.0":
   dir: packages/monorepo
   intents:
@@ -68,6 +88,15 @@
   dir: packages/monorepo
   intents:
     - bright-release-contributors
+"@icebreakers/monorepo@5.4.6":
+  dir: packages/monorepo
+  intents:
+    - bright-repoctl-links
+"@icebreakers/stylelint-config@5.0.7":
+  dir: packages/stylelint
+  intents:
+    - bright-repoctl-links
+    - dev-configs-merge
 create-icebreaker@1.1.0:
   dir: packages/create-icebreaker
   intents:
@@ -80,6 +109,10 @@ create-icebreaker@1.1.3:
   dir: packages/create-icebreaker
   intents:
     - sparkly-friends-stand
+create-icebreaker@1.1.5:
+  dir: packages/create-icebreaker
+  intents:
+    - bright-repoctl-links
 create-repoctl@0.1.0:
   dir: packages/create-repoctl
   intents:
@@ -88,6 +121,25 @@ create-repoctl@0.1.2:
   dir: packages/create-repoctl
   intents:
     - deep-rocks-beg
+create-repoctl@0.1.4:
+  dir: packages/create-repoctl
+  intents:
+    - bright-repoctl-links
+eslint-plugin-better-stylelint@2.0.4:
+  dir: packages/eslint-plugin-better-stylelint
+  intents:
+    - bright-repoctl-links
+    - dev-configs-merge
+lightningcss-tailwindcss@2.0.4:
+  dir: packages/lightningcss-tailwindcss
+  intents:
+    - bright-repoctl-links
+    - dev-configs-merge
+postcss-tailwindcss@3.0.7:
+  dir: packages/postcss-tailwindcss
+  intents:
+    - bright-repoctl-links
+    - dev-configs-merge
 repoctl@5.2.0:
   dir: packages/repoctl
   intents:
@@ -109,3 +161,13 @@ repoctl@5.4.4:
   dir: packages/repoctl
   intents:
     - steady-cas-protect
+repoctl@5.4.6:
+  dir: packages/repoctl
+  intents:
+    - bright-repoctl-links
+stylelint-plugin-tailwindcss@3.0.7:
+  dir: packages/stylelint-plugin-tailwindcss
+  intents:
+    - bright-repoctl-links
+    - dev-configs-merge
+    - quiet-deps-audit

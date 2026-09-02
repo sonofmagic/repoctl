@@ -1,5 +1,19 @@
 # @icebreakers/eslint-config
 
+## 7.1.1
+
+### Patch Changes
+
+- 统一所有公开包的 repoctl 仓库、文档、问题反馈和 npm 首页元数据，移除旧的 dev-configs 标识，并同步双语 README 的项目链接。
+
+- Move the shared development configuration packages into the repoctl workspace while preserving their package names and public exports.
+
+- 升级 ESLint、TypeScript ESLint、UnoCSS、Weapp/Vue 及相关工具链依赖，并修复传递依赖中的已知安全漏洞。
+
+- Updated dependencies:
+  - @icebreakers/stylelint-config@5.0.7
+  - eslint-plugin-better-stylelint@2.0.4
+
 ## 7.1.0
 
 ### Minor Changes

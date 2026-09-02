@@ -1,7 +1,7 @@
 {
   "name": "stylelint-plugin-tailwindcss",
   "type": "module",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Stylelint plugin utilities for Tailwind CSS and utility-first selector rules",
   "author": "ice breaker <1324318532@qq.com>",
   "license": "MIT",
