@@ -68,6 +68,26 @@ describe('release commands', () => {
     expect(calls).toContainEqual({ command: 'pnpm', args: ['publish', '-r', '--report-summary', '--provenance', '--no-git-checks'] })
   })
 
+  it('publishes release PR contributors into GitHub Release metadata', async () => {
+    const cwd = await createTempWorkspace('main')
+    await writeFile(path.join(cwd, 'packages', 'repoctl', 'CHANGELOG.md'), '# repoctl\n\n## 1.0.0\n\n### Patch Changes\n\n- 修复发布说明。\n', 'utf8')
+    const { spawn } = createSpawnMock({ publishedPackages: [{ name: 'repoctl', version: '1.0.0' }] })
+    const github = {
+      ensurePullRequest: vi.fn(),
+      ensureRelease: vi.fn(),
+      ensureTag: vi.fn(),
+      readReleasePullRequestContributors: vi.fn(async () => ['@alice', '**@alice**', '@bob']),
+    }
+
+    await releaseCi({ mode: 'publish', branch: 'main', cwd, github, spawn: spawn as never })
+
+    expect(github.readReleasePullRequestContributors).toHaveBeenCalledOnce()
+    expect(github.ensureRelease).toHaveBeenCalledWith(expect.objectContaining({
+      tag: 'repoctl@1.0.0',
+      body: expect.stringContaining('Thanks to @alice · @bob'),
+    }))
+  })
+
   it('lets workflow dispatch bypass the automatic trigger probe', async () => {
     const cwd = await createTempWorkspace('main')
     const { calls, spawn } = createSpawnMock()

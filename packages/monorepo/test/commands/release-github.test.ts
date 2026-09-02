@@ -140,11 +140,39 @@ describe('GitHub release client', () => {
 
     await expect(client.enrichReleaseNote(document)).resolves.toMatchObject({
       contributors: ['alice', 'bob', 'carol'],
-      entries: [{ authors: ['alice'] }],
+      entries: [{ authors: ['alice', 'bob', 'carol'] }],
     })
 
     const fallbackClient = new GitHubClient({ token: 'token', repository: 'acme/repo', fetch: vi.fn().mockRejectedValue(new Error('offline')) })
     await expect(fallbackClient.enrichReleaseNote(document)).resolves.toEqual(document)
+  })
+
+  it('reads contributors from the merged release pull request for a target commit', async () => {
+    const requestFetch = vi.fn().mockResolvedValueOnce(response([{
+      number: 909,
+      title: 'chore(release): version packages',
+      body: '# Release Notes\n\n## ❤️ Contributors\n\nThanks to @alice · **@bob** · [@alice](https://github.com/alice)',
+      html_url: 'https://github.com/acme/repo/pull/909',
+      state: 'closed',
+      merged_at: '2026-09-01T00:00:00Z',
+    }]))
+    const client = new GitHubClient({ token: 'token', repository: 'acme/repo', fetch: requestFetch })
+
+    await expect(client.readReleasePullRequestContributors('abc123')).resolves.toEqual(['@alice', '@bob'])
+    expect(requestFetch).toHaveBeenCalledWith(
+      'https://api.github.com/repos/acme/repo/commits/abc123/pulls',
+      expect.objectContaining({ method: 'GET' }),
+    )
+  })
+
+  it('falls back cleanly when the target commit has no readable release pull request', async () => {
+    const client = new GitHubClient({
+      token: 'token',
+      repository: 'acme/repo',
+      fetch: vi.fn().mockRejectedValue(new Error('offline')),
+    })
+
+    await expect(client.readReleasePullRequestContributors('abc123')).resolves.toEqual([])
   })
 
   it('fails with an actionable error when token is missing', async () => {

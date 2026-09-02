@@ -161,6 +161,32 @@ export function isAutomationContributor(value: string) {
   return /github-actions|dependabot|renovate|\[bot\]$/i.test(value)
 }
 
+/** Normalizes contributor text emitted by changelog and GitHub Markdown. */
+export function normalizeContributor(value: string) {
+  return value
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/^\s*(?:\*{1,3}|_{1,3})\s*/, '')
+    .replace(/\s*(?:\*{1,3}|_{1,3})\s*$/, '')
+    .replace(/`/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+export function uniqueContributors(contributors: readonly string[]) {
+  const unique = new Map<string, string>()
+  for (const contributor of contributors) {
+    const normalized = normalizeContributor(contributor)
+    if (!normalized || isAutomationContributor(normalized)) {
+      continue
+    }
+    const key = normalized.replace(/^@/, '').toLocaleLowerCase()
+    if (!unique.has(key)) {
+      unique.set(key, normalized)
+    }
+  }
+  return [...unique.values()]
+}
+
 export function buildPackageCompareUrl(release: PackageReleaseSource, metadata: ReleaseBodyMetadata) {
   if (!release.previousVersion || !metadata.repository || !/^[^/]+\/[^/]+$/.test(metadata.repository)) {
     return undefined

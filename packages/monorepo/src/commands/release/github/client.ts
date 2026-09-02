@@ -1,84 +1,20 @@
-import type { ReleaseNoteDocument } from './notes/model'
+import type { ReleaseNoteDocument } from '../notes/model'
+import type {
+  CloseLegacyPullRequestsOptions,
+  EnsurePullRequestOptions,
+  EnsureReleaseOptions,
+  EnsureTagOptions,
+  GitHubClientOptions,
+  GitHubOperations,
+  GitHubPullRequest,
+  GitHubRelease,
+  GitHubRequest,
+  UpdateReleaseOptions,
+} from './types'
 import process from 'node:process'
-import { logger } from '../../core/logger'
-import { ReleaseCommandError } from './errors'
-import { isAutomationContributor } from './notes/model'
-
-interface GitHubPullRequest {
-  number: number
-  html_url: string
-  state: string
-  title?: string
-  body?: string | null
-  head?: { ref?: string }
-}
-
-export interface GitHubRelease {
-  id: number
-  html_url: string
-  tag_name: string
-  name?: string
-  body?: string | null
-  draft?: boolean
-  prerelease?: boolean
-}
-
-interface GitHubCommit {
-  author?: { login?: string } | null
-  commit?: { author?: { name?: string } | null }
-}
-
-interface GitHubIssue {
-  user?: { login?: string } | null
-}
-
-export interface GitHubClientOptions {
-  token?: string
-  repository?: string
-  apiUrl?: string
-  fetch?: typeof fetch
-}
-
-export interface EnsurePullRequestOptions {
-  head: string
-  base: string
-  title: string
-  body: string
-}
-
-export interface CloseLegacyPullRequestsOptions {
-  head: string
-  base: string
-}
-
-export interface EnsureReleaseOptions {
-  tag: string
-  target: string
-  prerelease?: boolean
-  name?: string
-  body?: string
-}
-
-export interface EnsureTagOptions {
-  tag: string
-  target: string
-}
-
-export interface UpdateReleaseOptions {
-  id: number
-  name: string
-  body: string
-}
-
-export interface GitHubOperations {
-  ensurePullRequest: (options: EnsurePullRequestOptions) => Promise<GitHubPullRequest>
-  closeLegacyReleasePullRequests?: (options: CloseLegacyPullRequestsOptions) => Promise<void>
-  ensureRelease: (options: EnsureReleaseOptions) => Promise<GitHubRelease>
-  ensureTag?: (options: EnsureTagOptions) => Promise<void>
-  enrichReleaseNote?: (document: ReleaseNoteDocument) => Promise<ReleaseNoteDocument>
-  listReleases?: () => Promise<GitHubRelease[]>
-  updateRelease?: (options: UpdateReleaseOptions) => Promise<GitHubRelease>
-}
+import { logger } from '../../../core/logger'
+import { ReleaseCommandError } from '../errors'
+import { enrichReleaseNote, readReleasePullRequestContributors } from './metadata'
 
 export class GitHubApiError extends ReleaseCommandError {
   constructor(message: string, public readonly status: number, public readonly responseBody?: string) {
@@ -146,6 +82,10 @@ export class GitHubClient implements GitHubOperations {
       throw new GitHubApiError(`GitHub API ${method} ${endpoint} failed (${response.status}): ${message}`, response.status, text)
     }
     return { status: response.status, data }
+  }
+
+  private getRequest(): GitHubRequest {
+    return this.request.bind(this)
   }
 
   async ensurePullRequest(options: EnsurePullRequestOptions) {
@@ -264,39 +204,17 @@ export class GitHubClient implements GitHubOperations {
 
   async enrichReleaseNote(document: ReleaseNoteDocument) {
     try {
-      const commitAuthors = new Map<string, string>()
-      const commitShas = [...new Set(document.entries.flatMap(entry => entry.commits.map(commit => commit.sha)))]
-      for (const sha of commitShas) {
-        const response = await this.request<GitHubCommit>('GET', `/commits/${encodeURIComponent(sha)}`)
-        const author = response.data?.author?.login || response.data?.commit?.author?.name
-        if (author) {
-          commitAuthors.set(sha, author)
-        }
-      }
-      const referenceNumbers = [...new Set(document.entries.flatMap(entry => [...entry.pullRequests, ...entry.issues]))]
-      const referenceAuthors = new Set<string>()
-      for (const number of referenceNumbers) {
-        const response = await this.request<GitHubIssue>('GET', `/issues/${number}`)
-        const author = response.data?.user?.login
-        if (author) {
-          referenceAuthors.add(author)
-        }
-      }
-      const entries = document.entries.map((entry) => {
-        const authors = [...new Set([...entry.authors, ...entry.commits.map(commit => commitAuthors.get(commit.sha)).filter((author): author is string => Boolean(author))])]
-        return authors.length ? { ...entry, authors } : entry
-      })
-      return {
-        ...document,
-        entries,
-        contributors: [...new Set([...document.contributors, ...commitAuthors.values(), ...referenceAuthors])].filter(value => !isAutomationContributor(value)),
-      }
+      return await enrichReleaseNote(this.getRequest(), document)
     }
     catch (error) {
       const message = error instanceof Error ? error.message : String(error)
       logger.warn(`GitHub release note metadata enrichment skipped: ${message}`)
       return document
     }
+  }
+
+  async readReleasePullRequestContributors(target: string) {
+    return readReleasePullRequestContributors(this.getRequest(), target)
   }
 
   async ensureTag(options: EnsureTagOptions) {

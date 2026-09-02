@@ -44,10 +44,11 @@ describe('repair release notes', () => {
       env: { GITHUB_REPOSITORY: 'acme/repo' },
       github: {
         listReleases: vi.fn().mockResolvedValue([
-          { id: 1, html_url: 'https://github.com/acme/repo/releases/1', tag_name: '@acme/demo@1.0.0' },
+          { id: 1, html_url: 'https://github.com/acme/repo/releases/1', tag_name: '@acme/demo@1.0.0', target_commitish: 'merge123' },
           { id: 2, html_url: 'https://github.com/acme/repo/releases/2', tag_name: '@acme/other@1.0.0' },
         ]),
         updateRelease,
+        readReleasePullRequestContributors: vi.fn().mockResolvedValue(['@alice', '**@alice**', '@bob']),
       },
     })
 
@@ -56,7 +57,7 @@ describe('repair release notes', () => {
     expect(updateRelease).toHaveBeenCalledWith({
       id: 1,
       name: '@acme/demo@1.0.0',
-      body: expect.stringContaining('### 🐞 Bug Fixes'),
+      body: expect.stringContaining('Thanks to @alice · @bob'),
     })
   })
 

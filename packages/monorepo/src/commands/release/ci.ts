@@ -63,12 +63,24 @@ async function publishMetadata(packages: PublishedPackage[], options: ReleaseCiO
   const github = resolveGitHub(options)
   const target = resolveTarget(options)
   const releaseEnv = getReleaseEnv(options)
+  let releaseContributors: string[] = []
+  if (github.readReleasePullRequestContributors) {
+    try {
+      releaseContributors = await github.readReleasePullRequestContributors(target)
+    }
+    catch (error) {
+      const message = error instanceof Error ? error.message : String(error)
+      logger.warn(`GitHub release PR contributor lookup skipped: ${message}`)
+    }
+  }
   const metadata = {
     locale: resolveReleaseLocale(options),
+    ...(releaseContributors.length ? { contributors: releaseContributors } : {}),
     ...(releaseEnv['GITHUB_REPOSITORY'] ? { repository: releaseEnv['GITHUB_REPOSITORY'] } : {}),
     ...(releaseEnv['GITHUB_SERVER_URL'] ? { serverUrl: releaseEnv['GITHUB_SERVER_URL'] } : {}),
   }
-  let noteDocument = await buildReleaseNoteDocument(options.cwd, undefined, metadata)
+  const publishedPackageNames = new Set(packages.map(pkg => pkg.name))
+  let noteDocument = await buildReleaseNoteDocument(options.cwd, undefined, metadata, publishedPackageNames)
   if (github.enrichReleaseNote) {
     noteDocument = await github.enrichReleaseNote(noteDocument)
   }

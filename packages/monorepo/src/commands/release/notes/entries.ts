@@ -1,5 +1,5 @@
 import type { PackageReleaseSource, ReleaseCategory, ReleaseCommit, ReleaseNoteEntry } from './model'
-import { uniqueCommits } from './model'
+import { uniqueCommits, uniqueContributors } from './model'
 
 function parseReferences(commits: ReleaseCommit[], content: string) {
   const pullRequests = new Set<number>()
@@ -182,7 +182,7 @@ function normalizeMarkdownEntry(item: { heading: string, summary: string }): Nor
     commits,
     pullRequests: [...new Set(pullRequests)],
     issues: [...new Set(issues)],
-    authors: [...new Set(authors)],
+    authors: uniqueContributors(authors),
     raw,
   }
 }
@@ -239,7 +239,7 @@ export function buildEntries(release: PackageReleaseSource, commits: ReleaseComm
       commits: entryCommits,
       pullRequests: [...new Set([...refs.pullRequests, ...normalized.pullRequests])].sort((a, b) => a - b),
       issues: [...new Set([...refs.issues, ...normalized.issues])].sort((a, b) => a - b),
-      authors: [...new Set([...normalized.authors, ...entryCommits.map(commit => commit.author).filter((author): author is string => Boolean(author))])],
+      authors: uniqueContributors([...normalized.authors, ...entryCommits.map(commit => commit.author).filter((author): author is string => Boolean(author))]),
     }]
   })
 }

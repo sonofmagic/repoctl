@@ -1,4 +1,5 @@
 import type { GitHubOperations } from './github'
+import type { ReleaseBodyMetadata } from './notes/model'
 import type { ReleaseOptions } from './types'
 import { spawnSync } from 'node:child_process'
 import { realpath } from 'node:fs/promises'
@@ -13,7 +14,7 @@ export interface RepairReleaseNotesOptions extends ReleaseOptions {
   tag?: string
   all?: boolean
   dryRun?: boolean
-  github?: Pick<GitHubOperations, 'listReleases' | 'updateRelease'>
+  github?: Pick<GitHubOperations, 'listReleases' | 'updateRelease' | 'readReleasePullRequestContributors'>
 }
 
 function parseReleaseTag(tag: string) {
@@ -81,7 +82,7 @@ async function readTagChangelog(tag: string, relativePackagePath: string, option
   return result.stdout?.toString().trim() || undefined
 }
 
-function releaseMetadata(options: ReleaseOptions) {
+function releaseMetadata(options: ReleaseOptions): ReleaseBodyMetadata {
   const env = getReleaseEnv(options)
   return {
     ...(env['GITHUB_REPOSITORY'] ? { repository: env['GITHUB_REPOSITORY'] } : {}),
@@ -133,7 +134,19 @@ export async function repairReleaseNotes(options: RepairReleaseNotesOptions) {
       skipped.push(release.tag_name)
       continue
     }
-    const body = buildGitHubReleaseBodyFromChangelog(parsed.packageName, parsed.version, changelog, metadata)
+    let releaseMetadataForBody = metadata
+    if (release.target_commitish && github.readReleasePullRequestContributors) {
+      try {
+        const contributors = await github.readReleasePullRequestContributors(release.target_commitish)
+        if (contributors.length) {
+          releaseMetadataForBody = { ...metadata, contributors }
+        }
+      }
+      catch {
+        // Historical releases remain repairable from their changelog when PR metadata is unavailable.
+      }
+    }
+    const body = buildGitHubReleaseBodyFromChangelog(parsed.packageName, parsed.version, changelog, releaseMetadataForBody)
     if (!options.dryRun && (release.name !== release.tag_name || release.body !== body)) {
       await github.updateRelease({ id: release.id, name: release.tag_name, body })
     }

@@ -1,6 +1,6 @@
 import type { ReleaseBodyMetadata, ReleaseCategory, ReleaseNoteDocument, ReleaseNoteEntry } from './model'
 import { resolveRepoctlLocale } from '../../../i18n'
-import { categoryOrder, categoryTitles, isAutomationContributor, zhCNCategoryTitles } from './model'
+import { categoryOrder, categoryTitles, uniqueContributors, zhCNCategoryTitles } from './model'
 
 function isChinese(metadata: ReleaseBodyMetadata) {
   return (metadata.locale ?? resolveRepoctlLocale()) === 'zh-CN'
@@ -61,7 +61,7 @@ function formatContributor(value: string) {
 }
 
 function formatContributors(contributors: string[], metadata: ReleaseBodyMetadata) {
-  const unique = [...new Set(contributors.map(value => value.trim()).filter(value => value && !isAutomationContributor(value)))].sort((a, b) => a.localeCompare(b))
+  const unique = uniqueContributors(contributors).sort((a, b) => a.localeCompare(b))
   return unique.length
     ? [`## ❤️ ${localized(metadata, 'Contributors', '贡献者')}`, '', `${localized(metadata, 'Thanks to', '感谢')} ${unique.map(formatContributor).join(' · ')}`]
     : []
@@ -127,7 +127,7 @@ export function renderGitHubRelease(document: ReleaseNoteDocument, metadata: Rel
     }
   }
 
-  const contributors = [...new Set(document.contributors)].filter(value => !isAutomationContributor(value)).sort((a, b) => a.localeCompare(b))
+  const contributors = uniqueContributors(document.contributors).sort((a, b) => a.localeCompare(b))
   if (contributors.length) {
     sections.push('', `### ❤️ ${localized(metadata, 'Contributors', '贡献者')}`, '', `${localized(metadata, 'Thanks to', '感谢')} ${contributors.map(formatContributor).join(' · ')}`)
   }

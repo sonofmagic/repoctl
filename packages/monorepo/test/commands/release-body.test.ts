@@ -65,6 +65,27 @@ describe('release pull request body', () => {
     expect(body).not.toContain('.changeset/ledger.yaml')
   })
 
+  it('scopes contributors to the selected package and normalizes Markdown forms', async () => {
+    const cwd = await mkdtemp(path.join(tmpdir(), 'repo-release-contributors-'))
+    tempRoots.push(cwd)
+    const packageDir = path.join(cwd, 'packages', 'demo')
+    const unrelatedDir = path.join(cwd, 'packages', 'unrelated')
+    await mkdir(packageDir, { recursive: true })
+    await mkdir(unrelatedDir, { recursive: true })
+    await writeFile(path.join(cwd, 'pnpm-workspace.yaml'), 'packages:\n  - packages/*\n', 'utf8')
+    await writeFile(path.join(packageDir, 'package.json'), JSON.stringify({ name: '@acme/demo', version: '2.0.0' }), 'utf8')
+    await writeFile(path.join(packageDir, 'CHANGELOG.md'), '# @acme/demo\n\n## 2.0.0\n\n### Patch Changes\n\n- 修复发布说明。\n', 'utf8')
+    await writeFile(path.join(unrelatedDir, 'package.json'), JSON.stringify({ name: '@acme/unrelated', version: '1.0.0' }), 'utf8')
+    await writeFile(path.join(unrelatedDir, 'CHANGELOG.md'), '# @acme/unrelated\n\n## 1.0.0\n\n### Patch Changes\n\n- 旧作者 by **@historical**。\n', 'utf8')
+
+    const release = await buildGitHubReleaseBody(cwd, '@acme/demo', '2.0.0', {
+      contributors: ['@alice', '**@alice**', '[@bob](https://github.com/bob)'],
+    })
+
+    expect(release).toContain('Thanks to @alice · @bob')
+    expect(release).not.toContain('@historical')
+  })
+
   it('links source commits, pull requests, and issues from release metadata', async () => {
     const cwd = await mkdtemp(path.join(tmpdir(), 'repo-release-links-'))
     tempRoots.push(cwd)

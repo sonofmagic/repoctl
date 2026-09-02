@@ -7,11 +7,11 @@ import { buildEntries } from './notes/entries'
 import {
   buildNpmPackageUrl,
   buildPackageCompareUrl,
-  isAutomationContributor,
   parseIntentPackages,
   parseIntentSummary,
   readVersionSection,
   uniqueCommits,
+  uniqueContributors,
 } from './notes/model'
 import { renderGitHubRelease, renderReleasePullRequest } from './notes/render'
 import { capture } from './shared'
@@ -131,10 +131,10 @@ function buildReleasePackage(release: PackageRelease) {
 
 function buildReleaseNoteDocumentFromReleases(releases: PackageRelease[], metadata: ReleaseBodyMetadata) {
   const entries = releases.flatMap(release => buildEntries(release, metadata.commits ?? []))
-  const contributors = [...new Set([
+  const contributors = uniqueContributors([
     ...(metadata.contributors ?? []),
     ...entries.flatMap(entry => entry.authors),
-  ])].filter(value => !isAutomationContributor(value))
+  ])
   const compareUrls = releases
     .map(release => buildPackageCompareUrl(release, metadata))
     .filter((url): url is string => Boolean(url))
@@ -151,6 +151,7 @@ export async function buildReleaseNoteDocument(
   cwd: string,
   previousVersions?: Map<string, string>,
   metadata: ReleaseBodyMetadata = {},
+  packageNames?: ReadonlySet<string>,
 ) {
   const workspacePackages = await getWorkspacePackages(cwd)
   const releases: PackageRelease[] = []
@@ -163,6 +164,9 @@ export async function buildReleaseNoteDocument(
       continue
     }
     if (typeof manifest.name !== 'string' || typeof manifest.version !== 'string') {
+      continue
+    }
+    if (packageNames && !packageNames.has(manifest.name)) {
       continue
     }
     if (previousVersions?.get(manifest.name) === manifest.version) {
@@ -219,7 +223,7 @@ export async function buildGitHubReleaseBody(
   packageVersion: string,
   metadata: ReleaseBodyMetadata = {},
 ) {
-  const document = await buildReleaseNoteDocument(cwd, undefined, metadata)
+  const document = await buildReleaseNoteDocument(cwd, undefined, metadata, new Set([packageName]))
   const filtered: ReleaseNoteDocument = {
     ...document,
     packages: document.packages.filter(pkg => pkg.name === packageName && pkg.version === packageVersion),
