@@ -352,16 +352,16 @@ importers:
         specifier: ^21.2.2
         version: 21.2.2(@types/node@26.4.1)(typescript@6.0.3)
       '@icebreakers/commitlint-config':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../commitlint
       '@icebreakers/eslint-config':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../eslint
       '@icebreakers/monorepo-templates':
         specifier: workspace:*
         version: link:../monorepo-templates
       '@icebreakers/stylelint-config':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../stylelint
       '@pnpm/find-workspace-dir':
         specifier: ^1000.1.5
