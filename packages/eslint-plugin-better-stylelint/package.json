@@ -51,7 +51,7 @@
   },
   "peerDependencies": {
     "eslint": "^9.0.0 || ^10.0.0",
-    "stylelint": "^17.4.0"
+    "stylelint": "^17.14.1"
   },
   "peerDependenciesMeta": {
     "stylelint": {
