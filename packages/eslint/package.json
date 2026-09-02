@@ -66,7 +66,7 @@
     }
   },
   "dependencies": {
-    "@antfu/eslint-config": "9.4.1",
+    "@antfu/eslint-config": "9.5.1",
     "@eslint-react/eslint-plugin": "^5.18.7",
     "@icebreakers/stylelint-config": "workspace:*",
     "@typescript-eslint/rule-tester": "^8.69.0",
