@@ -87,9 +87,9 @@
   },
   "dependencies": {
     "@icebreakers/commitlint-config": "^4.0.5",
-    "@icebreakers/eslint-config": "^7.1.0",
+    "@icebreakers/eslint-config": "^7.1.1",
     "@icebreakers/monorepo-templates": "workspace:*",
-    "@icebreakers/stylelint-config": "^5.0.6",
+    "@icebreakers/stylelint-config": "^5.0.7",
     "@pnpm/find-workspace-dir": "^1000.1.5",
     "@pnpm/logger": "^1100.0.0",
     "@pnpm/types": "^1102.1.0",
