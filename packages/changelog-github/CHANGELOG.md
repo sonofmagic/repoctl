@@ -1,5 +1,13 @@
 # @icebreakers/changelog-github
 
+## 2.0.3
+
+### Patch Changes
+
+- 统一所有公开包的 repoctl 仓库、文档、问题反馈和 npm 首页元数据，移除旧的 dev-configs 标识，并同步双语 README 的项目链接。
+
+- Move the shared development configuration packages into the repoctl workspace while preserving their package names and public exports.
+
 ## 2.0.2
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # stylelint-plugin-tailwindcss
 
+## 3.0.7
+
+### Patch Changes
+
+- 统一所有公开包的 repoctl 仓库、文档、问题反馈和 npm 首页元数据，移除旧的 dev-configs 标识，并同步双语 README 的项目链接。
+
+- Move the shared development configuration packages into the repoctl workspace while preserving their package names and public exports.
+
+- 升级 ESLint、TypeScript ESLint、UnoCSS、Weapp/Vue 及相关工具链依赖，并修复传递依赖中的已知安全漏洞。
+
+- Updated dependencies:
+  - postcss-tailwindcss@3.0.7
+
 ## 3.0.6
 
 ### Patch Changes

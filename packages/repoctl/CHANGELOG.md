@@ -1,5 +1,14 @@
 # repoctl
 
+## 5.4.6
+
+### Patch Changes
+
+- 统一所有公开包的 repoctl 仓库、文档、问题反馈和 npm 首页元数据，移除旧的 dev-configs 标识，并同步双语 README 的项目链接。
+
+- Updated dependencies:
+  - @icebreakers/monorepo@5.4.6
+
 ## 5.4.5
 
 ### Patch Changes

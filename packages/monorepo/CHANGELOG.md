@@ -1,5 +1,17 @@
 # @icebreakers/monorepo
 
+## 5.4.6
+
+### Patch Changes
+
+- 统一所有公开包的 repoctl 仓库、文档、问题反馈和 npm 首页元数据，移除旧的 dev-configs 标识，并同步双语 README 的项目链接。
+
+- Updated dependencies:
+  - @icebreakers/commitlint-config@4.0.6
+  - @icebreakers/eslint-config@7.1.1
+  - @icebreakers/monorepo-templates@1.3.2
+  - @icebreakers/stylelint-config@5.0.7
+
 ## 5.4.5
 
 ### Patch Changes
