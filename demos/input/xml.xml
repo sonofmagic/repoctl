@@ -1,0 +1,3 @@
+<store><product id= "01" category="books"><name>Effective Java</name><price currency='USD'>45.00</price></product>
+  <product id="02" category="electronics" stock="unavailable"><name>Bluetooth Speaker</name><price currency='USD'>120.00</price></product><membership level="gold" id="001"><user Name="John Doe"></user></membership>
+</store>

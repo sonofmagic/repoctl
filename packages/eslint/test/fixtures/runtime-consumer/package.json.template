@@ -1,0 +1,12 @@
+{
+  "name": "icebreaker-eslint-runtime-fixture",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@icebreakers/eslint-config": "__PACKAGE_SPEC__",
+    "eslint": "^10.2.1"
+  }
+}

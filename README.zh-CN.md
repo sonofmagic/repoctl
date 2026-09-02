@@ -18,13 +18,14 @@ repoctl 是面向 pnpm 与 Turborepo monorepo 的任务型 CLI，用于初始化
 - 通过 `repo templates` 和 `repo new` 创建包与应用。
 - 通过 `repo check` 和 `repo verify` 命令组执行可重复的本地校验。
 - 通过 `repoctl/tooling` 管理工程配置。
+- 在同一仓库维护共享 lint/config 包与 `apps/mock` fixture demo。
 - 默认保留非受管文件的工作区升级。
 - 基于 pnpm change intents 的正式发布与预发布。
 - 面向 CI、编辑器和排障流程的 JSON 与 Markdown 报告。
 
 ## 安装
 
-repoctl 需要 Node.js 22.12 或更高版本。
+repoctl 需要 Node.js 22.13 或更高版本。
 
 ```bash
 pnpm add -D repoctl
@@ -72,6 +73,13 @@ REPOCTL_LANG=zh-CN pnpm exec repo doctor
 | [`@icebreakers/monorepo-templates`](packages/monorepo-templates) | 内置模板和受管工作区资产                 |
 | [`create-repoctl`](packages/create-repoctl)                      | 推荐的 `npm create` / `pnpm create` 入口 |
 | [`create-icebreaker`](packages/create-icebreaker)                | 兼容 create 入口                         |
+| [`@icebreakers/eslint-config`](packages/eslint)                  | 共享 ESLint 预设与框架集成               |
+| [`@icebreakers/stylelint-config`](packages/stylelint)            | 共享 Stylelint 预设与 CSS 规范            |
+| [`@icebreakers/commitlint-config`](packages/commitlint)           | 类型完备的 Conventional Commits 配置     |
+| [`@icebreakers/changelog-github`](packages/changelog-github)     | Changesets GitHub changelog 格式器        |
+| [`stylelint-plugin-tailwindcss`](packages/stylelint-plugin-tailwindcss) | Tailwind/UnoCSS Stylelint 规则       |
+| [`postcss-tailwindcss`](packages/postcss-tailwindcss)            | PostCSS Tailwind 语法分析                |
+| [`lightningcss-tailwindcss`](packages/lightningcss-tailwindcss)  | Lightning CSS Tailwind 语法分析          |
 
 `templates/` 下的工作区是私有源码资产，通过 `@icebreakers/monorepo-templates` 交付，不再作为独立 npm 包发布。
 
@@ -88,6 +96,8 @@ pnpm test
 ```
 
 修改可发布包时使用 `pnpm change` 记录变更，并通过 `pnpm change status` 检查发布计划。
+
+dev-configs 相关开发包、测试、fixtures 和 demo 与 repoctl 在同一仓库维护；每个可发布包仍使用独立的 npm 版本和 release intent。
 
 ## 相关链接
 

@@ -6,7 +6,7 @@ repoctl accepts bug fixes, documentation improvements, tests, and focused featur
 
 ## Development setup
 
-1. Use Node.js 22.12+ and enable Corepack.
+1. Use Node.js 22.13+ and enable Corepack.
 2. Run `pnpm install`.
 3. Create a focused branch from `main`.
 4. Add or update tests with the implementation.
@@ -22,6 +22,8 @@ pnpm test
 ```
 
 Changes to publishable packages require a pnpm change intent created with `pnpm change`. Commits must use Conventional Commit syntax.
+
+The repository includes repoctl's CLI and monorepo engine, template assets, shared lint/config packages, and the `apps/mock` fixture demo. Keep package APIs and independent version lines intact when working across these areas.
 
 When changing templates or managed root assets, update their source first and refresh packaged copies with `pnpm --filter @icebreakers/monorepo-templates sync:assets`.
 

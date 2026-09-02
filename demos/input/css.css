@@ -1,0 +1,9 @@
+.demo{
+color:red;background: #fff
+}
+
+@media (max-width:480px){
+  .demo {
+      margin-left:-1rem;
+  }
+}

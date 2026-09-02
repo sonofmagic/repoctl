@@ -1,0 +1,156 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`index > common 1`] = `
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recommended-vue/scss",
+    "stylelint-config-recess-order",
+  ],
+  "overrides": [],
+  "plugins": [
+    "stylelint-plugin-tailwindcss",
+    "stylelint-plugin-tailwindcss/no-invalid-apply",
+    "stylelint-plugin-tailwindcss/unocss/no-atomic-class",
+    "stylelint-plugin-tailwindcss/unocss/no-invalid-apply",
+  ],
+  "rules": {
+    "at-rule-no-deprecated": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "theme",
+          "screen",
+          "apply",
+          "source",
+          "utility",
+          "variant",
+          "custom-variant",
+          "reference",
+          "config",
+          "plugin",
+          "unocss",
+        ],
+      },
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "theme",
+          "screen",
+          "apply",
+          "source",
+          "utility",
+          "variant",
+          "custom-variant",
+          "reference",
+          "config",
+          "plugin",
+          "unocss",
+        ],
+      },
+    ],
+    "function-name-case": null,
+    "media-feature-range-notation": "prefix",
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "severity": "warning",
+      },
+    ],
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "theme",
+          "screen",
+          "apply",
+          "source",
+          "utility",
+          "variant",
+          "custom-variant",
+          "reference",
+          "config",
+          "plugin",
+          "unocss",
+        ],
+      },
+    ],
+    "scss/selector-no-redundant-nesting-selector": true,
+    "selector-class-pattern": [
+      /\\^\\[a-z\\]\\[a-z0-9\\]\\*\\(\\?:-\\[a-z0-9\\]\\+\\)\\*\\(\\?:__\\[a-z0-9\\]\\+\\(\\?:-\\[a-z0-9\\]\\+\\)\\*\\)\\*\\(\\?:--\\[a-z0-9\\]\\+\\(\\?:-\\[a-z0-9\\]\\+\\)\\*\\)\\*\\$/,
+      {
+        "message": "Use BEM/OOCSS-friendly class names",
+        "resolveNestedSelectors": true,
+      },
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": [
+          "page",
+        ],
+      },
+    ],
+    "tailwindcss/no-atomic-class": true,
+    "tailwindcss/no-invalid-apply": true,
+    "unit-no-unknown": [
+      true,
+      {
+        "ignoreUnits": [
+          "rpx",
+        ],
+      },
+    ],
+    "unocss/no-atomic-class": true,
+    "unocss/no-invalid-apply": true,
+  },
+}
+`;
+
+exports[`index > setVscodeSettingsJson case 0 1`] = `
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "vue",
+    "css",
+    "scss",
+  ],
+}
+`;
+
+exports[`index > setVscodeSettingsJson case 1 1`] = `
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "vue",
+    "scss",
+    "css",
+  ],
+}
+`;
+
+exports[`index > setVscodeSettingsJson removes style languages from eslint.validate 1`] = `
+{
+  "css.validate": false,
+  "eslint.validate": [
+    "javascript",
+    "markdown",
+  ],
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "vue",
+    "css",
+    "scss",
+  ],
+}
+`;

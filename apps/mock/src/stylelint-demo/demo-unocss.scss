@@ -1,0 +1,60 @@
+/* stylelint-disable tailwindcss/no-atomic-class, tailwindcss/no-invalid-apply, tailwindcss/no-apply, tailwindcss/no-arbitrary-value */
+.uno-demo-panel {
+  padding: 16px;
+
+  &__content {
+    color: #222;
+  }
+}
+
+.uno-semantic-button {
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+@unocss preflights;
+
+/* stylelint-disable comment-empty-line-before */
+/* should report: unocss/no-apply */
+.button-with-apply {
+  @apply rounded-lg;
+}
+
+/* should report: unocss/no-invalid-apply and unocss/no-apply */
+.button-with-invalid-apply {
+  @apply bg-rd-500 rounded-lg;
+}
+
+/* should report: unocss/no-apply and unocss/no-arbitrary-value */
+.button-with-arbitrary-apply {
+  @apply w-[10px] [mask-type:luminance];
+}
+
+/* should report: unocss/no-apply and unocss/no-variant-group */
+.button-with-variant-group {
+  @apply hover:(bg-red-500 text-white);
+}
+/* stylelint-enable comment-empty-line-before */
+
+/* stylelint-disable selector-class-pattern, comment-empty-line-before */
+/* should report: unocss/no-atomic-class */
+.grid {
+  display: grid;
+}
+
+/* should report: unocss/no-atomic-class */
+.items-center {
+  align-items: center;
+}
+
+/* should report: unocss/no-atomic-class */
+.md\:flex {
+  display: flex;
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.w-\[10px\] {
+  width: 10px;
+}
+/* stylelint-enable selector-class-pattern, comment-empty-line-before */
+/* stylelint-enable tailwindcss/no-atomic-class, tailwindcss/no-invalid-apply, tailwindcss/no-apply, tailwindcss/no-arbitrary-value */

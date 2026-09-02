@@ -52,6 +52,19 @@
         "coverage/**"
       ]
     },
+    "test:types": {
+      "dependsOn": [
+        "build",
+        "^build"
+      ],
+      "inputs": [
+        "test-d/**",
+        "package.json",
+        "tsconfig*.json",
+        "dist/**"
+      ],
+      "outputs": []
+    },
     "typecheck": {
       "dependsOn": [
         "^typecheck"

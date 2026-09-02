@@ -5,6 +5,11 @@ on:
   #   branches: ['main']
   pull_request:
     types: [opened, synchronize]
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+      - '.changeset/**'
+      - 'LICENSE*'
   workflow_dispatch:
 
 permissions:
@@ -42,6 +47,12 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Check tracked build artifacts
+        run: pnpm check:no-tracked-build-artifacts
+
+      - name: Check CI/CD workflow contracts
+        run: pnpm check:workflows
 
       - name: Security Audit
         run: pnpm audit --audit-level=moderate

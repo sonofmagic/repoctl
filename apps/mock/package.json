@@ -1,0 +1,34 @@
+{
+  "name": "@icebreakers/mock",
+  "version": "0.0.51",
+  "private": true,
+  "description": "Mock application demonstrating repoctl development presets",
+  "author": "ice breaker <1324318532@qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonofmagic/repoctl.git",
+    "directory": "apps/mock"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/repoctl/issues"
+  },
+  "keywords": [
+    "dev-configs",
+    "stylelint",
+    "mock"
+  ],
+  "scripts": {
+    "stylelint": "npx @icebreakers/stylelint-config",
+    "lint:styles:demo": "stylelint \"src/stylelint-demo/**/*.{css,scss,vue}\"",
+    "lint:styles:demo:fix": "stylelint \"src/stylelint-demo/**/*.{css,scss,vue}\" --fix",
+    "lint:styles:formatting": "stylelint \"src/stylelint-demo/demo-formatting.css\"",
+    "lint:styles:formatting:fix": "stylelint \"src/stylelint-demo/demo-formatting.css\" --fix"
+  },
+  "dependencies": {
+    "@icebreakers/stylelint-config": "workspace:*"
+  },
+  "devDependencies": {
+    "vue": "^3.5.42"
+  }
+}

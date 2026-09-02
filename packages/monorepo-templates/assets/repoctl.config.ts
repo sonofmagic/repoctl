@@ -20,10 +20,15 @@ export default {
       extends: ['@commitlint/config-conventional'],
     },
     eslint: {
+      astro: true,
       ignores: ['**/fixtures/**'],
+      svelte: true,
+      vue: true,
     },
     stylelint: {
-      rules: {},
+      rules: {
+        'media-feature-range-notation': 'prefix',
+      },
     },
     lintStaged: {
       monorepoCommand: 'pnpm exec repo',

@@ -1,0 +1,12 @@
+.format-card[data-state=open] {
+  margin-top: 8px;
+  margin-right: 12px;
+  margin-bottom: 8px;
+  margin-left: 12px;
+  color: rgba(15, 98, 254, 0.5);
+  background-image: url(icon.svg);
+}
+
+.format-card__title {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}

@@ -1,0 +1,67 @@
+{
+  "name": "@icebreakers/changelog-github",
+  "type": "module",
+  "version": "2.0.2",
+  "description": "Changesets GitHub changelog formatter for the repoctl development toolchain",
+  "author": "ice breaker <1324318532@qq.com>",
+  "license": "MIT",
+  "homepage": "https://repoctl.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonofmagic/repoctl.git",
+    "directory": "packages/changelog-github"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/repoctl/issues"
+  },
+  "keywords": [
+    "changesets",
+    "changelog",
+    "dev-configs",
+    "icebreakers"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsdown --watch --sourcemap",
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:types": "tsd",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {},
+  "tsd": {
+    "directory": "test-d",
+    "compilerOptions": {
+      "module": "node16",
+      "skipLibCheck": true
+    }
+  },
+  "dependencies": {
+    "@changesets/get-github-info": "^1.0.0",
+    "@changesets/types": "^7.0.0",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@changesets/parse": "^1.0.0"
+  }
+}

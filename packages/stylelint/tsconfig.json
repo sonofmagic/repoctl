@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "stylelint-plugin-tailwindcss": [
+        "../stylelint-plugin-tailwindcss/src/index.ts"
+      ],
+      "postcss-tailwindcss": [
+        "../postcss-tailwindcss/src/index.ts"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "test",
+    "../stylelint-plugin-tailwindcss/src",
+    "../postcss-tailwindcss/src"
+  ]
+}

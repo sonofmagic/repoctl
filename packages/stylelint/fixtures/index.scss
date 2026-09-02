@@ -1,0 +1,72 @@
+/* stylelint-disable order/properties-order */
+div {
+  background-color: slategray;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  font-size: 1.5rem;
+  grid-gap: 16px;
+  order: 1;
+  pointer-events: all;
+  position: relative;
+  transition: opacity 300ms ease;
+  width: 320px;
+}
+
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@config "./tailwind.site.config.js";
+@unocss preflights;
+@unocss default;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+}
+
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+}
+
+@layer utilities {
+  .filter-none {
+    filter: none;
+  }
+
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+}
+
+.content-area {
+  height: calc(100vh - theme(spacing[2.5]));
+}
+
+.content-area1 {
+  height: calc(100vh - theme(spacing.12));
+}
+
+.btn-blue {
+  background-color: theme(colors.blue.500);
+}
+
+@media screen(sm) {
+  /* ... */
+}
+
+.btnBlue {
+  @apply btn-blue;
+}

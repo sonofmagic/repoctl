@@ -1,0 +1,17 @@
+{
+  "extends": "../../packages/repoctl/tsconfig.json",
+  "compilerOptions": {
+    "moduleDetection": "force",
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "src/**/*.vue",
+    "src/**/*.css",
+    "src/**/*.scss"
+  ]
+}

@@ -1,0 +1,16 @@
+a {
+  grid-template-areas:
+    'a a'
+    'b b b';
+  colr: hsl(20deg 10% 30% / 5%);
+}
+
+a {
+  --Foo: 1rem;
+}
+
+.VPHome {
+  .image-src {
+    width: 100%;
+  }
+}

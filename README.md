@@ -18,13 +18,14 @@ repoctl is a task-first CLI for initializing, maintaining, validating, and relea
 - Package and application creation with `repo templates` and `repo new`.
 - Repeatable local verification with `repo check` and the `repo verify` command group.
 - Managed tooling configuration through `repoctl/tooling`.
+- Shared lint/config packages and the `apps/mock` fixture demo maintained in this repository.
 - Workspace upgrades that preserve unowned project files by default.
 - Stable and prerelease publishing based on pnpm change intents.
 - Machine-readable JSON and Markdown reports for CI, editors, and support workflows.
 
 ## Install
 
-repoctl requires Node.js 22.12 or newer.
+repoctl requires Node.js 22.13 or newer.
 
 ```bash
 pnpm add -D repoctl
@@ -72,6 +73,13 @@ Supported locales are `en` and `zh-CN`. Machine-readable field names, check IDs,
 | [`@icebreakers/monorepo-templates`](packages/monorepo-templates) | Built-in templates and managed workspace assets     |
 | [`create-repoctl`](packages/create-repoctl)                      | Recommended `npm create` / `pnpm create` entrypoint |
 | [`create-icebreaker`](packages/create-icebreaker)                | Compatibility create entrypoint                     |
+| [`@icebreakers/eslint-config`](packages/eslint)                  | Shared ESLint preset and framework integrations     |
+| [`@icebreakers/stylelint-config`](packages/stylelint)            | Shared Stylelint preset and CSS policy              |
+| [`@icebreakers/commitlint-config`](packages/commitlint)           | Typed Conventional Commits configuration            |
+| [`@icebreakers/changelog-github`](packages/changelog-github)     | Changesets GitHub changelog formatter               |
+| [`stylelint-plugin-tailwindcss`](packages/stylelint-plugin-tailwindcss) | Tailwind/UnoCSS Stylelint rules                 |
+| [`postcss-tailwindcss`](packages/postcss-tailwindcss)            | PostCSS Tailwind syntax analysis                    |
+| [`lightningcss-tailwindcss`](packages/lightningcss-tailwindcss)  | Lightning CSS Tailwind syntax analysis              |
 
 The workspaces under `templates/` are private source assets. They are shipped through `@icebreakers/monorepo-templates`; they are not independently published packages.
 
@@ -88,6 +96,10 @@ pnpm test
 ```
 
 Use `pnpm change` for changes that affect a publishable package and inspect the release plan with `pnpm change status`.
+
+The development packages are maintained in this repository alongside repoctl,
+including their tests, fixtures, and demo application. Each publishable package
+keeps its own npm version and release intent.
 
 ## Documentation
 

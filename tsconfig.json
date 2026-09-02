@@ -1,11 +1,32 @@
 {
   "extends": "repoctl/tsconfig.json",
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0"
+  },
   "references": [
+    {
+      "path": "./apps/mock"
+    },
     {
       "path": "./packages/create-icebreaker"
     },
     {
       "path": "./packages/create-repoctl"
+    },
+    {
+      "path": "./packages/changelog-github"
+    },
+    {
+      "path": "./packages/commitlint"
+    },
+    {
+      "path": "./packages/eslint"
+    },
+    {
+      "path": "./packages/eslint-plugin-better-stylelint"
+    },
+    {
+      "path": "./packages/lightningcss-tailwindcss"
     },
     {
       "path": "./packages/monorepo"
@@ -15,6 +36,15 @@
     },
     {
       "path": "./packages/repoctl"
+    },
+    {
+      "path": "./packages/postcss-tailwindcss"
+    },
+    {
+      "path": "./packages/stylelint"
+    },
+    {
+      "path": "./packages/stylelint-plugin-tailwindcss"
     },
     {
       "path": "./templates/cli"

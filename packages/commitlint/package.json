@@ -1,0 +1,75 @@
+{
+  "name": "@icebreakers/commitlint-config",
+  "type": "module",
+  "version": "4.0.5",
+  "description": "Commitlint preset from the repoctl development toolchain",
+  "author": "ice breaker <1324318532@qq.com>",
+  "license": "MIT",
+  "homepage": "https://repoctl.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonofmagic/repoctl.git",
+    "directory": "packages/commitlint"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/repoctl/issues"
+  },
+  "keywords": [
+    "commitlint",
+    "dev-configs",
+    "icebreakers"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsdown --watch --sourcemap",
+    "build:watch": "tsdown --watch --sourcemap",
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:types": "tsd",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {},
+  "tsd": {
+    "directory": "test-d",
+    "compilerOptions": {
+      "skipLibCheck": true
+    }
+  },
+  "peerDependencies": {
+    "conventional-changelog-conventionalcommits": ">=9.0.0"
+  },
+  "peerDependenciesMeta": {
+    "conventional-changelog-conventionalcommits": {
+      "optional": false
+    }
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^21.2.2",
+    "@commitlint/types": "^21.2.0",
+    "conventional-changelog-conventionalcommits": "^10.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/lint": "^21.2.2",
+    "@commitlint/load": "^21.2.2"
+  }
+}

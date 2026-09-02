@@ -8,6 +8,7 @@ export default [
   ...config,
   {
     ignores: [
+      '**/*.svg',
       'packages/monorepo/test/fixtures/demo/**',
       'templates/vitepress/.vitepress/config.ts.timestamp-*.mjs',
     ],

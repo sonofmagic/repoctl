@@ -1,0 +1,80 @@
+/* stylelint-disable unocss/no-atomic-class, unocss/no-invalid-apply, unocss/no-apply, unocss/no-arbitrary-value */
+.page-shell {
+  display: block;
+  padding: 24px;
+}
+
+.card__body--primary {
+  color: #123456;
+}
+
+.button-primary {
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.media-frame {
+  width: 320px;
+}
+
+.hero-mask {
+  mask-type: luminance;
+}
+
+/* stylelint-disable selector-class-pattern, comment-empty-line-before */
+/* should report: tailwindcss/no-atomic-class */
+.flex {
+  display: flex;
+}
+
+/* should report: tailwindcss/no-atomic-class */
+.hover\:bg-red-500:hover {
+  background: red;
+}
+
+/* should report: tailwindcss/no-atomic-class and tailwindcss/no-arbitrary-value */
+.w-\[10px\] {
+  width: 10px;
+}
+
+/* should report: tailwindcss/no-atomic-class */
+.w-10px {
+  width: 10px;
+}
+
+/* should report: tailwindcss/no-atomic-class */
+.w-50\% {
+  width: 50%;
+}
+
+/* should report: tailwindcss/no-atomic-class */
+.top--10px {
+  top: -10px;
+}
+
+/* should report: tailwindcss/no-atomic-class */
+.bg-\$brand {
+  background: var(--brand);
+}
+
+/* should report: tailwindcss/no-atomic-class */
+.text-rgb\(255\,0\,0\) {
+  color: rgb(255 0 0);
+}
+
+/* should report: tailwindcss/no-atomic-class */
+.translate-x-50\% {
+  translate: 50% 0;
+}
+
+/* should report: tailwindcss/no-atomic-class */
+.outline-\#fff {
+  outline-color: #fff;
+}
+
+/* should report: tailwindcss/no-atomic-class and tailwindcss/no-arbitrary-value */
+.\[mask-type\:luminance\] {
+  mask-type: luminance;
+}
+/* stylelint-enable selector-class-pattern, comment-empty-line-before */
+/* stylelint-enable unocss/no-atomic-class, unocss/no-invalid-apply, unocss/no-apply, unocss/no-arbitrary-value */

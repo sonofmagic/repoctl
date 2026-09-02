@@ -1,0 +1,108 @@
+{
+  "name": "@icebreakers/eslint-config",
+  "type": "module",
+  "version": "7.1.0",
+  "description": "ESLint preset from the repoctl development toolchain",
+  "author": "ice breaker <1324318532@qq.com>",
+  "license": "MIT",
+  "homepage": "https://repoctl.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonofmagic/repoctl.git",
+    "directory": "packages/eslint"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/repoctl/issues"
+  },
+  "keywords": [
+    "dev-configs",
+    "eslint-config",
+    "icebreaker"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./stylelint": {
+      "types": "./dist/stylelint.d.ts",
+      "import": "./dist/stylelint.js",
+      "require": "./dist/stylelint.cjs"
+    },
+    "./*": "./*"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsdown --watch --sourcemap",
+    "build": "tsdown",
+    "bench:formatters": "node --import tsx ./scripts/benchmark-formatters.ts",
+    "test": "vitest run",
+    "test:types": "tsd",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icebreakers/eslint-config",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "eslint-plugin-pnpm": "^1.6.0",
+    "tailwindcss": "^3.3.0 || ^4.1.17"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-pnpm": {
+      "optional": true
+    },
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "9.4.1",
+    "@eslint-react/eslint-plugin": "^5.18.7",
+    "@icebreakers/stylelint-config": "workspace:*",
+    "@typescript-eslint/rule-tester": "^8.69.0",
+    "@typescript-eslint/typescript-estree": "^8.69.0",
+    "@typescript-eslint/utils": "^8.69.0",
+    "@vue/compiler-sfc": "^3.5.42",
+    "@weapp-vite/eslint": "^0.2.2",
+    "eslint-flat-config-utils": "3.2.0",
+    "eslint-plugin-better-stylelint": "workspace:*",
+    "eslint-plugin-better-tailwindcss": "^4.7.0",
+    "eslint-plugin-format": "2.0.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.5",
+    "eslint-plugin-tailwindcss": "4.4.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "tsd": {
+    "directory": "test-d",
+    "compilerOptions": {
+      "module": "nodenext",
+      "baseUrl": ".",
+      "paths": {
+        "@icebreakers/stylelint-config": [
+          "../stylelint/dist/index.d.ts"
+        ],
+        "eslint-plugin-better-stylelint": [
+          "../eslint-plugin-better-stylelint/dist/index.d.ts"
+        ]
+      },
+      "skipLibCheck": true
+    }
+  },
+  "devDependencies": {
+    "semver": "^7.8.5"
+  }
+}

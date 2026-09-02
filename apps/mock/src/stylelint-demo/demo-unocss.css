@@ -1,0 +1,109 @@
+/* stylelint-disable tailwindcss/no-atomic-class, tailwindcss/no-invalid-apply, tailwindcss/no-apply, tailwindcss/no-arbitrary-value */
+.uno-shell {
+  display: block;
+  padding: 24px;
+}
+
+.uno-card__body--primary {
+  color: #123456;
+}
+
+.uno-button-primary {
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+/* stylelint-disable comment-empty-line-before */
+/* should report: unocss/no-apply only, not unocss/no-invalid-apply */
+.uno-apply-valid-spacing {
+  @apply rounded-lg px-4;
+}
+
+/* should report: unocss/no-apply only, not unocss/no-invalid-apply */
+.uno-apply-semantic-token {
+  @apply button-base;
+}
+
+/* should report: unocss/no-apply and unocss/no-invalid-apply */
+.uno-apply-invalid-color {
+  @apply bg-rd-500 rounded-lg;
+}
+
+/* should report: unocss/no-apply and unocss/no-invalid-apply */
+.uno-apply-invalid-alignment {
+  @apply justify-betwen items-cneter;
+}
+
+/* should report: unocss/no-apply and unocss/no-arbitrary-value, not unocss/no-invalid-apply */
+.uno-apply-bracket-arbitrary {
+  @apply w-[10px] [mask-type:luminance];
+}
+
+/* should report: unocss/no-apply, unocss/no-arbitrary-value, and unocss/no-invalid-apply */
+.uno-apply-bare-arbitrary {
+  @apply w-10px text-rgb(255,0,0) translate-x-50%;
+}
+
+/* should report: unocss/no-apply and unocss/no-variant-group, not unocss/no-invalid-apply */
+.uno-apply-variant-group {
+  @apply hover:(bg-red-500 text-white);
+}
+/* stylelint-enable comment-empty-line-before */
+
+/* stylelint-disable selector-class-pattern, comment-empty-line-before */
+/* should report: unocss/no-atomic-class */
+.flex {
+  display: flex;
+}
+
+/* should report: unocss/no-atomic-class */
+.hover\:bg-red-500:hover {
+  background: red;
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.w-\[10px\] {
+  width: 10px;
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.w-10px {
+  width: 10px;
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.w-50\% {
+  width: 50%;
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.top--10px {
+  top: -10px;
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.bg-\$brand {
+  background: var(--brand);
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.text-rgb\(255\,0\,0\) {
+  color: rgb(255 0 0);
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.translate-x-50\% {
+  translate: 50% 0;
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.outline-\#fff {
+  outline-color: #fff;
+}
+
+/* should report: unocss/no-atomic-class and unocss/no-arbitrary-value */
+.\[mask-type\:luminance\] {
+  mask-type: luminance;
+}
+/* stylelint-enable selector-class-pattern, comment-empty-line-before */
+/* stylelint-enable tailwindcss/no-atomic-class, tailwindcss/no-invalid-apply, tailwindcss/no-apply, tailwindcss/no-arbitrary-value */
