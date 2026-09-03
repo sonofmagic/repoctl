@@ -90,7 +90,7 @@
     "@types/set-value": "^4.0.3",
     "@typescript-eslint/types": "^8.69.0",
     "@unocss/eslint-plugin": "66.9.2",
-    "@vitest/coverage-v8": "~4.1.11",
+    "@vitest/coverage-v8": "~5.0.0",
     "astro-eslint-parser": "^3.1.0",
     "ci-info": "^4.4.0",
     "cross-env": "^10.1.0",
@@ -131,7 +131,7 @@
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
     "unbuild": "^3.6.1",
-    "vitest": "~4.1.11",
+    "vitest": "~5.0.0",
     "yaml": "^2.9.0"
   },
   "publishConfig": {
