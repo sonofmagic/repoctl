@@ -43,7 +43,7 @@
     "tailwind-variants": "^3.3.1",
     "vue": "^3.5.42",
     "vue-i18n": "^11.4.10",
-    "vue-router": "^5.3.0"
+    "vue-router": "^5.3.1"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.54.3",
