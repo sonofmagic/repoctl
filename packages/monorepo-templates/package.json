@@ -55,9 +55,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@inquirer/checkbox": "^5.2.3",
-    "@inquirer/input": "^5.1.4",
-    "@inquirer/select": "^5.2.3",
+    "@inquirer/checkbox": "^5.2.4",
+    "@inquirer/input": "^5.1.5",
+    "@inquirer/select": "^5.2.4",
     "commander": "^15.0.0",
     "nanoexec": "^1.1.0",
     "yaml": "^2.9.0"
