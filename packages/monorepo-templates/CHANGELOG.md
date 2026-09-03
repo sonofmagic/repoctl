@@ -1,5 +1,11 @@
 # @icebreakers/monorepo-templates
 
+## 1.3.3
+
+### Patch Changes
+
+- Update dependencies in the monorepo templates package. (#865)
+
 ## 1.3.2
 
 ### Patch Changes

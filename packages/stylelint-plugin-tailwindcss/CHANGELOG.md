@@ -1,5 +1,16 @@
 # stylelint-plugin-tailwindcss
 
+## 3.0.8
+
+### Patch Changes
+
+- chore(deps): update pnpm-workspace.overrides postcss to v8.5.28 (#866)
+
+- Update dependency compatibility and the related linting packages. (#867)
+
+- Updated dependencies:
+  - postcss-tailwindcss@3.0.8
+
 ## 3.0.7
 
 ### Patch Changes

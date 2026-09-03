@@ -1,6 +1,6 @@
 {
   "name": "@icebreakers/mock",
-  "version": "0.0.52",
+  "version": "0.0.53",
   "private": true,
   "description": "Mock application demonstrating repoctl development presets",
   "author": "ice breaker <1324318532@qq.com>",

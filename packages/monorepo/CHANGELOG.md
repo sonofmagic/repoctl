@@ -1,5 +1,14 @@
 # @icebreakers/monorepo
 
+## 5.4.7
+
+### Patch Changes
+
+- Updated dependencies:
+  - @icebreakers/eslint-config@7.1.2
+  - @icebreakers/monorepo-templates@1.3.3
+  - @icebreakers/stylelint-config@5.0.8
+
 ## 5.4.6
 
 ### Patch Changes

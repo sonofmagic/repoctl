@@ -1,7 +1,7 @@
 {
   "name": "@icebreakers/eslint-config",
   "type": "module",
-  "version": "7.1.1",
+  "version": "7.1.2",
   "description": "ESLint preset from the repoctl development toolchain",
   "author": "ice breaker <1324318532@qq.com>",
   "license": "MIT",

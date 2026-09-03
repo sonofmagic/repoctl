@@ -14,6 +14,11 @@
     - bright-repoctl-links
     - dev-configs-merge
     - quiet-deps-audit
+"@icebreakers/eslint-config@7.1.2":
+  dir: packages/eslint
+  intents:
+    - auto-pr-864
+    - auto-pr-867
 "@icebreakers/monorepo-templates@1.1.0":
   dir: packages/monorepo-templates
   intents:
@@ -43,6 +48,10 @@
   dir: packages/monorepo-templates
   intents:
     - bright-repoctl-links
+"@icebreakers/monorepo-templates@1.3.3":
+  dir: packages/monorepo-templates
+  intents:
+    - auto-pr-865
 "@icebreakers/monorepo@5.1.0":
   dir: packages/monorepo
   intents:
@@ -140,6 +149,11 @@ postcss-tailwindcss@3.0.7:
   intents:
     - bright-repoctl-links
     - dev-configs-merge
+postcss-tailwindcss@3.0.8:
+  dir: packages/postcss-tailwindcss
+  intents:
+    - auto-pr-866
+    - auto-pr-867
 repoctl@5.2.0:
   dir: packages/repoctl
   intents:
@@ -171,3 +185,8 @@ stylelint-plugin-tailwindcss@3.0.7:
     - bright-repoctl-links
     - dev-configs-merge
     - quiet-deps-audit
+stylelint-plugin-tailwindcss@3.0.8:
+  dir: packages/stylelint-plugin-tailwindcss
+  intents:
+    - auto-pr-866
+    - auto-pr-867
