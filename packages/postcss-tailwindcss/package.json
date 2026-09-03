@@ -53,8 +53,8 @@
   "dependencies": {
     "enhanced-resolve": "^5.24.5",
     "get-tsconfig": "^4.14.3",
-    "postcss": "^8.5.26",
-    "postcss-selector-parser": "^7.1.5",
+    "postcss": "^8.5.27",
+    "postcss-selector-parser": "^7.1.6",
     "postcss-value-parser": "^4.2.0"
   },
   "publishConfig": {
