@@ -1,5 +1,16 @@
 # @icebreakers/eslint-config
 
+## 7.1.2
+
+### Patch Changes
+
+- Update eslint-plugin-react-refresh compatibility. (#864)
+
+- Update dependency compatibility and the related linting packages. (#867)
+
+- Updated dependencies:
+  - @icebreakers/stylelint-config@5.0.8
+
 ## 7.1.1
 
 ### Patch Changes
