@@ -103,7 +103,7 @@ describe('peer compatibility', () => {
   })
 
   it('installs @weapp-vite/eslint with the config package', () => {
-    expect(packageJson.dependencies?.['@weapp-vite/eslint']).toBe('^0.2.2')
+    expect(packageJson.dependencies?.['@weapp-vite/eslint']).toBe('^0.2.3')
     expect(packageJson.peerDependencies?.['@weapp-vite/eslint']).toBeUndefined()
   })
 })
