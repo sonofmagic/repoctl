@@ -23,7 +23,7 @@ allowBuilds:
   workerd: true
 overrides:
   prettier: 3.9.6
-  typescript: 6.0.3
+  typescript: 7.0.2
   vite: 8.2.2
   postcss: 8.5.27
   postcss-selector-parser: 7.1.6
