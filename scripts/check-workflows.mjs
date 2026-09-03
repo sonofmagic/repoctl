@@ -135,7 +135,31 @@ function checkReleaseIntentWorkflow() {
   assert.match(source, /\.changeset\/\.\+\\\.md/)
 }
 
+function checkAutomaticReleaseIntentWorkflow() {
+  const { source, workflow } = readWorkflow('release-intent-auto.yml')
+  const job = workflow.jobs?.generate
+  const steps = getSteps(workflow, 'generate')
+
+  assert.deepEqual(workflow.on?.pull_request_target?.types, [
+    'opened',
+    'synchronize',
+    'reopened',
+    'ready_for_review',
+    'labeled',
+    'unlabeled',
+  ])
+  assert.ok(workflow.on?.workflow_dispatch?.inputs?.pr_numbers)
+  assert.equal(workflow.permissions?.contents, 'write')
+  assert.equal(workflow.permissions?.['pull-requests'], 'write')
+  assert.ok(job)
+  assert.ok(steps.some(step => step.run === 'node .github/auto-changeset/index.mjs'))
+  assert.match(source, /GITHUB_TOKEN:/)
+  assert.match(source, /PR_NUMBERS:/)
+  assertPinnedActions(steps, 'Automatic Release Intent')
+}
+
 checkReleaseWorkflow()
 checkCiWorkflow()
 checkReleaseIntentWorkflow()
+checkAutomaticReleaseIntentWorkflow()
 console.log('CI/CD workflow contracts are valid.')
