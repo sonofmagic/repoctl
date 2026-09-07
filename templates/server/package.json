@@ -64,7 +64,7 @@
     "@hono/node-server": "^2.1.1",
     "consola": "^3.4.2",
     "hono": "^4.13.5",
-    "tsdown": "0.22.14",
+    "tsdown": "0.23.0",
     "wrangler": "^4.128.0",
     "zod": "^4.5.4"
   }
