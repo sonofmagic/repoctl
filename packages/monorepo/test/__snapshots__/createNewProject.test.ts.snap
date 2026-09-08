@@ -76,8 +76,8 @@ exports[`createNewProject > createNewProject demo client case 1`] = `
   "tsconfig.json",
   "tsconfig.node.json",
   "tsconfig.worker.json",
+  "turbo.json",
   "vite.config.ts",
-  "worker-configuration.d.ts",
   "worker/app.ts",
   "worker/config.ts",
   "worker/fetch-entry.ts",
@@ -112,8 +112,8 @@ exports[`createNewProject > createNewProject demo server case 1`] = `
   "tsconfig.json",
   "tsconfig.worker.json",
   "tsdown.config.ts",
+  "turbo.json",
   "vitest.config.ts",
-  "worker-configuration.d.ts",
   "wrangler.jsonc",
 ]
 `;

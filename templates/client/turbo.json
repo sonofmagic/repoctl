@@ -1,0 +1,11 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**", "worker-configuration.d.ts"]
+    },
+    "typecheck": {
+      "outputs": ["worker-configuration.d.ts"]
+    }
+  }
+}

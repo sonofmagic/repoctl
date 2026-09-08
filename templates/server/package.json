@@ -31,8 +31,8 @@
     "dist"
   ],
   "scripts": {
-    "dev": "wrangler dev",
-    "build": "tsdown",
+    "dev": "pnpm cf-typegen && wrangler dev",
+    "build": "pnpm cf-typegen && tsdown",
     "build:watch": "tsdown --watch --sourcemap",
     "node:build:watch": "pnpm build:watch",
     "node:build": "pnpm build",
@@ -46,7 +46,7 @@
     "deploy": "wrangler deploy",
     "cf-typegen": "wrangler types",
     "cf-typegen:check": "wrangler types --check",
-    "typecheck": "pnpm cf-typegen:check && tsc -p tsconfig.json && tsc -p tsconfig.worker.json"
+    "typecheck": "pnpm cf-typegen && tsc -p tsconfig.json && tsc -p tsconfig.worker.json"
   },
   "publishConfig": {
     "exports": {

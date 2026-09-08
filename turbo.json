@@ -1,5 +1,8 @@
 {
   "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": [
+    "pnpm-lock.yaml"
+  ],
   "tasks": {
     "build": {
       "dependsOn": [
@@ -8,6 +11,10 @@
       "inputs": [
         "src/**",
         "lib/**",
+        "worker/**",
+        "wrangler.{json,jsonc,toml}",
+        ".dev.vars*",
+        ".env*",
         "package.json",
         "tsconfig*.json",
         "*.config.{js,ts,mjs,mts}"
@@ -72,6 +79,10 @@
       "inputs": [
         "src/**",
         "lib/**",
+        "worker/**",
+        "wrangler.{json,jsonc,toml}",
+        ".dev.vars*",
+        ".env*",
         "test/**",
         "package.json",
         "tsconfig*.json"

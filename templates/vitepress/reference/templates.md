@@ -74,6 +74,14 @@ Check first:
 - `dev`, `build`, and `typecheck` scripts are part of root tasks.
 - CI needs integration or E2E tests.
 
+### Cloudflare Worker types
+
+The `vue-hono` and `hono-server` templates generate `worker-configuration.d.ts` from the installed Wrangler version and `wrangler.jsonc` before `dev`, `build`, and `typecheck`. This generated file is ignored by Git and excluded from published templates. Dependency updates do not require committing regenerated declarations.
+
+Run `pnpm cf-typegen` in the app workspace to refresh editor types after changing bindings or compatibility settings. `pnpm cf-typegen:check` is a read-only diagnostic: it reports missing or outdated declarations. Build and typecheck regenerate them automatically and still fail on invalid configuration or TypeScript errors.
+
+For existing projects, update these scripts and the Turbo inputs/outputs, then remove `worker-configuration.d.ts` from the Git index with `git rm --cached worker-configuration.d.ts` and add it to `.gitignore`.
+
 ### Create a docs site
 
 ```bash
