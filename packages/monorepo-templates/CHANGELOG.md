@@ -1,5 +1,11 @@
 # @icebreakers/monorepo-templates
 
+## 1.3.5
+
+### Patch Changes
+
+- Generate Cloudflare Worker declarations before development, builds and type checks; exclude generated types from templates and restore them from task caches.
+
 ## 1.3.4
 
 ### Patch Changes
