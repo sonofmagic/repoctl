@@ -1,5 +1,11 @@
 # eslint-plugin-better-stylelint
 
+## 2.0.5
+
+### Patch Changes
+
+- chore(deps): update all non-major dependencies (#874)
+
 ## 2.0.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @icebreakers/monorepo-templates
 
+## 1.3.4
+
+### Patch Changes
+
+- chore(deps): update all non-major dependencies (#874)
+
+- chore(deps): update all non-major dependencies (#876)
+
 ## 1.3.3
 
 ### Patch Changes
