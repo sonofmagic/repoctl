@@ -66,6 +66,10 @@
   intents:
     - auto-pr-874
     - auto-pr-876
+"@icebreakers/monorepo-templates@1.3.5":
+  dir: packages/monorepo-templates
+  intents:
+    - sweet-worms-relate
 "@icebreakers/monorepo@5.1.0":
   dir: packages/monorepo
   intents:
