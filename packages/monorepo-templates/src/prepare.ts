@@ -210,6 +210,20 @@ async function removeSourceRepoReleaseToolingBuildStep() {
   }
 }
 
+async function removeSourceRepoWorkerTypeChecks() {
+  const workflowPath = path.join(assetsDir, '.github/workflows/ci.yml')
+  if (await pathExists(workflowPath)) {
+    const workflow = await fs.readFile(workflowPath, 'utf8')
+    await fs.writeFile(workflowPath, workflow.replace(/\r?\n\s+- name: Check Worker type generation from packaged templates\r?\n\s+run: pnpm test:worker-types\r?\n/g, '\n'))
+  }
+  const manifestPath = path.join(assetsDir, 'package.json')
+  if (await pathExists(manifestPath)) {
+    const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'))
+    delete manifest.scripts?.['test:worker-types']
+    await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
+  }
+}
+
 async function copyTemplates(repoRoot: string, overwriteExisting: boolean) {
   for (const template of templateChoices) {
     const from = path.join(repoRoot, 'templates', template.source)
@@ -236,5 +250,6 @@ export async function prepareAssets(options: PrepareAssetsOptions = {}) {
   await removePublishedReleaseState()
   await writePublishedToolingConfigs()
   await removeSourceRepoReleaseToolingBuildStep()
+  await removeSourceRepoWorkerTypeChecks()
   await copyTemplates(repoRoot, overwriteExisting)
 }

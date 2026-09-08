@@ -20,15 +20,15 @@
     "template"
   ],
   "scripts": {
-    "dev": "vite --host",
-    "build": "vue-tsc -b && vite build",
+    "dev": "pnpm cf-typegen && vite --host",
+    "build": "pnpm cf-typegen && vue-tsc -b && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "deploy": "wrangler deploy",
     "cf-typegen": "wrangler types",
     "cf-typegen:check": "wrangler types --check",
-    "typecheck": "pnpm cf-typegen:check && vue-tsc -b"
+    "typecheck": "pnpm cf-typegen && vue-tsc -b"
   },
   "dependencies": {
     "@faker-js/faker": "^10.6.0",

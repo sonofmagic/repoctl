@@ -76,6 +76,14 @@ repo new api --template hono-server
 - `dev`、`build`、`typecheck` 脚本是否接入根任务。
 - 是否需要在 CI 里加入 E2E 或集成测试。
 
+### Cloudflare Worker 类型
+
+`vue-hono` 和 `hono-server` 模板会在 `dev`、`build`、`typecheck` 前，根据已安装的 Wrangler 版本和 `wrangler.jsonc` 自动生成 `worker-configuration.d.ts`。该文件由 Git 忽略，也不会打入发布的模板包；依赖升级无需再提交重新生成的声明。
+
+修改 binding 或兼容性配置后，可在应用工作区运行 `pnpm cf-typegen` 刷新编辑器类型。`pnpm cf-typegen:check` 保留为只读诊断命令，文件缺失或过期时会报错。构建和类型检查会自动重新生成，配置错误和真实 TypeScript 错误仍会阻止通过。
+
+已有项目需同步这些脚本和 Turbo 的输入、输出配置，再执行 `git rm --cached worker-configuration.d.ts` 移除 Git 跟踪，并将文件加入 `.gitignore`。
+
 ### 要创建文档站
 
 ```bash

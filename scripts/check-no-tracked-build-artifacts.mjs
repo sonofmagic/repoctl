@@ -4,6 +4,7 @@ import process from 'node:process'
 const TRACKED_BUILD_ARTIFACT_PATTERNS = [
   /^packages\/[^/]+\/dist\//u,
   /^apps\/[^/]+\/dist\//u,
+  /^(?:templates|apps|packages)\/[^/]+\/worker-configuration\.d\.ts$/u,
 ]
 
 function isTrackedBuildArtifact(file) {
