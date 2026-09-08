@@ -38,7 +38,7 @@
   "devDependencies": {
     "@braintree/sanitize-url": "^7.1.2",
     "@tailwindcss/vite": "^4.3.3",
-    "cytoscape": "^3.34.2",
+    "cytoscape": "^3.34.3",
     "cytoscape-cose-bilkent": "^4.1.0",
     "dayjs": "^1.11.23",
     "debug": "^4.4.3",
