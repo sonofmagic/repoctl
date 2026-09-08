@@ -3,6 +3,10 @@
   intents:
     - bright-repoctl-links
     - dev-configs-merge
+"@icebreakers/changelog-github@2.0.4":
+  dir: packages/changelog-github
+  intents:
+    - auto-pr-872
 "@icebreakers/commitlint-config@4.0.6":
   dir: packages/commitlint
   intents:
@@ -19,6 +23,11 @@
   intents:
     - auto-pr-864
     - auto-pr-867
+"@icebreakers/eslint-config@7.1.3":
+  dir: packages/eslint
+  intents:
+    - auto-pr-874
+    - auto-pr-876
 "@icebreakers/monorepo-templates@1.1.0":
   dir: packages/monorepo-templates
   intents:
@@ -52,6 +61,11 @@
   dir: packages/monorepo-templates
   intents:
     - auto-pr-865
+"@icebreakers/monorepo-templates@1.3.4":
+  dir: packages/monorepo-templates
+  intents:
+    - auto-pr-874
+    - auto-pr-876
 "@icebreakers/monorepo@5.1.0":
   dir: packages/monorepo
   intents:
@@ -101,6 +115,10 @@
   dir: packages/monorepo
   intents:
     - bright-repoctl-links
+"@icebreakers/monorepo@5.4.8":
+  dir: packages/monorepo
+  intents:
+    - auto-pr-874
 "@icebreakers/stylelint-config@5.0.7":
   dir: packages/stylelint
   intents:
@@ -139,6 +157,10 @@ eslint-plugin-better-stylelint@2.0.4:
   intents:
     - bright-repoctl-links
     - dev-configs-merge
+eslint-plugin-better-stylelint@2.0.5:
+  dir: packages/eslint-plugin-better-stylelint
+  intents:
+    - auto-pr-874
 lightningcss-tailwindcss@2.0.4:
   dir: packages/lightningcss-tailwindcss
   intents:
@@ -179,6 +201,10 @@ repoctl@5.4.6:
   dir: packages/repoctl
   intents:
     - bright-repoctl-links
+repoctl@5.4.8:
+  dir: packages/repoctl
+  intents:
+    - auto-pr-874
 stylelint-plugin-tailwindcss@3.0.7:
   dir: packages/stylelint-plugin-tailwindcss
   intents:
@@ -190,3 +216,8 @@ stylelint-plugin-tailwindcss@3.0.8:
   intents:
     - auto-pr-866
     - auto-pr-867
+stylelint-plugin-tailwindcss@3.0.9:
+  dir: packages/stylelint-plugin-tailwindcss
+  intents:
+    - auto-pr-872
+    - auto-pr-874

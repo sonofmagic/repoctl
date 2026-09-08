@@ -1,5 +1,14 @@
 # repoctl
 
+## 5.4.8
+
+### Patch Changes
+
+- chore(deps): update all non-major dependencies (#874)
+
+- Updated dependencies:
+  - @icebreakers/monorepo@5.4.8
+
 ## 5.4.7
 
 ### Patch Changes

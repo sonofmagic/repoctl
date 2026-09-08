@@ -1,5 +1,13 @@
 # stylelint-plugin-tailwindcss
 
+## 3.0.9
+
+### Patch Changes
+
+- chore(deps): update all non-major dependencies (#872)
+
+- chore(deps): update all non-major dependencies (#874)
+
 ## 3.0.8
 
 ### Patch Changes

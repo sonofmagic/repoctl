@@ -1,5 +1,17 @@
 # @icebreakers/eslint-config
 
+## 7.1.3
+
+### Patch Changes
+
+- chore(deps): update all non-major dependencies (#874)
+
+- chore(deps): update all non-major dependencies (#876)
+
+- Updated dependencies:
+  - @icebreakers/stylelint-config@5.0.9
+  - eslint-plugin-better-stylelint@2.0.5
+
 ## 7.1.2
 
 ### Patch Changes
