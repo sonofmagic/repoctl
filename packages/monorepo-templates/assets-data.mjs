@@ -13,6 +13,8 @@ const coreAssetTargets = [
   'repoctl.config.ts',
   'package.json',
   'AGENTS.md',
+  'CLAUDE.md',
+  '.agents',
   // pnpm
   'pnpm-workspace.yaml',
   // base tsconfig

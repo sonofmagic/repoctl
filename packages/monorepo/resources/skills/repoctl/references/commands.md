@@ -5,7 +5,7 @@
 Purpose: bootstrap workspace metadata plus recommended tooling defaults.
 Usage:
 
-- npx repoctl init
+- pnpm exec repo init
   Options:
 - --preset <minimal|standard>: choose a lighter or fuller setup
 - --force: overwrite existing tooling config files
@@ -108,7 +108,7 @@ Usage:
 Purpose: initialize workspace metadata such as README, package.json, pnpm change intent support, and issue template.
 Usage:
 
-- npx repoctl init
+- pnpm exec repo init
 - npx repoctl workspace init
 - npx repoctl ws init
 
@@ -193,13 +193,16 @@ Usage:
 
 ## skills sync
 
-Purpose: sync built-in skill files into global Codex or Claude directories.
+Purpose: sync the `repoctl` skill into global agent skill directories.
 Usage:
 
-- npx repoctl skills sync
-- npx repoctl skills sync --codex
-- npx repoctl skills sync --claude
-- npx repoctl skills sync --all
+- pnpm exec repo skills sync
+- pnpm exec repo skills sync --codex
+- pnpm exec repo skills sync --claude
+- pnpm exec repo skills sync --cursor
+- pnpm exec repo skills sync --agents
+- pnpm exec repo skills sync --grok
+- pnpm exec repo skills sync --all
 
 ## ai prompt create (aliases: ai p create, ai p new)
 

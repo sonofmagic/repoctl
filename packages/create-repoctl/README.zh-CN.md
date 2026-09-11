@@ -10,7 +10,15 @@ pnpm create repoctl
 yarn create repoctl
 ```
 
-交互流程会选择目标目录和需要包含的内置模板。创建完成后运行：
+交互流程会选择目标目录和需要包含的内置模板。代理或不需要提问时：
+
+```bash
+pnpm create repoctl my-app -- --yes --templates vue-hono
+npm create repoctl@latest my-app -- --yes --templates vue-hono
+npx create-repoctl my-app --yes --templates vue-hono
+```
+
+模板 key：`vue-hono`、`hono-server`、`tsdown`、`vue-lib`、`vitepress`、`cli`。创建完成后运行：
 
 ```bash
 cd <project>

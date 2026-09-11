@@ -53,6 +53,18 @@ pnpm create repoctl
 
 create 命令会让你选择需要的内置模板，然后进入 `repo init`、`repo doctor`、`repo new` 与 `repo check` 的标准工作流。
 
+### 给 AI 代理
+
+```bash
+pnpm create repoctl my-app -- --yes --templates vue-hono
+cd my-app
+pnpm install
+pnpm exec repo init
+pnpm exec repo doctor
+```
+
+模板 key：`vue-hono`（Vue/全栈）、`hono-server`（API）、`tsdown`（TypeScript 库）、`vue-lib`（Vue 组件）、`vitepress`（文档）、`cli`。不传 `--templates` 则创建空工作区，再用 `pnpm exec repo new <name> --template <key>`。
+
 ## 国际化
 
 CLI 默认输出英文。可通过参数或环境变量显式切换为简体中文：
@@ -66,20 +78,20 @@ REPOCTL_LANG=zh-CN pnpm exec repo doctor
 
 ## 包结构
 
-| 包                                                               | 职责                                     |
-| ---------------------------------------------------------------- | ---------------------------------------- |
-| [`repoctl`](packages/repoctl)                                    | 推荐 CLI 与公共 API 入口                 |
-| [`@icebreakers/monorepo`](packages/monorepo)                     | Core engine 与高级程序化 API             |
-| [`@icebreakers/monorepo-templates`](packages/monorepo-templates) | 内置模板和受管工作区资产                 |
-| [`create-repoctl`](packages/create-repoctl)                      | 推荐的 `npm create` / `pnpm create` 入口 |
-| [`create-icebreaker`](packages/create-icebreaker)                | 兼容 create 入口                         |
-| [`@icebreakers/eslint-config`](packages/eslint)                  | 共享 ESLint 预设与框架集成               |
-| [`@icebreakers/stylelint-config`](packages/stylelint)            | 共享 Stylelint 预设与 CSS 规范            |
-| [`@icebreakers/commitlint-config`](packages/commitlint)           | 类型完备的 Conventional Commits 配置     |
-| [`@icebreakers/changelog-github`](packages/changelog-github)     | Changesets GitHub changelog 格式器        |
-| [`stylelint-plugin-tailwindcss`](packages/stylelint-plugin-tailwindcss) | Tailwind/UnoCSS Stylelint 规则       |
-| [`postcss-tailwindcss`](packages/postcss-tailwindcss)            | PostCSS Tailwind 语法分析                |
-| [`lightningcss-tailwindcss`](packages/lightningcss-tailwindcss)  | Lightning CSS Tailwind 语法分析          |
+| 包                                                                      | 职责                                     |
+| ----------------------------------------------------------------------- | ---------------------------------------- |
+| [`repoctl`](packages/repoctl)                                           | 推荐 CLI 与公共 API 入口                 |
+| [`@icebreakers/monorepo`](packages/monorepo)                            | Core engine 与高级程序化 API             |
+| [`@icebreakers/monorepo-templates`](packages/monorepo-templates)        | 内置模板和受管工作区资产                 |
+| [`create-repoctl`](packages/create-repoctl)                             | 推荐的 `npm create` / `pnpm create` 入口 |
+| [`create-icebreaker`](packages/create-icebreaker)                       | 兼容 create 入口                         |
+| [`@icebreakers/eslint-config`](packages/eslint)                         | 共享 ESLint 预设与框架集成               |
+| [`@icebreakers/stylelint-config`](packages/stylelint)                   | 共享 Stylelint 预设与 CSS 规范           |
+| [`@icebreakers/commitlint-config`](packages/commitlint)                 | 类型完备的 Conventional Commits 配置     |
+| [`@icebreakers/changelog-github`](packages/changelog-github)            | Changesets GitHub changelog 格式器       |
+| [`stylelint-plugin-tailwindcss`](packages/stylelint-plugin-tailwindcss) | Tailwind/UnoCSS Stylelint 规则           |
+| [`postcss-tailwindcss`](packages/postcss-tailwindcss)                   | PostCSS Tailwind 语法分析                |
+| [`lightningcss-tailwindcss`](packages/lightningcss-tailwindcss)         | Lightning CSS Tailwind 语法分析          |
 
 `templates/` 下的工作区是私有源码资产，通过 `@icebreakers/monorepo-templates` 交付，不再作为独立 npm 包发布。
 

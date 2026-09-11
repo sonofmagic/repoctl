@@ -2,6 +2,10 @@
 
 exports[`createNewProject > assets 1`] = `
 [
+  ".agents/skills/repoctl/references/commands.md",
+  ".agents/skills/repoctl/references/config.md",
+  ".agents/skills/repoctl/references/templates.md",
+  ".agents/skills/repoctl/SKILL.md",
   ".dockerignore",
   ".editorconfig",
   ".gitattributes",
@@ -21,6 +25,7 @@ exports[`createNewProject > assets 1`] = `
   ".vscode/extensions.json",
   ".vscode/settings.json",
   "AGENTS.md",
+  "CLAUDE.md",
   "CODE_OF_CONDUCT.md",
   "commitlint.config.ts",
   "CONTRIBUTING.md",
@@ -155,6 +160,7 @@ exports[`createNewProject > createNewProject demo website case 1`] = `
   ".vitepress/theme/index.ts",
   ".vitepress/theme/Layout.vue",
   ".vitepress/theme/tailwind.css",
+  "ai/create.md",
   "ai/index.md",
   "ai/llms-txt.md",
   "index.md",
@@ -259,6 +265,7 @@ exports[`createNewProject > createNewProject demo website case 1`] = `
   "tasks/troubleshooting.md",
   "tsconfig.json",
   "wrangler.jsonc",
+  "zh/ai/create.md",
   "zh/ai/index.md",
   "zh/ai/llms-txt.md",
   "zh/index.md",
@@ -349,6 +356,10 @@ exports[`createNewProject > createNewProject demo website case 1`] = `
 
 exports[`createNewProject > upgradeMonorepo 1`] = `
 [
+  ".agents/skills/repoctl/references/commands.md",
+  ".agents/skills/repoctl/references/config.md",
+  ".agents/skills/repoctl/references/templates.md",
+  ".agents/skills/repoctl/SKILL.md",
   ".dockerignore",
   ".editorconfig",
   ".gitattributes",
@@ -369,6 +380,7 @@ exports[`createNewProject > upgradeMonorepo 1`] = `
   ".vscode/extensions.json",
   ".vscode/settings.json",
   "AGENTS.md",
+  "CLAUDE.md",
   "CODE_OF_CONDUCT.md",
   "commitlint.config.ts",
   "CONTRIBUTING.md",

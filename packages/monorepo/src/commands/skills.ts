@@ -9,11 +9,15 @@ import { localize } from '../i18n'
 /**
  * 内置 skills 目录名称。
  */
-export const skillName = 'icebreakers-monorepo-cli'
+export const skillName = 'repoctl'
+/**
+ * 历史 skill 目录名称，同步时删除以免过期副本继续被加载。
+ */
+export const legacySkillName = 'icebreakers-monorepo-cli'
 /**
  * 当前支持的 skills 同步目标。
  */
-export const skillTargets = ['codex', 'claude'] as const
+export const skillTargets = ['codex', 'claude', 'cursor', 'agents', 'grok'] as const
 /**
  * 包内 skills 模板源目录。
  */
@@ -43,8 +47,21 @@ export interface SyncSkillsOptions {
  */
 export function getSkillTargetPaths(homeDir = os.homedir()): Record<SkillTarget, string> {
   return {
-    codex: path.join(homeDir, '.codex', 'skills', skillName),
+    agents: path.join(homeDir, '.agents', 'skills', skillName),
     claude: path.join(homeDir, '.claude', 'skills', skillName),
+    codex: path.join(homeDir, '.codex', 'skills', skillName),
+    cursor: path.join(homeDir, '.cursor', 'skills', skillName),
+    grok: path.join(homeDir, '.grok', 'skills', skillName),
+  }
+}
+
+function getLegacySkillTargetPaths(homeDir = os.homedir()): Record<SkillTarget, string> {
+  return {
+    agents: path.join(homeDir, '.agents', 'skills', legacySkillName),
+    claude: path.join(homeDir, '.claude', 'skills', legacySkillName),
+    codex: path.join(homeDir, '.codex', 'skills', legacySkillName),
+    cursor: path.join(homeDir, '.cursor', 'skills', legacySkillName),
+    grok: path.join(homeDir, '.grok', 'skills', legacySkillName),
   }
 }
 
@@ -86,10 +103,12 @@ export async function syncSkills(options: SyncSkillsOptions = {}) {
   }
 
   const targetPaths = getSkillTargetPaths()
+  const legacyPaths = getLegacySkillTargetPaths()
   const results: Array<{ target: SkillTarget, dest: string }> = []
 
   for (const target of targets) {
     const dest = targetPaths[target]
+    await fs.remove(legacyPaths[target])
     await fs.remove(dest)
     await fs.ensureDir(path.dirname(dest))
     await fs.copy(skillSourceDir, dest)

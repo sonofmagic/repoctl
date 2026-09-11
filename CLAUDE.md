@@ -2,6 +2,9 @@
 
 This file provides repository-specific guidance for AI-assisted changes.
 
+This is the **repoctl source workspace**. If a user asked you to create a new
+business project, do not add apps here. Use `pnpm create repoctl <dir> -- --yes --templates <keys>`.
+
 ## Product
 
 repoctl is a task-first CLI for initializing, diagnosing, creating, validating, upgrading, and releasing pnpm and Turborepo monorepos. The repository itself is the repoctl source workspace; templates are one product capability, not the repository's identity.

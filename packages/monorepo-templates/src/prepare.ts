@@ -161,13 +161,17 @@ async function copyEntry(from: string, to: string, overwriteExisting: boolean, f
   }
 }
 
+const publishedAgentSourceFiles = new Set(['AGENTS.md', 'CLAUDE.md'])
+
 async function copyAssets(repoRoot: string, overwriteExisting: boolean) {
   const monorepoAssetRoot = path.resolve(repoRoot, 'packages/monorepo/assets')
 
   for (const target of assetTargets) {
     const packageAsset = path.join(monorepoAssetRoot, toPublishGitignorePath(target))
     const repoAsset = path.join(repoRoot, target)
-    const from = await pathExists(repoAsset) ? repoAsset : packageAsset
+    const from = publishedAgentSourceFiles.has(target) || !(await pathExists(repoAsset))
+      ? packageAsset
+      : repoAsset
     if (!await pathExists(from)) {
       continue
     }
@@ -196,6 +200,15 @@ async function writePublishedToolingConfigs() {
       await fs.writeFile(targetPath, content)
     }
   }))
+}
+
+async function writePublishedAgentSkill(repoRoot: string, overwriteExisting: boolean) {
+  const skillFrom = path.join(repoRoot, 'packages/monorepo/resources/skills/repoctl')
+  if (!await pathExists(skillFrom)) {
+    return
+  }
+  const skillTo = path.join(assetsDir, '.agents', 'skills', 'repoctl')
+  await copyEntry(skillFrom, skillTo, overwriteExisting)
 }
 
 async function sanitizePublishedWorkspace() {
@@ -264,6 +277,7 @@ export async function prepareAssets(options: PrepareAssetsOptions = {}) {
   await sanitizePublishedWorkspace()
   await removePublishedReleaseState()
   await writePublishedToolingConfigs()
+  await writePublishedAgentSkill(repoRoot, overwriteExisting)
   await removeSourceRepoReleaseToolingBuildStep()
   await removeSourceRepoWorkerTypeChecks()
   await copyTemplates(repoRoot, overwriteExisting)

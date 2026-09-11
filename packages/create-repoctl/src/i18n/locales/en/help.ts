@@ -8,6 +8,7 @@ export const help = {
   targetArgument: 'Target directory',
   templatesOption: 'Comma-separated template keys or indexes to include',
   forceOption: 'Remove an existing target directory before creating the workspace',
+  yesOption: 'Skip prompts; use the directory argument and --templates as-is',
   globalOptionsTitle: 'Global Options:',
   helpOption: 'Display help for command',
   languageOption: 'Output language: en or zh-CN',

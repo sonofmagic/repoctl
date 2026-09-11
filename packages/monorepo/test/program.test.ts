@@ -86,7 +86,7 @@ describe('commander program', () => {
       ],
     }))
     const syncSkillsMock = vi.fn(async () => ([
-      { target: 'codex', dest: '/home/.codex/skills/icebreakers-monorepo-cli' },
+      { target: 'codex', dest: '/home/.codex/skills/repoctl' },
     ]))
 
     const inputMock = vi.fn(async () => 'my-package')
@@ -140,7 +140,7 @@ describe('commander program', () => {
       runDoctor: doctorMock,
       runRecommendedCheck: runRecommendedCheckMock,
       setVscodeBinaryMirror: mirrorMock,
-      skillTargets: ['codex', 'claude'],
+      skillTargets: ['codex', 'claude', 'cursor', 'agents', 'grok'],
       syncSkills: syncSkillsMock,
       templateMap: { tsdown: { source: 'tsdown', target: 'packages/tsdown' } },
       upgradeMonorepo: upgradeMock,

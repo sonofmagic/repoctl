@@ -1,5 +1,12 @@
 # Repository Guidelines
 
+This is the **repoctl source workspace**. If a user asked you to create a new
+business project, do not add apps here. Use:
+
+```bash
+pnpm create repoctl <dir> -- --yes --templates <keys>
+```
+
 ## Project Structure & Module Organization
 
 This repository is the source workspace for repoctl, a task-first CLI for pnpm and Turborepo monorepos. Product packages live under `packages/`: `repoctl` is the recommended entrypoint, `monorepo` contains the core engine, `monorepo-templates` distributes managed assets, and the create packages provide primary and compatibility bootstrap commands. Private template source workspaces live under `templates/`; they are product assets, not independently published packages. Shared TypeScript and build settings live in root configs such as `turbo.json`, `tsconfig.json`, and `eslint.config.js`.

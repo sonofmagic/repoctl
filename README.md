@@ -53,6 +53,18 @@ pnpm create repoctl
 
 The create command lets you select the built-in templates to include, then prepares the workspace for the normal `repo init`, `repo doctor`, `repo new`, and `repo check` workflow.
 
+### For AI agents
+
+```bash
+pnpm create repoctl my-app -- --yes --templates vue-hono
+cd my-app
+pnpm install
+pnpm exec repo init
+pnpm exec repo doctor
+```
+
+Template keys: `vue-hono` (Vue/full-stack), `hono-server` (API), `tsdown` (TypeScript library), `vue-lib` (Vue components), `vitepress` (docs), `cli`. Omit `--templates` for an empty workspace, then `pnpm exec repo new <name> --template <key>`.
+
 ## Internationalization
 
 CLI output is English by default. Select Simplified Chinese explicitly with either interface:
@@ -66,20 +78,20 @@ Supported locales are `en` and `zh-CN`. Machine-readable field names, check IDs,
 
 ## Packages
 
-| Package                                                          | Role                                                |
-| ---------------------------------------------------------------- | --------------------------------------------------- |
-| [`repoctl`](packages/repoctl)                                    | Recommended CLI and public API entrypoint           |
-| [`@icebreakers/monorepo`](packages/monorepo)                     | Core engine and advanced programmatic APIs          |
-| [`@icebreakers/monorepo-templates`](packages/monorepo-templates) | Built-in templates and managed workspace assets     |
-| [`create-repoctl`](packages/create-repoctl)                      | Recommended `npm create` / `pnpm create` entrypoint |
-| [`create-icebreaker`](packages/create-icebreaker)                | Compatibility create entrypoint                     |
-| [`@icebreakers/eslint-config`](packages/eslint)                  | Shared ESLint preset and framework integrations     |
-| [`@icebreakers/stylelint-config`](packages/stylelint)            | Shared Stylelint preset and CSS policy              |
-| [`@icebreakers/commitlint-config`](packages/commitlint)           | Typed Conventional Commits configuration            |
-| [`@icebreakers/changelog-github`](packages/changelog-github)     | Changesets GitHub changelog formatter               |
-| [`stylelint-plugin-tailwindcss`](packages/stylelint-plugin-tailwindcss) | Tailwind/UnoCSS Stylelint rules                 |
-| [`postcss-tailwindcss`](packages/postcss-tailwindcss)            | PostCSS Tailwind syntax analysis                    |
-| [`lightningcss-tailwindcss`](packages/lightningcss-tailwindcss)  | Lightning CSS Tailwind syntax analysis              |
+| Package                                                                 | Role                                                |
+| ----------------------------------------------------------------------- | --------------------------------------------------- |
+| [`repoctl`](packages/repoctl)                                           | Recommended CLI and public API entrypoint           |
+| [`@icebreakers/monorepo`](packages/monorepo)                            | Core engine and advanced programmatic APIs          |
+| [`@icebreakers/monorepo-templates`](packages/monorepo-templates)        | Built-in templates and managed workspace assets     |
+| [`create-repoctl`](packages/create-repoctl)                             | Recommended `npm create` / `pnpm create` entrypoint |
+| [`create-icebreaker`](packages/create-icebreaker)                       | Compatibility create entrypoint                     |
+| [`@icebreakers/eslint-config`](packages/eslint)                         | Shared ESLint preset and framework integrations     |
+| [`@icebreakers/stylelint-config`](packages/stylelint)                   | Shared Stylelint preset and CSS policy              |
+| [`@icebreakers/commitlint-config`](packages/commitlint)                 | Typed Conventional Commits configuration            |
+| [`@icebreakers/changelog-github`](packages/changelog-github)            | Changesets GitHub changelog formatter               |
+| [`stylelint-plugin-tailwindcss`](packages/stylelint-plugin-tailwindcss) | Tailwind/UnoCSS Stylelint rules                     |
+| [`postcss-tailwindcss`](packages/postcss-tailwindcss)                   | PostCSS Tailwind syntax analysis                    |
+| [`lightningcss-tailwindcss`](packages/lightningcss-tailwindcss)         | Lightning CSS Tailwind syntax analysis              |
 
 The workspaces under `templates/` are private source assets. They are shipped through `@icebreakers/monorepo-templates`; they are not independently published packages.
 

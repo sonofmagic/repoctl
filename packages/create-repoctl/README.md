@@ -10,7 +10,15 @@ pnpm create repoctl
 yarn create repoctl
 ```
 
-The interactive flow selects a target directory and any built-in templates to include. After creation:
+The interactive flow selects a target directory and any built-in templates to include. After creation, or for agents that must not prompt:
+
+```bash
+pnpm create repoctl my-app -- --yes --templates vue-hono
+npm create repoctl@latest my-app -- --yes --templates vue-hono
+npx create-repoctl my-app --yes --templates vue-hono
+```
+
+Template keys: `vue-hono`, `hono-server`, `tsdown`, `vue-lib`, `vitepress`, `cli`. After creation:
 
 ```bash
 cd <project>
@@ -19,6 +27,10 @@ pnpm exec repo init
 pnpm exec repo doctor
 pnpm exec repo check
 ```
+
+## For AI agents
+
+If the user asked you to create a project with repoctl, run the `--yes` command above, then `pnpm install`, `pnpm exec repo init`, and `pnpm exec repo doctor`. Do not wait for interactive prompts.
 
 Output is English by default. Pass `--lang zh-CN` or set `REPOCTL_LANG=zh-CN` for Simplified Chinese.
 

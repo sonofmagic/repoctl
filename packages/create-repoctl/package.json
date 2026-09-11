@@ -2,7 +2,7 @@
   "name": "create-repoctl",
   "type": "module",
   "version": "0.1.7",
-  "description": "Create a repoctl-managed pnpm and Turborepo workspace",
+  "description": "Create a repoctl-managed pnpm and Turborepo workspace. Non-interactive: pnpm create repoctl <dir> -- --yes --templates vue-hono",
   "author": "ice breaker <hi@sonofmagic.top>",
   "license": "MIT",
   "homepage": "https://repoctl.icebreaker.top",

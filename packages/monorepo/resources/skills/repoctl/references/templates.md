@@ -1,7 +1,7 @@
 # Templates
 
-Prefer `repo new [name]` for the guided flow. It first asks what you want to
-create, then maps that intent to a template and default target directory.
+Prefer `repo new [name]` for the guided flow. For agents, pass `--template`
+explicitly so the command does not prompt.
 
 Intent defaults:
 

@@ -10,6 +10,7 @@ export const help = {
   targetArgument: '目标目录',
   templatesOption: '要包含的模板 key 或序号，以逗号分隔',
   forceOption: '创建前删除已存在的目标目录',
+  yesOption: '跳过交互；直接使用目录参数和 --templates',
   globalOptionsTitle: '全局选项：',
   helpOption: '显示命令帮助',
   languageOption: '输出语言：en 或 zh-CN',

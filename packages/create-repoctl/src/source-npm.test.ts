@@ -15,15 +15,20 @@ describe('scaffoldFromNpm', () => {
       await updateRootPackageJson(targetDir, 'demo-repo')
       await updateRootTsconfigReferences(targetDir)
 
-      const [rootVitestConfig, rootTsconfig, releaseWorkflow] = await Promise.all([
+      const [rootVitestConfig, rootTsconfig, releaseWorkflow, agents, skill] = await Promise.all([
         readFile(path.join(targetDir, 'vitest.config.ts'), 'utf8'),
         readFile(path.join(targetDir, 'tsconfig.json'), 'utf8'),
         readFile(path.join(targetDir, '.github/workflows/release.yml'), 'utf8'),
+        readFile(path.join(targetDir, 'AGENTS.md'), 'utf8'),
+        readFile(path.join(targetDir, '.agents/skills/repoctl/SKILL.md'), 'utf8'),
       ])
       const parsedTsconfig = JSON.parse(rootTsconfig) as {
         references?: Array<{ path: string }>
       }
 
+      expect(agents).toContain('managed by **repoctl**')
+      expect(agents).not.toContain('source workspace for repoctl')
+      expect(skill).toContain('pnpm create repoctl')
       expect(rootVitestConfig).toContain(`from 'repoctl/tooling'`)
       expect(rootVitestConfig).not.toContain('tooling/load-tooling-module.mjs')
       expect(releaseWorkflow).not.toContain('Build Release Tooling')

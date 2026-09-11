@@ -36,6 +36,10 @@ describe('create-repoctl package metadata', () => {
     }).helpInformation()
 
     expect(english).toContain('Create a repoctl-managed')
+    expect(english).toContain('--yes')
+    expect(english).toContain('Skip prompts')
+    expect(chinese).toContain('--yes')
+    expect(chinese).toContain('跳过交互')
     expect(chinese).toContain('create-icebreaker')
     expect(chinese).toContain('用法： create-icebreaker')
     expect(chinese).toContain('参数：')

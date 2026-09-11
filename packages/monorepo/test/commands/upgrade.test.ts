@@ -263,10 +263,10 @@ describe('upgradeMonorepo overwrite logic', () => {
 
     const next = await fs.readFile(agentsPath, 'utf8')
     expect(next).toContain('custom structure section')
-    expect(next).not.toContain('This pnpm + Turbo monorepo keeps template sources under')
-    expect(next).toContain('## Build, Test, and Development Commands')
+    expect(next).toContain('## Create packages and apps')
     expect(next).toContain('## Team Notes')
     expect(next).toContain('team-only notes')
+    expect(next).not.toContain('source workspace for repoctl')
 
     await fs.remove(root)
   })

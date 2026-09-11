@@ -21,6 +21,7 @@ export interface CreateRepoctlProgramOptions {
 interface CreateOptions {
   templates?: string
   force?: boolean
+  yes?: boolean
   lang?: string
 }
 
@@ -64,6 +65,7 @@ export function createCreateRepoctlProgram(options: CreateRepoctlProgramOptions 
     .argument('[dir]', t('targetArgument'), defaultTarget)
     .option('-t, --templates <list>', t('templatesOption'))
     .option('-f, --force', t('forceOption'), false)
+    .option('-y, --yes', t('yesOption'), false)
     .option('--lang <locale>', t('languageOption'))
     .helpOption('-h, --help', t('helpOption'))
     .configureOutput({
@@ -79,7 +81,7 @@ export function createCreateRepoctlProgram(options: CreateRepoctlProgramOptions 
         throw new Error(t('invalidLocale', { locale: createOptions.lang }))
       }
 
-      const isInteractive = Boolean(process.stdin.isTTY && process.stdout.isTTY)
+      const isInteractive = !createOptions.yes && Boolean(process.stdin.isTTY && process.stdout.isTTY)
       let targetInput = targetDirInput || defaultTarget
       if (isInteractive) {
         targetInput = await promptTargetDir(targetInput, t('targetPrompt', { defaultDir: targetInput }))

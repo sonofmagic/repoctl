@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-const skillSourcePathPattern = /resources[\\/]skills[\\/]icebreakers-monorepo-cli$/
+const skillSourcePathPattern = /resources[\\/]skills[\\/]repoctl$/
 
 afterEach(async () => {
   await vi.resetModules()
@@ -98,13 +98,15 @@ describe('skills sync command', () => {
     expect(checkboxMock).not.toHaveBeenCalled()
     expect(removeMock).toHaveBeenCalledWith('/home/.codex/skills/icebreakers-monorepo-cli')
     expect(removeMock).toHaveBeenCalledWith('/home/.claude/skills/icebreakers-monorepo-cli')
+    expect(removeMock).toHaveBeenCalledWith('/home/.codex/skills/repoctl')
+    expect(removeMock).toHaveBeenCalledWith('/home/.claude/skills/repoctl')
     expect(ensureDirMock).toHaveBeenCalledWith('/home/.codex/skills')
     expect(ensureDirMock).toHaveBeenCalledWith('/home/.claude/skills')
-    expect(copyMock).toHaveBeenCalledWith(expect.stringMatching(skillSourcePathPattern), '/home/.codex/skills/icebreakers-monorepo-cli')
-    expect(copyMock).toHaveBeenCalledWith(expect.stringMatching(skillSourcePathPattern), '/home/.claude/skills/icebreakers-monorepo-cli')
+    expect(copyMock).toHaveBeenCalledWith(expect.stringMatching(skillSourcePathPattern), '/home/.codex/skills/repoctl')
+    expect(copyMock).toHaveBeenCalledWith(expect.stringMatching(skillSourcePathPattern), '/home/.claude/skills/repoctl')
     expect(results).toEqual([
-      { target: 'codex', dest: '/home/.codex/skills/icebreakers-monorepo-cli' },
-      { target: 'claude', dest: '/home/.claude/skills/icebreakers-monorepo-cli' },
+      { target: 'codex', dest: '/home/.codex/skills/repoctl' },
+      { target: 'claude', dest: '/home/.claude/skills/repoctl' },
     ])
   })
 
@@ -164,12 +166,15 @@ describe('skills sync command', () => {
       choices: [
         { name: 'codex', value: 'codex', checked: true },
         { name: 'claude', value: 'claude', checked: true },
+        { name: 'cursor', value: 'cursor', checked: true },
+        { name: 'agents', value: 'agents', checked: true },
+        { name: 'grok', value: 'grok', checked: true },
       ],
     })
     expect(copyMock).toHaveBeenCalledTimes(1)
-    expect(copyMock).toHaveBeenCalledWith(expect.stringMatching(skillSourcePathPattern), '/home/.claude/skills/icebreakers-monorepo-cli')
+    expect(copyMock).toHaveBeenCalledWith(expect.stringMatching(skillSourcePathPattern), '/home/.claude/skills/repoctl')
     expect(results).toEqual([
-      { target: 'claude', dest: '/home/.claude/skills/icebreakers-monorepo-cli' },
+      { target: 'claude', dest: '/home/.claude/skills/repoctl' },
     ])
   })
 })
