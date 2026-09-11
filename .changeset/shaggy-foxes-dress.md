@@ -1,5 +1,5 @@
 ---
-"@icebreakers/eslint-config": minor
+"@icebreakers/eslint-config": major
 ---
 
-Stop bundling eslint-plugin-better-stylelint; install it only when enabling the Stylelint ESLint bridge.
+Stop bundling eslint-plugin-better-stylelint. Install it yourself before `stylelint: true`; missing installs are skipped.
