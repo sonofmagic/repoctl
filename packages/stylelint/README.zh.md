@@ -6,7 +6,7 @@
 
 ## 环境要求
 
-- Node.js 18+
+- Node.js 22.13+
 - Stylelint 16（支持 Flat Config）
 
 ## 安装

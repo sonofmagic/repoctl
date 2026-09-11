@@ -18,7 +18,7 @@ repoctl is a task-first CLI for initializing, diagnosing, creating, validating, 
 
 ## Commands
 
-The workspace requires Node.js 22.12+ and pnpm 11.
+The workspace requires Node.js 22.13+ and pnpm 12.
 
 ```bash
 pnpm install

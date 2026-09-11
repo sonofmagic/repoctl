@@ -56,12 +56,13 @@
     "repoctl": "bin/repoctl.js"
   },
   "files": [
+    "README.md",
     "bin",
     "dist",
     "tsconfig.json"
   ],
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "tsdown --tsconfig tsconfig.src.json --watch --sourcemap",
@@ -99,5 +100,9 @@
   },
   "dependencies": {
     "@icebreakers/monorepo": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

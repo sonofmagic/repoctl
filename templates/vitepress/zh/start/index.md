@@ -23,4 +23,4 @@ CLI 支持 pnpm workspace，并能理解 Turborepo 任务图，但不会替代�
 
 ## 开始前确认
 
-你需要 Node.js 22.12 或更新版本，并确保 pnpm 在 PATH 中。从仓库根目录执行命令，这样 repoctl 才能读取 workspace 配置。
+你需要 Node.js 22.13 或更新版本，并确保 pnpm 在 PATH 中。从仓库根目录执行命令，这样 repoctl 才能读取 workspace 配置。

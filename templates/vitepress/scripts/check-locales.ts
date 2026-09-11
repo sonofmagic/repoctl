@@ -2,8 +2,8 @@ import type { DocsLocale } from '../.vitepress/navigation/routes'
 import { readdir, readFile, stat } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
-import { homeContent } from '../.vitepress/home/content'
-import { routePath, routeSections } from '../.vitepress/navigation/routes'
+import { homeContent } from '../.vitepress/home/content.ts'
+import { routePath, routeSections } from '../.vitepress/navigation/routes.ts'
 
 const root = process.cwd()
 const ignoredDirectories = new Set(['.vitepress', 'node_modules'])

@@ -8,7 +8,7 @@
 
 ## Requirements
 
-- Node.js 18+
+- Node.js 22.13+
 - Stylelint 16 (flat-compatible configuration)
 
 ## Installation

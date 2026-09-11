@@ -1,10 +1,12 @@
 {
   "name": "@icebreakers/mock",
+  "type": "module",
   "version": "0.0.53",
   "private": true,
   "description": "Mock application demonstrating repoctl development presets",
-  "author": "ice breaker <1324318532@qq.com>",
+  "author": "ice breaker <hi@sonofmagic.top>",
   "license": "MIT",
+  "homepage": "https://repoctl.icebreaker.top",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonofmagic/repoctl.git",
@@ -14,10 +16,13 @@
     "url": "https://github.com/sonofmagic/repoctl/issues"
   },
   "keywords": [
-    "dev-configs",
+    "repoctl",
     "stylelint",
     "mock"
   ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "stylelint": "npx @icebreakers/stylelint-config",
     "lint:styles:demo": "stylelint \"src/stylelint-demo/**/*.{css,scss,vue}\"",

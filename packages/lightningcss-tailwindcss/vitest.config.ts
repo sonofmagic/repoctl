@@ -6,7 +6,7 @@ export default defineProject({
     alias: [
       {
         find: '@',
-        replacement: path.resolve(__dirname, './src'),
+        replacement: path.resolve(import.meta.dirname, './src'),
       },
     ],
     globals: true,

@@ -6,15 +6,15 @@ export default defineProject({
     alias: [
       {
         find: '@',
-        replacement: path.resolve(__dirname, './src'),
+        replacement: path.resolve(import.meta.dirname, './src'),
       },
       {
         find: 'stylelint-plugin-tailwindcss',
-        replacement: path.resolve(__dirname, '../stylelint-plugin-tailwindcss/src/index.ts'),
+        replacement: path.resolve(import.meta.dirname, '../stylelint-plugin-tailwindcss/src/index.ts'),
       },
       {
         find: 'postcss-tailwindcss',
-        replacement: path.resolve(__dirname, '../postcss-tailwindcss/src/index.ts'),
+        replacement: path.resolve(import.meta.dirname, '../postcss-tailwindcss/src/index.ts'),
       },
     ],
     globals: true,

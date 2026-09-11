@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "private": true,
   "description": "Internal Vue and Cloudflare application template shipped with repoctl",
+  "author": "ice breaker <hi@sonofmagic.top>",
+  "license": "MIT",
   "homepage": "https://repoctl.icebreaker.top",
   "repository": {
     "type": "git",
@@ -19,6 +21,9 @@
     "cloudflare",
     "template"
   ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "dev": "pnpm cf-typegen && vite --host",
     "build": "pnpm cf-typegen && vue-tsc -b && vite build",

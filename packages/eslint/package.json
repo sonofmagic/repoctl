@@ -3,7 +3,7 @@
   "type": "module",
   "version": "7.1.3",
   "description": "ESLint preset from the repoctl development toolchain",
-  "author": "ice breaker <1324318532@qq.com>",
+  "author": "ice breaker <hi@sonofmagic.top>",
   "license": "MIT",
   "homepage": "https://repoctl.icebreaker.top",
   "repository": {
@@ -19,6 +19,7 @@
     "eslint-config",
     "icebreaker"
   ],
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -36,16 +37,18 @@
   "module": "./dist/index.js",
   "types": "./index.d.ts",
   "files": [
+    "README.md",
+    "README.zh.md",
     "dist",
     "index.d.ts"
   ],
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "tsdown --watch --sourcemap",
     "build": "tsdown",
-    "bench:formatters": "node --import tsx ./scripts/benchmark-formatters.ts",
+    "bench:formatters": "node --experimental-strip-types ./scripts/benchmark-formatters.ts",
     "test": "vitest run",
     "test:types": "tsd",
     "test:dev": "vitest",
@@ -74,8 +77,8 @@
     "@typescript-eslint/utils": "^8.70.0",
     "@vue/compiler-sfc": "^3.5.42",
     "@weapp-vite/eslint": "^0.2.3",
+    "defu": "^6.1.7",
     "eslint-flat-config-utils": "3.2.0",
-    "eslint-plugin-better-stylelint": "workspace:*",
     "eslint-plugin-better-tailwindcss": "^4.7.0",
     "eslint-plugin-format": "2.0.1",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -103,6 +106,9 @@
     }
   },
   "devDependencies": {
+    "@types/semver": "^7.8.0",
+    "@unocss/eslint-plugin": "66.10.2",
+    "eslint-plugin-better-stylelint": "workspace:*",
     "semver": "^7.8.5"
   }
 }

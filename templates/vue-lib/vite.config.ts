@@ -1,8 +1,8 @@
+import path from 'node:path'
 import Vue from '@vitejs/plugin-vue'
-import path from 'pathe'
 import { mergeConfig } from 'vite'
 import DTS from 'vite-plugin-dts'
-import { sharedConfig } from './vite.shared.config'
+import { sharedConfig } from './vite.shared.config.ts'
 
 export default mergeConfig(sharedConfig, {
   plugins: [

@@ -55,16 +55,7 @@ describe('runStylelintSync', () => {
 
     const workerArg = args.at(-1)
     expect(workerArg).toBeDefined()
-    if (workerArg?.endsWith('.mjs')) {
-      expect(args).toEqual(expect.arrayContaining([
-        '--import',
-        expect.stringMatching(/^file:\/\/\/.+tsx\/dist\/esm\/index\.mjs$/u),
-        expect.stringMatching(/icebreaker-stylelint-worker-.+\.mjs$/u),
-      ]))
-    }
-    else {
-      expect(workerArg).toMatch(/worker\.js$/u)
-    }
+    expect(workerArg).toMatch(/worker\.js$/u)
     expect(options).toEqual(expect.objectContaining({
       encoding: 'utf8',
       env: expect.objectContaining({

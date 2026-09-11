@@ -1,9 +1,5 @@
 import type { Linter } from 'eslint'
 import type {
-  BetterStylelintProcessor,
-  BetterStylelintRuleOptions,
-} from 'eslint-plugin-better-stylelint'
-import type {
   ResolvableUserConfig,
   StylelintBridgeOption,
   TypedFlatConfigItem,
@@ -69,7 +65,7 @@ interface BetterTailwindPluginModule {
 
 interface StylelintBridgePluginModule {
   default: FlatConfigPlugin
-  createStylelintProcessor: (options: BetterStylelintRuleOptions) => BetterStylelintProcessor
+  createStylelintProcessor: (options?: object) => Linter.Processor
 }
 
 interface MdxPluginModule {
@@ -280,7 +276,9 @@ export function resolveStylelintBridgePresets(option: UserDefinedOptions['stylel
     return []
   }
 
-  const pluginModulePromise: Promise<StylelintBridgePluginModule> = import('eslint-plugin-better-stylelint')
+  const pluginModulePromise = import(
+    'eslint-plugin-better-stylelint',
+  ) as Promise<StylelintBridgePluginModule>
   const stylelintOptions = resolveStylelintBridgeOptions(option)
 
   return [
@@ -326,7 +324,10 @@ export function resolveMdxPresets(isEnabled: UserDefinedOptions['mdx']): UserCon
   }
 
   return [
-    interopPluginDefault<MdxPluginModule>(import('eslint-plugin-mdx')).then((mdx) => {
+    interopPluginDefault<MdxPluginModule>(
+      // @ts-expect-error optional consumer-provided plugin
+      import('eslint-plugin-mdx'),
+    ).then((mdx) => {
       return [
         {
           ...mdx.flat,
@@ -404,6 +405,7 @@ export function resolveQueryPresets(isEnabled: UserDefinedOptions['query']): Use
 
   return [
     interopPluginDefault<QueryPluginModule>(
+      // @ts-expect-error optional consumer-provided plugin
       import('@tanstack/eslint-plugin-query'),
     ).then(
       pluginQuery => pluginQuery.configs['flat/recommended'],

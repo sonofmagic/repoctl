@@ -41,6 +41,10 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {},
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "dev": "tsdown -w",
     "build": "tsdown",
@@ -51,6 +55,5 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc -p tsconfig.json",
     "tsd": "pnpm build && tsd --files test-d/**/*.test-d.ts"
-  },
-  "publishConfig": {}
+  }
 }

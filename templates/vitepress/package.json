@@ -5,6 +5,7 @@
   "private": true,
   "description": "Documentation website for repoctl",
   "author": "ice breaker <hi@sonofmagic.top>",
+  "license": "MIT",
   "homepage": "https://repoctl.icebreaker.top",
   "repository": {
     "type": "git",
@@ -20,9 +21,12 @@
     "vitepress",
     "monorepo"
   ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "dev": "vitepress dev",
-    "check:locales": "tsx scripts/check-locales.ts",
+    "check:locales": "node --experimental-strip-types scripts/check-locales.ts",
     "build": "pnpm run check:locales && vitepress build",
     "preview": "vitepress preview",
     "deploy": "wrangler deploy",
@@ -44,7 +48,6 @@
     "debug": "^4.4.3",
     "mermaid": "^12.0.0",
     "tailwindcss": "^4.3.3",
-    "tsx": "^4.23.13",
     "vitepress": "^1.6.4",
     "vitepress-plugin-llms": "^1.14.0",
     "vitepress-plugin-mermaid": "^2.0.17",

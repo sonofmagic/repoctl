@@ -1,7 +1,7 @@
-import path from 'pathe'
+import path from 'node:path'
+import { defineConfig } from 'vite'
 
 // https://vite.dev/guide/build.html#library-mode
-import { defineConfig } from 'vite'
 
 export const sharedConfig = defineConfig({
   resolve: {

@@ -129,6 +129,7 @@ export type UserDefinedOptions = Omit<OptionsConfig, 'formatters' | 'unocss'> & 
   unocss?: UnocssConfig
   /**
    * Bridge Stylelint diagnostics into ESLint for style files.
+   * Requires `eslint-plugin-better-stylelint`. Missing installs are skipped.
    * @default false
    */
   stylelint?: StylelintBridgeConfig

@@ -5,7 +5,7 @@
   "private": true,
   "description": "Internal Vue library template shipped with repoctl",
   "author": "ice breaker <hi@sonofmagic.top>",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://repoctl.icebreaker.top",
   "repository": {
     "type": "git",
@@ -32,6 +32,9 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "build": "vue-tsc -b && vite build",
     "test": "vitest run",

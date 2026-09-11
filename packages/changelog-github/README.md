@@ -8,7 +8,7 @@
 
 ## Requirements
 
-- Node.js 18 or newer
+- Node.js 22.13 or newer
 - A GitHub token exposed via `GITHUB_TOKEN`, `GH_TOKEN`, or `.env`
 
 ## Installation

@@ -6,11 +6,11 @@ export default defineProject({
     alias: [
       {
         find: '@',
-        replacement: path.resolve(__dirname, './src'),
+        replacement: path.resolve(import.meta.dirname, './src'),
       },
       {
         find: 'postcss-tailwindcss',
-        replacement: path.resolve(__dirname, '../postcss-tailwindcss/src/index.ts'),
+        replacement: path.resolve(import.meta.dirname, '../postcss-tailwindcss/src/index.ts'),
       },
     ],
     globals: true,

@@ -1,26 +1,26 @@
 import path from 'node:path'
 import { defineProject } from 'vitest/config'
 
-const PACKAGE_SRC_GLOB = `${path.resolve(__dirname, './src').replaceAll(path.sep, '/')}/**`
+const PACKAGE_SRC_GLOB = `${path.resolve(import.meta.dirname, './src').replaceAll(path.sep, '/')}/**`
 
 export default defineProject({
   test: {
     alias: [
       {
         find: '@',
-        replacement: path.resolve(__dirname, './src'),
+        replacement: path.resolve(import.meta.dirname, './src'),
       },
       {
         find: '@icebreakers/stylelint-config',
-        replacement: path.resolve(__dirname, '../stylelint/src/index.ts'),
+        replacement: path.resolve(import.meta.dirname, '../stylelint/src/index.ts'),
       },
       {
         find: '@icebreakers/eslint-config/stylelint',
-        replacement: path.resolve(__dirname, './src/stylelint.ts'),
+        replacement: path.resolve(import.meta.dirname, './src/stylelint.ts'),
       },
       {
         find: 'eslint-plugin-better-stylelint',
-        replacement: path.resolve(__dirname, '../eslint-plugin-better-stylelint/src/index.ts'),
+        replacement: path.resolve(import.meta.dirname, '../eslint-plugin-better-stylelint/src/index.ts'),
       },
     ],
     globals: true,
@@ -38,8 +38,8 @@ export default defineProject({
       exclude: [
         '**/*.d.ts',
         '**/dist/**',
-        path.resolve(__dirname, '../eslint-plugin-better-stylelint/src/**').replaceAll(path.sep, '/'),
-        path.resolve(__dirname, '../stylelint/src/**').replaceAll(path.sep, '/'),
+        path.resolve(import.meta.dirname, '../eslint-plugin-better-stylelint/src/**').replaceAll(path.sep, '/'),
+        path.resolve(import.meta.dirname, '../stylelint/src/**').replaceAll(path.sep, '/'),
       ],
       thresholds: {
         lines: 80,

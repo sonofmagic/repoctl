@@ -23,4 +23,4 @@ The CLI works with pnpm workspaces and understands Turborepo task graphs. It doe
 
 ## Before you continue
 
-You need Node.js 22.12 or newer and pnpm available on your path. Run commands from the repository root so repoctl can read the workspace configuration.
+You need Node.js 22.13 or newer and pnpm available on your path. Run commands from the repository root so repoctl can read the workspace configuration.

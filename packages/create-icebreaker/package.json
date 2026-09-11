@@ -36,11 +36,12 @@
     "create-icebreaker": "bin/create-icebreaker.js"
   },
   "files": [
+    "README.md",
     "bin",
     "dist"
   ],
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "tsdown --watch --sourcemap",
@@ -53,6 +54,7 @@
     "create-repoctl": "workspace:*"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

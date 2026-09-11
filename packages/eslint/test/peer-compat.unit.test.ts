@@ -42,6 +42,7 @@ const CONSUMER_PROVIDED_FEATURE_PACKAGES = [
   '@next/eslint-plugin-next',
   '@tanstack/eslint-plugin-query',
   '@unocss/eslint-plugin',
+  'eslint-plugin-better-stylelint',
   'eslint-plugin-mdx',
 ] as const
 

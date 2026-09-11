@@ -30,13 +30,16 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "dev": "pnpm cf-typegen && wrangler dev",
     "build": "pnpm cf-typegen && tsdown",
     "build:watch": "tsdown --watch --sourcemap",
     "node:build:watch": "pnpm build:watch",
     "node:build": "pnpm build",
-    "node:dev": "tsx watch src/node-entry.ts",
+    "node:dev": "node --watch --experimental-strip-types src/node-entry.ts",
     "node:start": "node dist/node-entry.mjs",
     "test": "vitest run",
     "test:dev": "vitest",

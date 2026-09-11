@@ -46,13 +46,14 @@
     "repoctl": "bin/repoctl.js"
   },
   "files": [
+    "README.md",
     "bin",
     "dist",
     "resources",
     "tsconfig.base.json"
   ],
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "tsdown --watch --sourcemap",
@@ -114,7 +115,13 @@
   "devDependencies": {
     "@types/klaw": "^3.0.7",
     "@types/micromatch": "^4.0.10",
+    "@types/semver": "^7.8.0",
+    "ci-info": "^4.4.0",
     "fdir": "^6.5.0",
     "micromatch": "^4.0.8"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

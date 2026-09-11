@@ -4,7 +4,7 @@
 
 ## 准备环境
 
-- Node.js 20 或更高版本。
+- Node.js 22.13 或更高版本。
 - pnpm。推荐通过 Corepack 启用：`corepack enable`。
 - Git。`repo doctor` 会读取仓库信息，用来补全 package metadata 和诊断提交链路。
 

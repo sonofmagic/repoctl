@@ -24,8 +24,11 @@
   "bin": {
     "ice": "./dev/index.ts"
   },
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
-    "start": "tsx src/index.ts",
+    "start": "node --experimental-strip-types src/index.ts",
     "dev": "tsdown --watch --sourcemap",
     "build": "tsdown",
     "lint": "eslint .",

@@ -7,7 +7,8 @@ import { ESLint } from 'eslint'
 import format from 'eslint-plugin-format'
 import { format as formatWithOxfmt } from 'oxfmt'
 import prettier from 'prettier'
-import { icebreaker } from '../src/index'
+// eslint-disable-next-line antfu/no-import-dist -- bench the published build
+import { icebreaker } from '../dist/index.js'
 
 interface Summary {
   label: string

@@ -3,7 +3,7 @@
   "type": "module",
   "version": "4.0.6",
   "description": "Commitlint preset from the repoctl development toolchain",
-  "author": "ice breaker <1324318532@qq.com>",
+  "author": "ice breaker <hi@sonofmagic.top>",
   "license": "MIT",
   "homepage": "https://repoctl.icebreaker.top",
   "repository": {
@@ -31,10 +31,12 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
+    "README.md",
+    "README.zh.md",
     "dist"
   ],
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "tsdown --watch --sourcemap",
@@ -48,7 +50,10 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit"
   },
-  "publishConfig": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "tsd": {
     "directory": "test-d",
     "compilerOptions": {

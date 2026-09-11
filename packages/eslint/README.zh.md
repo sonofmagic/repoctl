@@ -37,7 +37,7 @@ export default icebreaker({
 - Node.js 22 或更高版本
 - 支持 Flat Config 的 ESLint 9
 - React 核心插件已随当前包一起分发。Next.js、Query、无障碍等生态预设仍保持可选，缺失时会自动跳过对应配置，而不是在解析时直接报错。
-- Wevu 兼容检查已内置，无需额外安装。如需启用 Tailwind、MDX、UnoCSS 或无障碍，可安装对应的可选依赖：`eslint-plugin-tailwindcss` / `eslint-plugin-better-tailwindcss`、`eslint-plugin-mdx`、`@unocss/eslint-plugin`、React 无障碍的 `eslint-plugin-jsx-a11y`，以及 Vue 无障碍的 `eslint-plugin-vuejs-accessibility` 和它的 `globals` peer。
+- Wevu 兼容检查已内置，无需额外安装。如需启用 Tailwind、MDX、UnoCSS、Stylelint 桥或无障碍，可安装对应的可选依赖：`eslint-plugin-tailwindcss` / `eslint-plugin-better-tailwindcss`、`eslint-plugin-mdx`、`@unocss/eslint-plugin`、`eslint-plugin-better-stylelint`、React 无障碍的 `eslint-plugin-jsx-a11y`，以及 Vue 无障碍的 `eslint-plugin-vuejs-accessibility` 和它的 `globals` peer。
 
 ## 安装
 
@@ -97,6 +97,7 @@ export default icebreaker({
 - `tailwindcss`：传入 `true` 启用 `eslint-plugin-tailwindcss`。
 - `betterTailwindcss`：传入 `true` 或 `{ entryPoint, tailwindConfig }` 启用 `eslint-plugin-better-tailwindcss`，用于 Tailwind v4 / v3 项目。对象模式默认只启用较快的语法检查（`no-duplicate-classes` 和 `no-unnecessary-whitespace`），并会把相对入口文件限制到对应源码目录；如需完整推荐规则，可设置 `rules: 'recommended'`。
 - `mdx`：激活 `eslint-plugin-mdx` 处理 `.mdx` 文件。
+- `stylelint`：把 Stylelint 诊断桥接到 ESLint，覆盖 `*.css`、`*.scss` 和 Vue `<style>` 块。需要安装 `eslint-plugin-better-stylelint`；缺少插件时按 no-op 处理。
 - `a11y`：按需引入 JSX 与 Vue 的无障碍规则，缺少某一侧插件时只跳过对应框架配置。
 - `typescript`：开启 TypeScript 预设，加强未使用诊断，可与 `nestjs` 搭配使用以获得 Nest 专属优化。
 - `nestjs`：针对 NestJS 场景做 TypeScript 调整（允许带装饰器的空构造函数、依赖注入参数属性、声明合并等）。
@@ -190,13 +191,17 @@ export default icebreaker({
 
 ### Stylelint 桥接
 
-`@icebreakers/eslint-config` 已内置 Stylelint bridge，并在启用时默认使用
-`@icebreakers/stylelint-config` 作为 Stylelint 预设；但 bridge 默认仍是关闭的。
-设置 `stylelint: true` 后，会把 Stylelint 诊断桥接到 ESLint，用于：
+Stylelint bridge 默认关闭，也不会随 `@icebreakers/eslint-config` 一起安装。
+先安装 `eslint-plugin-better-stylelint`，再设置 `stylelint: true`。
+启用后会默认使用 `@icebreakers/stylelint-config` 作为 Stylelint 预设，并把诊断桥接到 ESLint，用于：
 
 - `*.css`
 - `*.scss`
 - `.vue` 文件里的 `<style>` 块
+
+```bash
+pnpm add -D eslint-plugin-better-stylelint
+```
 
 ```ts
 import { icebreaker } from '@icebreakers/eslint-config'

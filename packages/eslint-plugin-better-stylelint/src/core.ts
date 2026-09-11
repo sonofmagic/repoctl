@@ -1,12 +1,9 @@
 import type { BetterStylelintMessage, BetterStylelintOptions } from './types'
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import fs from 'node:fs'
-import { createRequire } from 'node:module'
-import os from 'node:os'
 import path from 'node:path'
 import process from 'node:process'
-import { fileURLToPath, pathToFileURL } from 'node:url'
+import { fileURLToPath } from 'node:url'
 
 interface StylelintWarning {
   rule?: string
@@ -41,13 +38,10 @@ type RunStylelintWorker = (
 ) => StylelintWorkerResponse
 
 const MAX_CACHE_ENTRIES = 100
-const CORE_TS_PATTERN = /core\.ts$/u
 const CORE_JS_PATTERN = /core\.js$/u
-const WORKER_BOOTSTRAP_PREFIX = 'icebreaker-stylelint-worker-'
 const resultCache = new Map<string, BetterStylelintMessage[]>()
 const configCacheIds = new WeakMap<object, number>()
 let nextConfigCacheId = 0
-const require = createRequire(import.meta.url)
 const UNSUPPORTED_EXEC_ARGV_FLAGS = new Set([
   '--eval',
   '-e',
@@ -164,7 +158,7 @@ function setCachedMessages(cacheKey: string, messages: BetterStylelintMessage[])
 function resolveWorkerPath() {
   const currentFilePath = fileURLToPath(import.meta.url)
   if (currentFilePath.endsWith('.ts')) {
-    return currentFilePath.replace(CORE_TS_PATTERN, 'worker.ts')
+    return path.resolve(path.dirname(currentFilePath), '../dist/worker.js')
   }
   return currentFilePath.replace(CORE_JS_PATTERN, 'worker.js')
 }
@@ -198,29 +192,6 @@ function getWorkerExecArgv() {
 }
 
 function resolveWorkerCommand(workerPath: string) {
-  if (workerPath.endsWith('.ts')) {
-    const workerEntry = pathToFileURL(workerPath).href
-    const tsxLoaderEntry = pathToFileURL(require.resolve('tsx/esm')).href
-    const bootstrapPath = path.join(
-      os.tmpdir(),
-      `${WORKER_BOOTSTRAP_PREFIX}${createHash('sha1').update(workerEntry).digest('hex')}.mjs`,
-    )
-
-    if (!fs.existsSync(bootstrapPath)) {
-      fs.writeFileSync(bootstrapPath, `import ${JSON.stringify(workerEntry)}\n`, 'utf8')
-    }
-
-    return {
-      command: process.execPath,
-      args: [
-        ...getWorkerExecArgv(),
-        '--import',
-        tsxLoaderEntry,
-        bootstrapPath,
-      ],
-    }
-  }
-
   return {
     command: process.execPath,
     args: [...getWorkerExecArgv(), workerPath],

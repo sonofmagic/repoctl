@@ -54,9 +54,9 @@ async function ensureRootPackageJson(cwd: string) {
       type: 'module',
       version: '0.0.0',
       private: true,
-      packageManager: 'pnpm@10.0.0',
+      packageManager: 'pnpm@12.3.4',
       engines: {
-        node: '>=20.0.0',
+        node: '>=22.13.0',
       },
       scripts: {},
       devDependencies: {},
