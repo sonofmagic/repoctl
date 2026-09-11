@@ -1,5 +1,26 @@
 # @icebreakers/eslint-config
 
+## 8.0.0
+
+### Major Changes
+
+- Stop bundling eslint-plugin-better-stylelint. Install it yourself before `stylelint: true`; missing installs are skipped.
+
+### Minor Changes
+
+- Keep Astro, Svelte, and extra Prettier plugins consumer-provided instead of copying them from the workspace root.
+
+- Require Node.js 22.13 or newer and normalize package metadata.
+
+### Patch Changes
+
+- Use a pnpm catalog for duplicated package versions without copying catalog specifiers into generated workspaces.
+
+- Drop unused root toolchain leftovers and declare defu and UnoCSS ESLint plugins on the packages that actually use them.
+
+- Updated dependencies:
+  - @icebreakers/stylelint-config@5.1.0
+
 ## 7.1.3
 
 ### Patch Changes

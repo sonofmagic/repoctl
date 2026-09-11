@@ -1,5 +1,11 @@
 # @icebreakers/changelog-github
 
+## 2.1.0
+
+### Minor Changes
+
+- Require Node.js 22.13 or newer and normalize package metadata.
+
 ## 2.0.4
 
 ### Patch Changes

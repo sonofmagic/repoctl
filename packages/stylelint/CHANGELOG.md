@@ -1,5 +1,18 @@
 # @icebreakers/stylelint-config
 
+## 5.1.0
+
+### Minor Changes
+
+- Require Node.js 22.13 or newer and normalize package metadata.
+
+### Patch Changes
+
+- Use a pnpm catalog for duplicated package versions without copying catalog specifiers into generated workspaces.
+
+- Updated dependencies:
+  - stylelint-plugin-tailwindcss@3.1.0
+
 ## 5.0.9
 
 ### Patch Changes

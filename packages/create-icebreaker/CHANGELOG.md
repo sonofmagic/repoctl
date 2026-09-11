@@ -1,5 +1,20 @@
 # create-icebreaker
 
+## 2.0.0
+
+### Major Changes
+
+- Require Node.js 22.13 or newer. These packages no longer advertise Node 18 support.
+
+### Minor Changes
+
+- Give agents a non-interactive create path, a user-facing AGENTS.md, and a repoctl skill that can scaffold a workspace from an empty directory.
+
+### Patch Changes
+
+- Updated dependencies:
+  - create-repoctl@1.0.0
+
 ## 1.1.8
 
 ### Patch Changes

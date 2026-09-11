@@ -1,5 +1,15 @@
 # postcss-tailwindcss
 
+## 3.1.0
+
+### Minor Changes
+
+- Require Node.js 22.13 or newer and normalize package metadata.
+
+### Patch Changes
+
+- Use a pnpm catalog for duplicated package versions without copying catalog specifiers into generated workspaces.
+
 ## 3.0.8
 
 ### Patch Changes

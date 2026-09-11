@@ -1,5 +1,27 @@
 # @icebreakers/monorepo-templates
 
+## 2.0.0
+
+### Major Changes
+
+- Require Node.js 22.13 or newer. These packages no longer advertise Node 18 support.
+
+### Minor Changes
+
+- Give agents a non-interactive create path, a user-facing AGENTS.md, and a repoctl skill that can scaffold a workspace from an empty directory.
+
+### Patch Changes
+
+- Keep Astro, Svelte, and extra Prettier plugins consumer-provided instead of copying them from the workspace root.
+
+- Use Vite native config loader compatible imports in the Vue library template.
+
+- Use a pnpm catalog for duplicated package versions without copying catalog specifiers into generated workspaces.
+
+- Bump lint-staged, UnoCSS, Vite 8.3, wrangler, and packaged template dependencies.
+
+- Drop unused root toolchain leftovers and declare defu and UnoCSS ESLint plugins on the packages that actually use them.
+
 ## 1.3.5
 
 ### Patch Changes
