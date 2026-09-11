@@ -36,8 +36,8 @@ export default icebreaker({
 
 - Node.js 22 或更高版本
 - 支持 Flat Config 的 ESLint 9
-- React 核心插件已随当前包一起分发。Next.js、Query、无障碍等生态预设仍保持可选，缺失时会自动跳过对应配置，而不是在解析时直接报错。
-- Wevu 兼容检查已内置，无需额外安装。如需启用 Tailwind、MDX、UnoCSS、Stylelint 桥或无障碍，可安装对应的可选依赖：`eslint-plugin-tailwindcss` / `eslint-plugin-better-tailwindcss`、`eslint-plugin-mdx`、`@unocss/eslint-plugin`、`eslint-plugin-better-stylelint`、React 无障碍的 `eslint-plugin-jsx-a11y`，以及 Vue 无障碍的 `eslint-plugin-vuejs-accessibility` 和它的 `globals` peer。
+- React 核心插件已随当前包一起分发。Next.js、Query、无障碍、Astro、Svelte 等生态预设仍保持可选，缺失时会自动跳过对应配置，而不是在解析时直接报错。
+- Wevu 兼容检查已内置，无需额外安装。如需启用 Tailwind、MDX、UnoCSS、Stylelint 桥、无障碍、Astro 或 Svelte，可安装对应的可选依赖：`eslint-plugin-tailwindcss` / `eslint-plugin-better-tailwindcss`、`eslint-plugin-mdx`、`@unocss/eslint-plugin`、`eslint-plugin-better-stylelint`、React 无障碍的 `eslint-plugin-jsx-a11y`、Vue 无障碍的 `eslint-plugin-vuejs-accessibility` 和它的 `globals` peer、Astro 的 `eslint-plugin-astro` 与 `astro-eslint-parser`，以及 Svelte 的 `eslint-plugin-svelte`、`svelte-eslint-parser` 和 `svelte`。XML / SVG 格式化需要 `@prettier/plugin-xml`；Astro 格式化需要 `prettier-plugin-astro`。
 
 ## 安装
 
@@ -97,6 +97,8 @@ export default icebreaker({
 - `tailwindcss`：传入 `true` 启用 `eslint-plugin-tailwindcss`。
 - `betterTailwindcss`：传入 `true` 或 `{ entryPoint, tailwindConfig }` 启用 `eslint-plugin-better-tailwindcss`，用于 Tailwind v4 / v3 项目。对象模式默认只启用较快的语法检查（`no-duplicate-classes` 和 `no-unnecessary-whitespace`），并会把相对入口文件限制到对应源码目录；如需完整推荐规则，可设置 `rules: 'recommended'`。
 - `mdx`：激活 `eslint-plugin-mdx` 处理 `.mdx` 文件。
+- `astro`：启用上游 Astro 预设。需要安装 `eslint-plugin-astro` 和 `astro-eslint-parser`；缺少插件时按 no-op 处理。
+- `svelte`：启用上游 Svelte 预设。需要安装 `eslint-plugin-svelte`、`svelte-eslint-parser` 和 `svelte`；缺少插件时按 no-op 处理。
 - `stylelint`：把 Stylelint 诊断桥接到 ESLint，覆盖 `*.css`、`*.scss` 和 Vue `<style>` 块。需要安装 `eslint-plugin-better-stylelint`；缺少插件时按 no-op 处理。
 - `a11y`：按需引入 JSX 与 Vue 的无障碍规则，缺少某一侧插件时只跳过对应框架配置。
 - `typescript`：开启 TypeScript 预设，加强未使用诊断，可与 `nestjs` 搭配使用以获得 Nest 专属优化。
@@ -129,8 +131,9 @@ export default icebreaker({
 
 支持范围：
 
-- 默认值：CSS / SCSS / Less、HTML、GraphQL、Markdown、XML、SVG、Astro、Slidev
-  继续走上游 Prettier 链路
+- 默认值：CSS / SCSS / Less、HTML、GraphQL、Markdown 继续走上游 Prettier 链路。
+  安装 `@prettier/plugin-xml` 后才会格式化 XML / SVG；安装 `prettier-plugin-astro`
+  后才会格式化 Astro；存在 `@slidev/cli` 时才会走 Slidev
 - `css: 'oxfmt'`：会同时切换 CSS / SCSS / Less
 - `html: 'oxfmt'`：切换 HTML
 - `markdown: 'oxfmt'`：切换 Markdown

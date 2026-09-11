@@ -7,7 +7,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { defu } from 'defu'
 import { getDefaultTypescriptOptions, getDefaultVueOptions, isMiniProgramEnabled } from './defaults'
-import { isObject } from './utils'
+import { isObject, isPackageAvailable } from './utils'
 
 const BASE_DEFAULTS: Pick<UserDefinedOptions, 'formatters' | 'javascript' | 'test' | 'pnpm'> = {
   formatters: true,
@@ -129,22 +129,13 @@ function applyVueVersionSpecificRules(option: OptionsVue | boolean | undefined):
   })
 }
 
-function isPackageAvailable(name: string, paths?: string[]): boolean {
-  try {
-    require.resolve(name, paths ? { paths } : undefined)
-    return true
-  }
-  catch {
-    return false
-  }
-}
-
 function getDefaultFormatterOptions(cwd = process.cwd()): FormatterOptions {
-  const hasXmlPlugin = isPackageAvailable('@prettier/plugin-xml', [ANTFU_PACKAGE_DIR])
-  const hasSlidev = isPackageAvailable('@slidev/cli', [cwd])
+  const searchPaths = [cwd, ANTFU_PACKAGE_DIR]
+  const hasXmlPlugin = isPackageAvailable('@prettier/plugin-xml', searchPaths)
+  const hasSlidev = isPackageAvailable('@slidev/cli', searchPaths)
 
   return {
-    astro: isPackageAvailable('prettier-plugin-astro', [ANTFU_PACKAGE_DIR]),
+    astro: isPackageAvailable('prettier-plugin-astro', searchPaths),
     css: true,
     graphql: true,
     html: true,

@@ -75,11 +75,11 @@
     "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {
-    "@commitlint/cli": "^21.2.2",
+    "@commitlint/cli": "catalog:",
     "eslint": "^9.0.0 || ^10.0.0",
-    "stylelint": "^17.15.0",
+    "stylelint": "catalog:",
     "typescript": "^5.0.0 || ^6.0.0",
-    "vitest": "^5.0.0"
+    "vitest": "catalog:"
   },
   "peerDependenciesMeta": {
     "@commitlint/cli": {

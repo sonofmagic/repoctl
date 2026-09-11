@@ -23,6 +23,14 @@ const OPTIONAL_ANTFU_FEATURE_PACKAGES = {
     'eslint-plugin-react-refresh',
   ],
   nextjs: ['@next/eslint-plugin-next'],
+  astro: [
+    'eslint-plugin-astro',
+    'astro-eslint-parser',
+  ],
+  svelte: [
+    'eslint-plugin-svelte',
+    'svelte-eslint-parser',
+  ],
   unocss: ['@unocss/eslint-plugin'],
 } as const
 
@@ -86,6 +94,14 @@ function normalizeOptionalAntfuFeatures(
 
   if (normalized.nextjs && !hasAllPackages([...OPTIONAL_ANTFU_FEATURE_PACKAGES.nextjs])) {
     normalized.nextjs = false
+  }
+
+  if (normalized.astro && !hasAllPackages([...OPTIONAL_ANTFU_FEATURE_PACKAGES.astro])) {
+    normalized.astro = false
+  }
+
+  if (normalized.svelte && !hasAllPackages([...OPTIONAL_ANTFU_FEATURE_PACKAGES.svelte])) {
+    normalized.svelte = false
   }
 
   if (normalized.unocss && !hasAllPackages([...OPTIONAL_ANTFU_FEATURE_PACKAGES.unocss])) {

@@ -4,6 +4,10 @@ import { version as pkgVersion } from '../../constants'
 import { scriptsEntries } from './scripts'
 
 const NON_OVERRIDABLE_PREFIXES = ['workspace:', 'catalog:']
+
+function isCatalogSpecifier(version: string) {
+  return version.startsWith('catalog:')
+}
 const legacyToolPackageName = '@icebreakers/monorepo'
 const legacyReleaseDependencies = ['@changesets/cli', '@icebreakers/changelog-github']
 
@@ -78,6 +82,9 @@ export function setPkgJson(
     if (typeof depVersion !== 'string') {
       continue
     }
+    if (isCatalogSpecifier(depVersion)) {
+      continue
+    }
 
     const targetVersion = targetDeps[depName]
     if (hasNonOverridablePrefix(targetVersion)) {
@@ -93,6 +100,9 @@ export function setPkgJson(
 
   for (const [depName, depVersion] of Object.entries(sourceDevDeps)) {
     if (typeof depVersion !== 'string') {
+      continue
+    }
+    if (isCatalogSpecifier(depVersion)) {
       continue
     }
 

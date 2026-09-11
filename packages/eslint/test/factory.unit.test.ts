@@ -224,6 +224,52 @@ describe('factory helpers', () => {
     )
   })
 
+  it('disables optional antfu astro feature when the plugin is unavailable', () => {
+    getPresetsMock.mockReturnValueOnce([
+      {
+        astro: true,
+      } as any,
+      { name: 'preset' },
+    ])
+    hasAllPackagesMock.mockImplementation((packages) => {
+      return !packages.includes('eslint-plugin-astro')
+    })
+
+    icebreaker({
+      astro: true,
+    } as any)
+
+    expect(antfuMock).toHaveBeenCalledWith(
+      {
+        astro: false,
+      },
+      { name: 'preset' },
+    )
+  })
+
+  it('disables optional antfu svelte feature when the plugin is unavailable', () => {
+    getPresetsMock.mockReturnValueOnce([
+      {
+        svelte: true,
+      } as any,
+      { name: 'preset' },
+    ])
+    hasAllPackagesMock.mockImplementation((packages) => {
+      return !packages.includes('eslint-plugin-svelte')
+    })
+
+    icebreaker({
+      svelte: true,
+    } as any)
+
+    expect(antfuMock).toHaveBeenCalledWith(
+      {
+        svelte: false,
+      },
+      { name: 'preset' },
+    )
+  })
+
   it('disables optional antfu next feature when the plugin is unavailable', () => {
     getPresetsMock.mockReturnValueOnce([
       {

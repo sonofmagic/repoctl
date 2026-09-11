@@ -5,17 +5,43 @@ import { defineTsconfigConfig } from '@/tooling'
 import rootPackageJson from '../../../../../../package.json'
 import monorepoPackageJson from '../../../../package.json'
 
+function isConcreteNpmSpecifier(version: string) {
+  return !version.startsWith('catalog:') && !version.startsWith('workspace:')
+}
+
+function collectConcreteDependencyVersions(pkg: {
+  dependencies?: Record<string, string>
+  devDependencies?: Record<string, string>
+}) {
+  const versions: Record<string, string> = {}
+  for (const group of [pkg.dependencies, pkg.devDependencies]) {
+    for (const [name, version] of Object.entries(group ?? {})) {
+      if (typeof version === 'string' && version.length > 0 && isConcreteNpmSpecifier(version)) {
+        versions[name] = version
+      }
+    }
+  }
+  return versions
+}
+
 const packageDependencies = {
-  ...((rootPackageJson as { dependencies?: Record<string, string> }).dependencies ?? {}),
-  ...((rootPackageJson as { devDependencies?: Record<string, string> }).devDependencies ?? {}),
-  ...((monorepoPackageJson as { dependencies?: Record<string, string> }).dependencies ?? {}),
-  ...((monorepoPackageJson as { devDependencies?: Record<string, string> }).devDependencies ?? {}),
-} as Record<string, string>
+  ...collectConcreteDependencyVersions(rootPackageJson as {
+    dependencies?: Record<string, string>
+    devDependencies?: Record<string, string>
+  }),
+  ...collectConcreteDependencyVersions(monorepoPackageJson as {
+    dependencies?: Record<string, string>
+    devDependencies?: Record<string, string>
+  }),
+}
 
 function getDependencyVersion(name: string) {
   const version = packageDependencies[name]
   if (!version) {
     throw new Error(localize(`No version information was found for dependency ${name}.`, `未找到依赖 ${name} 的版本信息。`))
+  }
+  if (!isConcreteNpmSpecifier(version)) {
+    throw new Error(localize(`Dependency ${name} must use a concrete version, not ${version}.`, `依赖 ${name} 必须使用具体版本，不能使用 ${version}。`))
   }
   return version
 }

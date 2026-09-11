@@ -40,10 +40,18 @@ const OPTIONAL_A11Y_PACKAGES = [
 
 const CONSUMER_PROVIDED_FEATURE_PACKAGES = [
   '@next/eslint-plugin-next',
+  '@prettier/plugin-xml',
   '@tanstack/eslint-plugin-query',
   '@unocss/eslint-plugin',
+  'astro-eslint-parser',
+  'eslint-plugin-astro',
   'eslint-plugin-better-stylelint',
   'eslint-plugin-mdx',
+  'eslint-plugin-svelte',
+  'prettier',
+  'prettier-plugin-astro',
+  'svelte',
+  'svelte-eslint-parser',
 ] as const
 
 const ANTFU_OPTIONAL_PEER_PACKAGES = [

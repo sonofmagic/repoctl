@@ -59,9 +59,9 @@
     "@inquirer/checkbox": "^5.2.5",
     "@inquirer/input": "^5.1.6",
     "@inquirer/select": "^5.2.5",
-    "commander": "^15.0.0",
+    "commander": "catalog:",
     "nanoexec": "^1.1.0",
-    "yaml": "^2.9.0"
+    "yaml": "catalog:"
   },
   "publishConfig": {
     "access": "public",

@@ -55,16 +55,31 @@ export function removeSourceRepoReleaseToolingBuildStepContent(content: string) 
 
 export function sanitizePublishedWorkspaceContent(content: string) {
   const workspace = YAML.parse(content) as {
+    catalog?: unknown
+    catalogs?: unknown
     versioning?: Record<string, unknown>
   } | null
-  if (!workspace?.versioning || typeof workspace.versioning !== 'object') {
+  if (!workspace || typeof workspace !== 'object') {
     return content
   }
 
-  delete workspace.versioning['fixed']
-  delete workspace.versioning['ignore']
-  delete workspace.versioning['lanes']
-  return YAML.stringify(workspace)
+  let changed = false
+  if (workspace.versioning && typeof workspace.versioning === 'object') {
+    delete workspace.versioning['fixed']
+    delete workspace.versioning['ignore']
+    delete workspace.versioning['lanes']
+    changed = true
+  }
+  if ('catalog' in workspace) {
+    delete workspace.catalog
+    changed = true
+  }
+  if ('catalogs' in workspace) {
+    delete workspace.catalogs
+    changed = true
+  }
+
+  return changed ? YAML.stringify(workspace) : content
 }
 
 async function pathExists(targetPath: string) {

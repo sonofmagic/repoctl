@@ -35,6 +35,31 @@ describe('sanitizePublishedWorkspaceContent', () => {
 
     expect(sanitizePublishedWorkspaceContent(content)).toBe(content)
   })
+
+  it('strips source catalogs so generated workspaces do not inherit them', () => {
+    const content = [
+      'packages:',
+      '  - packages/*',
+      'catalog:',
+      '  yaml: ^2.9.0',
+      'catalogs:',
+      '  frontend:',
+      '    vue: ^3.5.42',
+      'overrides:',
+      '  vite: 8.3.0',
+    ].join('\n')
+
+    const workspace = YAML.parse(sanitizePublishedWorkspaceContent(content))
+
+    expect(workspace).toEqual({
+      packages: ['packages/*'],
+      overrides: {
+        vite: '8.3.0',
+      },
+    })
+    expect(workspace.catalog).toBeUndefined()
+    expect(workspace.catalogs).toBeUndefined()
+  })
 })
 
 describe('removeSourceRepoReleaseToolingBuildStepContent', () => {

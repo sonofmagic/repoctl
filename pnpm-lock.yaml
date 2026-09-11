@@ -105,6 +105,33 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@commitlint/cli':
+      specifier: ^21.2.2
+      version: 21.2.2
+    '@types/semver':
+      specifier: ^7.8.0
+      version: 7.8.0
+    commander:
+      specifier: ^15.0.0
+      version: 15.0.0
+    comment-json:
+      specifier: ^5.0.0
+      version: 5.0.0
+    semver:
+      specifier: ^7.8.5
+      version: 7.8.5
+    stylelint:
+      specifier: ^17.15.0
+      version: 17.15.0
+    vitest:
+      specifier: ^5.0.0
+      version: 5.0.0
+    yaml:
+      specifier: ^2.9.0
+      version: 2.9.0
+
 overrides:
   prettier: 3.9.6
   typescript: 6.0.3
@@ -141,27 +168,15 @@ importers:
       '@icebreakers/stylelint-config':
         specifier: workspace:*
         version: link:packages/stylelint
-      '@prettier/plugin-xml':
-        specifier: ^3.4.2
-        version: 3.4.2(prettier@3.9.6)
       '@types/node':
         specifier: ^26.5.1
         version: 26.5.1
       '@vitest/coverage-v8':
         specifier: ~5.0.0
         version: 5.0.0(vitest@5.0.0)
-      astro-eslint-parser:
-        specifier: ^3.1.0
-        version: 3.1.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(supports-color@10.2.2)
       eslint:
         specifier: ^10.10.0
         version: 10.10.0(jiti@2.7.0)(supports-color@10.2.2)
-      eslint-plugin-astro:
-        specifier: ^3.1.0
-        version: 3.1.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@typescript-eslint/parser@8.69.0(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint-plugin-jsx-a11y@6.10.2(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2)))(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)
-      eslint-plugin-svelte:
-        specifier: ^3.23.0
-        version: 3.23.0(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.57.0(@typescript-eslint/types@8.70.0))
       execa:
         specifier: ^10.0.1
         version: 10.0.1
@@ -174,24 +189,12 @@ importers:
       only-allow:
         specifier: ^1.2.2
         version: 1.2.2
-      prettier:
-        specifier: 3.9.6
-        version: 3.9.6
-      prettier-plugin-astro:
-        specifier: ^0.14.1
-        version: 0.14.1
       repoctl:
         specifier: workspace:*
         version: link:packages/repoctl
       stylelint:
         specifier: ^17.15.0
         version: 17.15.0(supports-color@10.2.2)(typescript@6.0.3)
-      svelte:
-        specifier: ^5.57.0
-        version: 5.57.0(@typescript-eslint/types@8.70.0)
-      svelte-eslint-parser:
-        specifier: ^1.8.1
-        version: 1.8.1(svelte@5.57.0(@typescript-eslint/types@8.70.0))
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
@@ -329,18 +332,42 @@ importers:
         specifier: ^3.3.0 || ^4.1.17
         version: 4.3.3
     devDependencies:
+      '@prettier/plugin-xml':
+        specifier: ^3.4.2
+        version: 3.4.2(prettier@3.9.6)
       '@types/semver':
-        specifier: ^7.8.0
+        specifier: 'catalog:'
         version: 7.8.0
       '@unocss/eslint-plugin':
         specifier: 66.10.2
         version: 66.10.2(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      astro-eslint-parser:
+        specifier: ^3.1.0
+        version: 3.1.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(supports-color@10.2.2)
+      eslint-plugin-astro:
+        specifier: ^3.1.0
+        version: 3.1.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@typescript-eslint/parser@8.69.0(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint-plugin-jsx-a11y@6.10.2(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2)))(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)
       eslint-plugin-better-stylelint:
         specifier: workspace:*
         version: link:../eslint-plugin-better-stylelint
+      eslint-plugin-svelte:
+        specifier: ^3.23.0
+        version: 3.23.0(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.57.0(@typescript-eslint/types@8.70.0))
+      prettier:
+        specifier: 3.9.6
+        version: 3.9.6
+      prettier-plugin-astro:
+        specifier: ^0.14.1
+        version: 0.14.1
       semver:
-        specifier: ^7.8.5
+        specifier: 'catalog:'
         version: 7.8.5
+      svelte:
+        specifier: ^5.57.0
+        version: 5.57.0(@typescript-eslint/types@8.70.0)
+      svelte-eslint-parser:
+        specifier: ^1.8.1
+        version: 1.8.1(svelte@5.57.0(@typescript-eslint/types@8.70.0))
 
   packages/eslint-plugin-better-stylelint:
     dependencies:
@@ -348,7 +375,7 @@ importers:
         specifier: ^9.0.0 || ^10.0.0
         version: 10.10.0(jiti@2.7.0)(supports-color@10.2.2)
       stylelint:
-        specifier: ^17.15.0
+        specifier: 'catalog:'
         version: 17.15.0(supports-color@10.2.2)(typescript@6.0.3)
 
   packages/lightningcss-tailwindcss:
@@ -360,7 +387,7 @@ importers:
   packages/monorepo:
     dependencies:
       '@commitlint/cli':
-        specifier: ^21.2.2
+        specifier: 'catalog:'
         version: 21.2.2(@types/node@26.5.1)(typescript@6.0.3)
       '@icebreakers/commitlint-config':
         specifier: workspace:*
@@ -396,10 +423,10 @@ importers:
         specifier: ^3.3.4
         version: 3.3.4(magicast@0.5.4)
       commander:
-        specifier: ^15.0.0
+        specifier: 'catalog:'
         version: 15.0.0
       comment-json:
-        specifier: ^5.0.0
+        specifier: 'catalog:'
         version: 5.0.0
       consola:
         specifier: ^3.4.2
@@ -426,22 +453,22 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
       semver:
-        specifier: ^7.8.5
+        specifier: 'catalog:'
         version: 7.8.5
       simple-git:
         specifier: ^3.36.0
         version: 3.36.0(supports-color@10.2.2)
       stylelint:
-        specifier: ^17.15.0
+        specifier: 'catalog:'
         version: 17.15.0(supports-color@10.2.2)(typescript@6.0.3)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
       vitest:
-        specifier: ^5.0.0
+        specifier: 'catalog:'
         version: 5.0.0(@types/node@26.5.1)(@vitest/coverage-v8@5.0.0)(jsdom@30.0.1)(vite@8.3.0(@types/node@26.5.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.0))
       yaml:
-        specifier: ^2.9.0
+        specifier: 'catalog:'
         version: 2.9.0
     devDependencies:
       '@types/klaw':
@@ -451,7 +478,7 @@ importers:
         specifier: ^4.0.10
         version: 4.0.10
       '@types/semver':
-        specifier: ^7.8.0
+        specifier: 'catalog:'
         version: 7.8.0
       ci-info:
         specifier: ^4.4.0
@@ -475,13 +502,13 @@ importers:
         specifier: ^5.2.5
         version: 5.2.5(@types/node@26.5.1)
       commander:
-        specifier: ^15.0.0
+        specifier: 'catalog:'
         version: 15.0.0
       nanoexec:
         specifier: ^1.1.0
         version: 1.1.0(@types/node@26.5.1)
       yaml:
-        specifier: ^2.9.0
+        specifier: 'catalog:'
         version: 2.9.0
 
   packages/postcss-tailwindcss:
@@ -509,7 +536,7 @@ importers:
   packages/repoctl:
     dependencies:
       '@commitlint/cli':
-        specifier: ^21.2.2
+        specifier: 'catalog:'
         version: 21.2.2(@types/node@26.5.1)(typescript@6.0.3)
       '@icebreakers/monorepo':
         specifier: workspace:*
@@ -518,19 +545,19 @@ importers:
         specifier: ^9.0.0 || ^10.0.0
         version: 10.10.0(jiti@2.7.0)(supports-color@10.2.2)
       stylelint:
-        specifier: ^17.15.0
+        specifier: 'catalog:'
         version: 17.15.0(supports-color@10.2.2)(typescript@6.0.3)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
       vitest:
-        specifier: ^5.0.0
+        specifier: 'catalog:'
         version: 5.0.0(@types/node@26.5.1)(@vitest/coverage-v8@5.0.0)(jsdom@30.0.1)(vite@8.3.0(@types/node@26.5.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.0))
 
   packages/stylelint:
     dependencies:
       comment-json:
-        specifier: ^5.0.0
+        specifier: 'catalog:'
         version: 5.0.0
       postcss-html:
         specifier: ^2.0.0
@@ -576,7 +603,7 @@ importers:
         specifier: workspace:*
         version: link:../postcss-tailwindcss
       stylelint:
-        specifier: ^17.15.0
+        specifier: 'catalog:'
         version: 17.15.0(supports-color@10.2.2)(typescript@6.0.3)
       tailwindcss:
         specifier: ^3.4.0 || ^4.0.0
@@ -13758,7 +13785,7 @@ snapshots:
   astro-eslint-parser@3.1.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(supports-color@10.2.2):
     dependencies:
       '@astrojs/compiler-rs': 0.4.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)
-      '@typescript-eslint/scope-manager': 8.69.0
+      '@typescript-eslint/scope-manager': 8.70.0
       '@typescript-eslint/types': 8.70.0
       debug: 4.4.3(supports-color@10.2.2)
       eslint-scope: 9.1.2
@@ -14761,7 +14788,7 @@ snapshots:
 
   eslint-plugin-astro@3.1.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@typescript-eslint/parser@8.69.0(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint-plugin-jsx-a11y@6.10.2(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2)))(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2):
     dependencies:
-      '@eslint-community/eslint-utils': 4.9.1(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))
+      '@eslint-community/eslint-utils': 4.10.1(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))
       '@jridgewell/sourcemap-codec': 1.5.5
       '@typescript-eslint/types': 8.70.0
       astro-eslint-parser: 3.1.0(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(supports-color@10.2.2)
@@ -15046,7 +15073,7 @@ snapshots:
 
   eslint-plugin-svelte@3.23.0(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.57.0(@typescript-eslint/types@8.70.0)):
     dependencies:
-      '@eslint-community/eslint-utils': 4.9.1(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))
+      '@eslint-community/eslint-utils': 4.10.1(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))
       '@jridgewell/sourcemap-codec': 1.5.5
       eslint: 10.10.0(jiti@2.7.0)(supports-color@10.2.2)
       esutils: 2.0.3

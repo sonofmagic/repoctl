@@ -214,7 +214,7 @@ describe('applyVueVersionSpecificRules', () => {
 describe('isPackageAvailable', () => {
   it('supports package resolution with and without custom paths', () => {
     expect(__isPackageAvailable('eslint')).toBe(true)
-    expect(__isPackageAvailable('@prettier/plugin-xml', [process.cwd()])).toBe(true)
+    expect(__isPackageAvailable('@prettier/plugin-xml', [path.resolve(__dirname, '..')])).toBe(true)
   })
 
   it('returns false when a package cannot be resolved', () => {

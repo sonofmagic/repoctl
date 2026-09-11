@@ -67,9 +67,9 @@
     "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {
-    "@commitlint/cli": "^21.2.2",
+    "@commitlint/cli": "catalog:",
     "eslint": "^9.0.0 || ^10.0.0",
-    "stylelint": "^17.15.0",
+    "stylelint": "catalog:",
     "typescript": "^5.0.0 || ^6.0.0"
   },
   "peerDependenciesMeta": {
@@ -98,8 +98,8 @@
     "@pnpm/workspace.find-packages": "^1000.0.65",
     "@pnpm/workspace.read-manifest": "^1000.3.1",
     "c12": "^3.3.4",
-    "commander": "^15.0.0",
-    "comment-json": "^5.0.0",
+    "commander": "catalog:",
+    "comment-json": "catalog:",
     "consola": "^3.4.2",
     "git-url-parse": "^16.1.0",
     "klaw": "^4.1.0",
@@ -107,15 +107,15 @@
     "p-queue": "^9.3.3",
     "pathe": "^2.0.3",
     "picocolors": "^1.1.1",
-    "semver": "^7.8.5",
+    "semver": "catalog:",
     "simple-git": "^3.36.0",
-    "vitest": "^5.0.0",
-    "yaml": "^2.9.0"
+    "vitest": "catalog:",
+    "yaml": "catalog:"
   },
   "devDependencies": {
     "@types/klaw": "^3.0.7",
     "@types/micromatch": "^4.0.10",
-    "@types/semver": "^7.8.0",
+    "@types/semver": "catalog:",
     "ci-info": "^4.4.0",
     "fdir": "^6.5.0",
     "micromatch": "^4.0.8"

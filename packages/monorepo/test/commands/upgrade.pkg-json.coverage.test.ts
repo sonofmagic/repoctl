@@ -101,6 +101,32 @@ describe('upgrade pkg-json helpers coverage', () => {
     expect(target.devDependencies?.['@icebreakers/changelog-github']).toBeUndefined()
   })
 
+  it('does not copy source catalog specifiers onto consumer package.json', () => {
+    const source: PackageJson = {
+      dependencies: {
+        yaml: 'catalog:',
+      },
+      devDependencies: {
+        eslint: 'catalog:default',
+        typescript: '^6.0.3',
+      },
+    }
+    const target: PackageJson = {
+      dependencies: {
+        yaml: '^2.8.0',
+      },
+      devDependencies: {
+        eslint: '^10.0.0',
+      },
+    }
+
+    setPkgJson(source, target)
+
+    expect(target.dependencies?.['yaml']).toBe('^2.8.0')
+    expect(target.devDependencies?.['eslint']).toBe('^10.0.0')
+    expect(target.devDependencies?.['typescript']).toBe('^6.0.3')
+  })
+
   it('exposes scripts list for consumers', () => {
     expect(Array.isArray(scriptsEntries)).toBe(true)
     expect(Object.fromEntries(scriptsEntries)).toEqual(scripts)
