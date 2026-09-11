@@ -24,7 +24,7 @@ allowBuilds:
 overrides:
   prettier: 3.9.6
   typescript: 6.0.3
-  vite: 8.2.2
+  vite: 8.3.0
   postcss: 8.5.28
   postcss-selector-parser: 7.1.6
   js-yaml: 5.4.1
