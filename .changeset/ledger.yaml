@@ -7,11 +7,19 @@
   dir: packages/changelog-github
   intents:
     - auto-pr-872
+"@icebreakers/changelog-github@2.1.0":
+  dir: packages/changelog-github
+  intents:
+    - orange-ducks-move
 "@icebreakers/commitlint-config@4.0.6":
   dir: packages/commitlint
   intents:
     - bright-repoctl-links
     - dev-configs-merge
+"@icebreakers/commitlint-config@4.1.0":
+  dir: packages/commitlint
+  intents:
+    - orange-ducks-move
 "@icebreakers/eslint-config@7.1.1":
   dir: packages/eslint
   intents:
@@ -28,6 +36,14 @@
   intents:
     - auto-pr-874
     - auto-pr-876
+"@icebreakers/eslint-config@8.0.0":
+  dir: packages/eslint
+  intents:
+    - calm-pianos-share
+    - fresh-apples-catalog
+    - light-lemons-beg
+    - orange-ducks-move
+    - shaggy-foxes-dress
 "@icebreakers/monorepo-templates@1.1.0":
   dir: packages/monorepo-templates
   intents:
@@ -70,6 +86,16 @@
   dir: packages/monorepo-templates
   intents:
     - sweet-worms-relate
+"@icebreakers/monorepo-templates@2.0.0":
+  dir: packages/monorepo-templates
+  intents:
+    - calm-pianos-share
+    - dry-roses-crash
+    - fresh-apples-catalog
+    - giant-walls-sing
+    - large-moles-begin
+    - light-lemons-beg
+    - rapid-ai-create
 "@icebreakers/monorepo@5.1.0":
   dir: packages/monorepo
   intents:
@@ -123,11 +149,23 @@
   dir: packages/monorepo
   intents:
     - auto-pr-874
+"@icebreakers/monorepo@5.5.0":
+  dir: packages/monorepo
+  intents:
+    - fresh-apples-catalog
+    - large-moles-begin
+    - orange-ducks-move
+    - rapid-ai-create
 "@icebreakers/stylelint-config@5.0.7":
   dir: packages/stylelint
   intents:
     - bright-repoctl-links
     - dev-configs-merge
+"@icebreakers/stylelint-config@5.1.0":
+  dir: packages/stylelint
+  intents:
+    - fresh-apples-catalog
+    - orange-ducks-move
 create-icebreaker@1.1.0:
   dir: packages/create-icebreaker
   intents:
@@ -144,6 +182,11 @@ create-icebreaker@1.1.5:
   dir: packages/create-icebreaker
   intents:
     - bright-repoctl-links
+create-icebreaker@2.0.0:
+  dir: packages/create-icebreaker
+  intents:
+    - giant-walls-sing
+    - rapid-ai-create
 create-repoctl@0.1.0:
   dir: packages/create-repoctl
   intents:
@@ -156,6 +199,11 @@ create-repoctl@0.1.4:
   dir: packages/create-repoctl
   intents:
     - bright-repoctl-links
+create-repoctl@1.0.0:
+  dir: packages/create-repoctl
+  intents:
+    - giant-walls-sing
+    - rapid-ai-create
 eslint-plugin-better-stylelint@2.0.4:
   dir: packages/eslint-plugin-better-stylelint
   intents:
@@ -165,11 +213,21 @@ eslint-plugin-better-stylelint@2.0.5:
   dir: packages/eslint-plugin-better-stylelint
   intents:
     - auto-pr-874
+eslint-plugin-better-stylelint@2.1.0:
+  dir: packages/eslint-plugin-better-stylelint
+  intents:
+    - fresh-apples-catalog
+    - light-lemons-beg
+    - orange-ducks-move
 lightningcss-tailwindcss@2.0.4:
   dir: packages/lightningcss-tailwindcss
   intents:
     - bright-repoctl-links
     - dev-configs-merge
+lightningcss-tailwindcss@2.1.0:
+  dir: packages/lightningcss-tailwindcss
+  intents:
+    - orange-ducks-move
 postcss-tailwindcss@3.0.7:
   dir: packages/postcss-tailwindcss
   intents:
@@ -180,6 +238,11 @@ postcss-tailwindcss@3.0.8:
   intents:
     - auto-pr-866
     - auto-pr-867
+postcss-tailwindcss@3.1.0:
+  dir: packages/postcss-tailwindcss
+  intents:
+    - fresh-apples-catalog
+    - orange-ducks-move
 repoctl@5.2.0:
   dir: packages/repoctl
   intents:
@@ -209,6 +272,12 @@ repoctl@5.4.8:
   dir: packages/repoctl
   intents:
     - auto-pr-874
+repoctl@5.5.0:
+  dir: packages/repoctl
+  intents:
+    - fresh-apples-catalog
+    - orange-ducks-move
+    - rapid-ai-create
 stylelint-plugin-tailwindcss@3.0.7:
   dir: packages/stylelint-plugin-tailwindcss
   intents:
@@ -225,3 +294,9 @@ stylelint-plugin-tailwindcss@3.0.9:
   intents:
     - auto-pr-872
     - auto-pr-874
+stylelint-plugin-tailwindcss@3.1.0:
+  dir: packages/stylelint-plugin-tailwindcss
+  intents:
+    - fresh-apples-catalog
+    - large-moles-begin
+    - orange-ducks-move

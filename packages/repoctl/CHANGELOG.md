@@ -1,5 +1,20 @@
 # repoctl
 
+## 5.5.0
+
+### Minor Changes
+
+- Require Node.js 22.13 or newer and normalize package metadata.
+
+- Give agents a non-interactive create path, a user-facing AGENTS.md, and a repoctl skill that can scaffold a workspace from an empty directory.
+
+### Patch Changes
+
+- Use a pnpm catalog for duplicated package versions without copying catalog specifiers into generated workspaces.
+
+- Updated dependencies:
+  - @icebreakers/monorepo@5.5.0
+
 ## 5.4.9
 
 ### Patch Changes
